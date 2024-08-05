@@ -24,6 +24,9 @@ ul.menu > li > a {
 ul.menu:first-child > li {
    border-left: 1px solid white;
 }
+ul.menu:last-child > li {
+   border-left: 1px solid white;
+}
 
 ul.menu>li>a:hover {
    background-color: aquamarine;
@@ -31,17 +34,27 @@ ul.menu>li>a:hover {
 }
  /* CSS Header */
 header{
+   font-size: large;
    margin-top: 2px;
    background: linear-gradient(#e68a28, rgba(224, 147, 39, 0.473));
 }
-h1.subject {
-   color: white;
-   font-size: 2.5rem;
-   text-shadow: 3px 4px 2px rgba(47, 47, 194, 0.712);
-}
 
-header > img {
+header  img {
    width: 400px ;
    height: 200px;
+}
+
+/* CSS SUBCONTENT */
+
+.subcontent {
+   display: none;
+   background-color:white ;
+   border-top: 5px solid aquamarine;
+   position: absolute;
+   color: black;
+}
+
+.sub:hover .subcontent {
+   display: block;
 }
 
