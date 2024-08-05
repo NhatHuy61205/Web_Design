@@ -1,1 +1,22 @@
- 
+ .flex {
+    display: flex;
+    justify-content: space-between;
+ }
+ /* CSS HEADER */
+
+ header {
+    background-color: rgb(240, 181, 72);
+ }
+
+ ul.menuflex { 
+    color :white;
+    font-size: 2.5rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+ }
+header.img {
+    max-width: 310px;
+        margin-top: 5px;
+    }
