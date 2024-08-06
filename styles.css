@@ -1,60 +1,66 @@
+* {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
 .flex{
    display: flex;
    justify-content: space-between;
-   align-items: center;
-   color: white;
-}
-nav {
-   background-color: #9f671d;
 }
 
-ul.menu {
+header{
+   height: 70px;
+   margin: 0 100px;
+   align-items: center;
+}
+
+header img.logo {
+   height: 50px;
+}
+
+.search {
+   border-radius: 50px;
+   width: 300px;
+}
+
+header div p.login{
+   margin: 0 7px;
+}
+
+header div p.login:hover{
+   padding: 5px;
+   background-color: #5d7b6f;
+   color: #b0d4b8;
+   cursor: pointer;
+}
+
+nav{
+   height: 50px;
+   background-color: black;
+   color: white;
+   align-items: center;
+}
+
+ul.menu{
    list-style-type: none;
+   margin: 0;
    padding: 0;
+}
+
+ul.menu li a{
+   padding: 1.7rem;
+   display: block;
+   text-decoration: none;
+   color: white;
    margin: 0;
 }
 
-ul.menu > li > a {
-   display: block;
-   padding: 1.5rem;
-   text-decoration: none;
-   color: white;
-}
-
-ul.menu:first-child > li {
-   border-left: 1px solid white;
-}
-ul.menu:last-child > li {
-   border-left: 1px solid white;
-}
-
-ul.menu>li>a:hover {
-   background-color: aquamarine;
-   color: white;
-}
- /* CSS Header */
-header{
-   font-size: large;
-   margin-top: 2px;
-   background: linear-gradient(#e68a28, rgba(224, 147, 39, 0.473));
-}
-
-header  img {
-   width: 400px ;
-   height: 200px;
-}
-
-/* CSS SUBCONTENT */
-
-.subcontent {
-   display: none;
-   background-color:white ;
-   border-top: 5px solid aquamarine;
-   position: absolute;
+ul.menu li a:hover{
    color: black;
+   background-color: white;
 }
 
-.sub:hover .subcontent {
-   display: block;
+.fa-chevron-down {
+   width: 14px;
+   height: 16px;
+   padding-left: 5px;
 }
-
