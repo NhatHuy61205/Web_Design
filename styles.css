@@ -80,24 +80,21 @@ ul.menu li a:hover{
    overflow: hidden;
 }
 
-.container img {
-   width: 100%;
-   position: absolute;
+div.container{
+   background-image: url(/images/brown_backg.avif);
+   background-size: cover;
    height: 125px;
-   top:0;
-   object-fit: cover; 
-
 }
 
-.text {
-   color: black;
+div.text {
+   color: white;
    position: absolute;
    top: 10px;
    left: 100px;
    }
 
 .text h4 {
-   color: #166987;
+   color: #bce4f3;
 }
 
 .nav.footer {
@@ -108,6 +105,32 @@ ul.menu li a:hover{
    height: 100%;
 }
 
-.all_down_content {
-   width: 100%;
+ul.all_down_content {
+   display: flex;
+   list-style-type:none;
+   margin: 0;
+   padding: 0;
+   justify-content: space-between;
 }
+ul.down_menu{
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+ul.down_menu li {
+   margin-bottom: 10px;
+}
+ul.down_menu li a {
+   color:white;
+   text-decoration: none;
+}
+ul.down_menu li a:hover {
+   text-decoration: underline;
+}
+li.down h4 {
+   font-size: 18px;
+   color: rgb(246, 237, 204);
+}
+
+
+
