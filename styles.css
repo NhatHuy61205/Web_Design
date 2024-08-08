@@ -10,6 +10,8 @@ body {
    justify-content: space-between;
 }
 
+/* CSS header */
+
 header{
    height: 70px;
    margin: 0 100px;
@@ -35,7 +37,7 @@ header div p.login:hover{
    color: #b0d4b8;
    cursor: pointer;
 }
-
+ /* CSS Nav */
 nav{
    height: 50px;
    background-color: black;
@@ -71,7 +73,6 @@ ul.menu li a:hover{
 /* CSS FOOTER */
 
 .container {
-   max-width: 100%;
    width: 100%;
    margin: auto;
    position: relative;
@@ -97,12 +98,12 @@ div.text {
    color: #bce4f3;
 }
 
-.nav.footer {
-   padding-top: 30px;
-   padding-left: 80px;
+.navbar {
+   padding: 0 50px;
    background-color: #166987;
    width: 100%;
    height: 100%;
+   overflow: hidden;
 }
 
 ul.all_down_content {
@@ -118,7 +119,7 @@ ul.down_menu{
    padding: 0;
 }
 ul.down_menu li {
-   margin-bottom: 10px;
+   margin-bottom: 15px;
 }
 ul.down_menu li a {
    color:white;
