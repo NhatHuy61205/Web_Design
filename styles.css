@@ -205,7 +205,13 @@ li.down > ul > li > a:hover {
       display: block;
    }
 
-   li.down > ul > h4,li {
+   li.down > h4{
+      margin-bottom: 8px;
+      padding:0 25px 15px 0;
+      Border-bottom: 1px solid #4aacc3;
+   }
+
+   li.down > ul > li{
       margin-bottom: 8px;
       padding:0 25px 15px 0;
       Border-bottom: 1px solid #4aacc3;
