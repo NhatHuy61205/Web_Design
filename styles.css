@@ -134,9 +134,9 @@ div.text {
 
 .navbar {
    padding: 0 ;
-   background-color: #166987;
    width: 100%;
    height: 100%;
+   background-color: #166987;
    overflow: hidden;
 }
 
@@ -186,7 +186,7 @@ li.down > ul > li > a:hover {
    }
 
    li.down > ul > li > a {
-      font-size: 20px;
+      font-size: 16px;
       padding: 20px;
    }
 
@@ -197,8 +197,8 @@ li.down > ul > li > a:hover {
    }
 
    .down > h4 {
-      font-size: 18px;
-      padding: 20px;
+      font-size: 19px;
+      padding: 25px;
    }
 
    .down_menu {
@@ -219,8 +219,13 @@ li.down > ul > li > a:hover {
 
    li.down > ul > li{
       margin-bottom: 8px;
-      padding:0 25px 15px 0;
+      padding: 20px;
       Border-bottom: 1px solid #4aacc3;
    }
 }
 
+/* End Footer */
+
+.footer_copyright * {
+   background-color: #166987;
+}
