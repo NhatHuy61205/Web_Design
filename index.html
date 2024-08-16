@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huy and Duy</title>
+    <title>Vietnam airline Website</title>
     <link rel="icon" href="/pictures/logo_page.jpg"/> 
-    <link rel="stylesheet" href="/Web_Design/styles.css"/>
+    <link rel="stylesheet" href="/styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -19,9 +19,24 @@
             <input type="search" id="search" name="search" class="search" placeholder="Tìm kiếm">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <div class="flex">
-            <p class="login">Đăng nhập</p>
-            <i class="fa-solid fa-user"></i>
+        <div>
+            <button class="login flex" onclick="document.getElementById('sign_in').style.display=('block')">Đăng nhập<i class="fa-solid fa-user"></i></button>
+            <div class="sign_in" id="sign_in">
+                <img class="card" src="images/FFPcard_menu.webp">
+                <div class="exit" onclick="document.getElementById('sign_in').style.display=('none')"><i class="fa-solid fa-xmark"></i></div>
+                <h3>Dang nhap tai day</h3>
+                <div class="account">
+                    <input type="text" placeholder="Email / So dien thoai" id="accUser">
+                    <input type="password" placeholder="password" id="accPass">
+                </div>
+                <div class="submit">
+                    <button>Dang nhap</button>
+                    <hr>
+                </div>
+                <div class="sign_up">
+                    <p>Dang ky</p>
+                </div>
+            </div>
         </div>
         <div></div>
     </header>
@@ -184,7 +199,38 @@
         <div></div>
     </nav>
     <main>
-        <div> </div>
+        <div class="wrapper">
+            <div class="wrapper_slide">
+                <img class="slide" src="images/12august24-QSA-2600x1111-Hero-banner.jpg">
+                <img class="slide" src="images/2600x1111-baydem.jpg">
+                <img class="slide" src="images/2600x1111-chao_thu (1).jpg">
+                <img class="slide" src="images/HERO-tang-tra-sua.jpg">
+                <div class="select">
+                    <button class="play" onclick="autoPlay()"><i class="fa-solid fa-play" id="playButton"></i></button>
+                    <div class="change_by_click">
+                        <span class="circle" onclick="changeSlide(1)"></span>
+                        <span class="circle" onclick="changeSlide(2)"></span>
+                        <span class="circle" onclick="changeSlide(3)"></span>
+                        <span class="circle" onclick="changeSlide(4)"></span>
+                     </div>
+                </div>
+            </div>
+            <div class="booking">
+                <div class="booking_plane">
+    
+                </div>
+                <div class="booking_plane">
+    
+                </div>
+                <div class="booking_plane">
+    
+                </div>
+            </div>
+        </div>
+        <div class="connect_AI flex">
+            <img src="images/ChatAI.png" alt="chatAi">
+            <h2>Chat with me</h2>
+        </div>
     </main>
     
     <footer class="footer">
@@ -301,5 +347,6 @@
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

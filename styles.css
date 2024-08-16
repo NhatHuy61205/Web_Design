@@ -2,6 +2,8 @@
    font-family: Arial, Helvetica, sans-serif;
 }
 body {
+   width: 100%;
+   height: 100%;
    margin: 0;
    padding: 0;
 }
@@ -33,15 +35,100 @@ img.logo {
    width: 300px;
 }
 
-header div p.login{
+/* CSS login */
+header div button.login{
    margin: 0 7px;
+   width: 8rem;
+   padding:0.2rem 1rem;
+   border-radius: 20px;
+   background-color: white;
 }
 
-header div p.login:hover{
-   padding: 5px;
-   background-color: #5d7b6f;
-   color: #b0d4b8;
+header div button.login:hover{
+   background-color: #1e201e;
+   color: #ecdfcc;
    cursor: pointer;
+   font-weight: bold;
+}
+
+.sign_in{
+   display: none;
+   position: fixed;
+   width: 350px;
+   height: 450px;
+   padding: 40px;
+   background-color: white;
+   box-shadow: 7px 7px 20px rgba(0,0,0, 0.9);
+   border-radius: 20px;
+   z-index: 999;
+   top: 50%;
+   left: 50%;
+   justify-content: center;
+   transform: translate(-50%,-50%);
+}
+
+.sign_in > h3{
+   text-align: center;
+   font-size: 25px;
+   color: #242629;
+}
+
+#accUser , #accPass{
+   width: 100%;
+   height: 50px;
+   margin-bottom: 20px;
+   border-bottom: 2px solid gray;
+   border-radius: 10px;
+}
+
+.submit {
+   display: block;
+   justify-content: center;
+}
+
+.submit > button{
+   background-color: #176b87;
+   color: #ecdfcc;
+   width: 100%;
+   font-weight: bold;
+   font-size: 15px;
+   height: 35px;
+   border: 0px;
+   border-radius: 10px;
+   margin-bottom: 20px;
+}
+
+.submit > hr{
+   width: 30%;
+}
+.exit {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   left: 92%;
+   bottom: 93%;
+   padding: 0.55rem;
+   cursor: pointer;
+}
+
+.exit:hover{
+   background-color: rgba(0, 0, 0, 0.1);
+}
+.card{
+   width: 100%;
+   height: auto;
+}
+
+.sign_up{
+   display: flex;
+   justify-content: right;
+   font-size: 15px;
+   cursor: pointer;
+}
+
+.sign_up > p:hover{
+   text-decoration: underline;
 }
  /* CSS Nav */
 body > nav{
@@ -111,7 +198,114 @@ ul.menu > li:hover .submenu{
    display: flex;
 }
 
+/* CSS AI */
+
+.connect_AI{
+   position: fixed;
+   align-items: center;
+   top: 90%;
+   left: 85%;
+}
+
+.connect_AI img{
+   width: 50px;
+   height: auto;
+}
+
+.connect_AI:hover{
+   color: #4aacc3;
+   cursor: pointer;
+}
+
+/* CSS main */
+
+/* CSS wrapper */
+.wrapper{
+   width: 100%;
+   height: auto;
+   position: relative;
+   overflow: hidden;
+}
+
+.wrapper_slide{
+   width: 100%;
+   height: 100%;
+}
+.slide{
+   width: 100%;
+   height: 100%;
+   display: none;
+}
+
+.select{
+   position: absolute;
+   display: flex;
+   bottom: 30%;
+   left: 80%;
+}
+
+button.play {
+   background-color: none;
+   display: flex;
+   place-items: center;
+   justify-content: center;
+   margin-right: 10px;
+   background-color: rgba(0, 0, 0, 0.3);
+   width: 1.7rem;
+   border-radius: 50%;
+}
+
+
+
+.fa-play , .fa-pause{
+   color: white;
+}
+.change_by_click{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(0, 0, 0, 0.55);
+   width: 7rem;
+   border-radius: 20px;
+}
+.circle{
+   display: inline-block;
+   width: 16px;
+   height: 16px;
+   margin: 3px;
+   border-radius: 50%;
+   background-color: transparent;
+   border: 1px solid aqua;
+   cursor: pointer;
+}
+
+.circle:hover{
+   background-color: #b0d4b8;
+}
+
+.circle.active{
+   background-color: #b0d4b8;
+}
+/* booking */
+.booking{
+   width: 100%;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   position: absolute;
+   bottom: 50px;
+}
+
+.booking_plane{
+   width: 200px;
+   height: 50px;
+   background-color: black;
+   
+}
 /* CSS FOOTER */
+footer {
+   display:none;
+}
 .container {
    width: 100%;
    margin: auto;
