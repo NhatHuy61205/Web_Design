@@ -20,14 +20,17 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div>
-            <button class="login flex" onclick="document.getElementById('sign_in').style.display=('block')">Đăng nhập<i class="fa-solid fa-user"></i></button>
+            <button class="login flex" onclick="hiddenBody()">Đăng nhập<i class="fa-solid fa-user"></i></button>
             <div class="sign_in" id="sign_in">
                 <img class="card" src="images/FFPcard_menu.webp">
-                <div class="exit" onclick="document.getElementById('sign_in').style.display=('none')"><i class="fa-solid fa-xmark"></i></div>
+                <div class="exit" onclick="exitLogin()"><i class="fa-solid fa-xmark"></i></div>
                 <h3>Dang nhap tai day</h3>
-                <div class="account">
+                <div class="account" id="account">
                     <input type="text" placeholder="Email / So dien thoai" id="accUser">
                     <input type="password" placeholder="password" id="accPass">
+                    <span class="iconEye" onclick="eyeChecking()">
+                        <i class="fa-solid fa-eye-slash" id="eye"></i>
+                    </span>
                 </div>
                 <div class="submit">
                     <button>Dang nhap</button>
@@ -40,6 +43,7 @@
         </div>
         <div></div>
     </header>
+    <div class="overlay" id="overlay"></div>
     <nav class="flex">
         <div></div>
         <ul class="menu flex">

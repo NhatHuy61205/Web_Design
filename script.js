@@ -37,4 +37,29 @@ function autoPlay(){
 }
 
 // Menu sign in
+function hiddenBody(){
+    document.getElementById('sign_in').style.display=('block')
+    document.getElementById('overlay').style.display=('block')
+}
 
+function exitLogin(){
+    document.getElementById('sign_in').style.display=('none')
+    document.getElementById('overlay').style.display=('none')
+}
+
+var eyeCheck = flase        //Password checking
+
+function eyeChecking(){     
+    if (!eyeCheck){
+        document.getElementById('accPass').type = 'text'
+        document.getElementById('eye').classList.remove('fa-eye-slash')
+        document.getElementById('eye').classList.add('fa-eye')
+        eyeCheck = true;
+    }
+    else{
+        document.getElementById('accPass').type = 'password'
+        document.getElementById('eye').classList.add('fa-eye-slash')
+        document.getElementById('eye').classList.remove('fa-eye')
+        eyeCheck = false;
+    }
+}
