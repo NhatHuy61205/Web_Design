@@ -33,6 +33,10 @@ img.logo {
 .search {
    border-radius: 50px;
    width: 300px;
+   height: 25px;
+   font-size: 15px;
+   font-weight: bold;
+   font-style: italic;
 }
 
 /* CSS login */
@@ -42,13 +46,15 @@ header div button.login{
    padding:0.2rem 1rem;
    border-radius: 20px;
    background-color: white;
+   cursor: pointer;
+   transition:ease 0.5s all;
 }
 
 header div button.login:hover{
    background-color: #1e201e;
    color: #ecdfcc;
-   cursor: pointer;
    font-weight: bold;
+   box-shadow: 2px 2px 7px gray;
 }
 
 .sign_in{
@@ -65,6 +71,7 @@ header div button.login:hover{
    left: 50%;
    justify-content: center;
    transform: translate(-50%,-50%);
+   transition-duration: ease 0.5s all;
 }
 
 .sign_in > h3{
@@ -86,13 +93,34 @@ header div button.login:hover{
 
 #accUser , #accPass{
    position: relative;
+   font-size: 15px;
+   font-weight: bold;
    width: 100%;
    height: 50px;
    margin-bottom: 20px;
-   border-bottom: 2px solid gray;
-   border-radius: 10px;
+   border: none;
+   outline: none;
+   border-bottom: 2px solid black;
+   border-radius: 10px 10px 0 0;
+}
+label:is([for="accUser"],[for="accPass"]){
+   position: absolute;
+   pointer-events: none;
+   transition: ease 0.2s all;
+   left: 12%;
+}
+label[for="accUser"]{
+   top: 49%;
+}
+label[for="accPass"]{
+   top: 63%;
 }
 
+.account > div > input:focus+ label,
+.account > div > input:not(:placeholder-shown) + label{
+   transform: translateY(-14px);
+   font-size: 10px;
+}
 .account > .iconEye{
    position: absolute;
    display: block;
@@ -119,8 +147,14 @@ header div button.login:hover{
    border: 0px;
    border-radius: 10px;
    margin-bottom: 20px;
+   cursor: pointer;
 }
 
+.submit > button:hover{
+   background-color: white;
+   border: 1px solid black;
+   color: black;
+}
 .submit > hr{
    width: 30%;
 }
@@ -147,9 +181,10 @@ header div button.login:hover{
 
 .sign_up{
    display: flex;
-   justify-content: right;
+   justify-content: space-between;
    font-size: 15px;
    cursor: pointer;
+   color: black;
 }
 
 .sign_up > p:hover{
@@ -161,6 +196,7 @@ body > nav{
    background-color: black;
    color: white;
    align-items: center;
+   
 }
 
 ul.menu{
@@ -172,15 +208,16 @@ ul.menu{
 
 ul.menu > li > a{
    padding: 1rem 1.7rem;
+   color: white;
    display: block;
    text-decoration: none;
-   color: white;
    margin: 0;
+   transition: ease 0.35s all;
 }
 
 ul.menu > li > a:hover{
-   color: black;
-   background-color: white;
+   color: black !important;
+   background-color: white !important;
 }
 
 .fa-chevron-down {
@@ -227,6 +264,7 @@ ul.menu > li:hover .submenu{
 
 .connect_AI{
    position: fixed;
+   z-index: 2009;
    align-items: center;
    top: 90%;
    left: 85%;
@@ -242,7 +280,7 @@ ul.menu > li:hover .submenu{
    cursor: pointer;
 }
 
-/* CSS main */
+/* CSS main ---------------------------------------------------------------*/
 
 /* CSS wrapper */
 .wrapper{
@@ -280,8 +318,6 @@ button.play {
    border-radius: 50%;
 }
 
-
-
 .fa-play , .fa-pause{
    color: white;
 }
@@ -311,26 +347,53 @@ button.play {
 .circle.active{
    background-color: #b0d4b8;
 }
-/* booking */
-.booking{
-   width: 100%;
-   height: auto;
+/* CSS tabbar */
+div.tabbar{
    display: flex;
+   position: relative;
    justify-content: center;
-   position: absolute;
-   bottom: 50px;
+   width: 100%;
+   height: 200px;
+   background-image: url(images/pngtree-sunset-sky-background-with-pink-clouds-and-cloudy-evening-sun-image_2204134.jpg);
+   background-size: cover;
 }
 
-.booking_plane{
-   width: 200px;
-   height: 50px;
-   background-color: black;
-   
+.navtabbar{
+   display: flex;
+   position: absolute;
+   width: 60%;
+   height: 55px;
+   justify-content: space-evenly;
+   top: -15%;
+   font-size: 20px;
+   font-weight: bold;
 }
-/* CSS FOOTER */
-footer {
-   display:none;
+
+.navtabbar > ul.menu_navtabbar{
+   display: flex;
+   width: 100%;
+   height: 100%;
+   padding: 0;
+   margin: 0;
+   cursor: pointer;
+   justify-content: center;
+   align-items: center;
+   transition: ease 0.6s all;
+   background-color: #b0d4b8;
 }
+
+.navtabbar > ul.menu_navtabbar.active , .navtabbar > ul.menu_navtabbar:hover{
+   background-color: transparent;
+}
+
+
+div.tabbar > nav > ul > img.icon {
+   width: 1.5rem;
+   margin-right: 0.7rem;
+}
+
+
+/* CSS FOOTER-------------------------------------- */
 .container {
    width: 100%;
    margin: auto;

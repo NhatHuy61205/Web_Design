@@ -26,8 +26,14 @@
                 <div class="exit" onclick="exitLogin()"><i class="fa-solid fa-xmark"></i></div>
                 <h3>Dang nhap tai day</h3>
                 <div class="account" id="account">
-                    <input type="text" placeholder="Email / So dien thoai" id="accUser">
-                    <input type="password" placeholder="password" id="accPass">
+                    <div>
+                        <input type="text" placeholder=" " id="accUser" required>
+                        <label for="accUser">Email / So dien thoai</label>
+                    </div>
+                    <div>
+                        <input type="password" placeholder=" " id="accPass" required>
+                        <label for="accPass">Mat khau</label>
+                    </div>
                     <span class="iconEye" onclick="eyeChecking()">
                         <i class="fa-solid fa-eye-slash" id="eye"></i>
                     </span>
@@ -38,6 +44,7 @@
                 </div>
                 <div class="sign_up">
                     <p>Dang ky</p>
+                    <p>Quen mat khau</p>
                 </div>
             </div>
         </div>
@@ -219,21 +226,17 @@
                      </div>
                 </div>
             </div>
-            <div class="booking">
-                <div class="booking_plane">
-    
-                </div>
-                <div class="booking_plane">
-    
-                </div>
-                <div class="booking_plane">
-    
-                </div>
-            </div>
         </div>
         <div class="connect_AI flex">
             <img src="images/ChatAI.png" alt="chatAi">
             <h2>Chat with me</h2>
+        </div>
+        <div class="tabbar">
+            <nav class="navtabbar flex">
+                <ul class="menu_navtabbar" onclick="activeNavtabbar(1)"><img class="icon" src="images/icon_plane_white.svg">Mua ve</ul>
+                <ul class="menu_navtabbar" onclick="activeNavtabbar(2)"><img class="icon" src="images/icon_manage_white.svg">Quan ly dat cho</ul>
+                <ul class="menu_navtabbar" onclick="activeNavtabbar(3)"><img class="icon" src="images/icon_checkin_white.svg">Lam thu tuc</ul>
+            </nav>
         </div>
     </main>
     

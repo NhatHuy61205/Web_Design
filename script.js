@@ -1,38 +1,37 @@
 // Slide wrapper
-var index = 1;
+var indexSlide = 1;
 var Play;
-var check = false;
-changeSlide(index);
+var checkSlide = false;
+changeSlide(indexSlide);
 
 function changeSlide(n){
     var x = document.getElementsByClassName('slide');
     var y = document.getElementsByClassName('circle');
-    index = n;
-    if(n > x.length) {index = 1};
-    if(n < 1) { index = x.length};
+    if(n > x.length) {indexSlide = 1};
+    if(n < 1) { indexSlide = x.length};
     for( var i = 0;i < x.length;i++){
         x[i].style.display = 'none';
         y[i].classList.remove('active');
     }
-    x[index-1].style.display = 'block';
-    y[index-1].classList.add('active');
+    x[indexSlide-1].style.display = 'block';
+    y[indexSlide-1].classList.add('active');
 }
 
 function autoPlay(){
     var x = document.getElementById('playButton');
-    if(!check){
+    if(!checkSlide){
         x.classList.remove('fa-play');
         x.classList.add('fa-pause');
         Play = setInterval(function() {
-            changeSlide(index += 1);
+            changeSlide(indexSlide += 1);
         }, 2000);
-        check = true;
+        checkSlide = true;
     }
     else{
         x.classList.add('fa-play');
         x.classList.remove('fa-pause');
         clearInterval(Play);
-        check = false;
+        checkSlide = false;
     }
 }
 
@@ -62,4 +61,12 @@ function eyeChecking(){
         document.getElementById('eye').classList.remove('fa-eye')
         eyeCheck = false;
     }
+}
+// navbartab
+var indexNavtabbar = 1
+function activeNavtabbar(n){
+    var x = document.getElementsByClassName('menu_navtabbar')
+    for(var i = 0;i < x.length;i++)
+        x[i].classList.remove('active')
+    x[n-1].classList.add('active')
 }
