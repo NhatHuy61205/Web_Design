@@ -33,10 +33,6 @@ img.logo {
 .search {
    border-radius: 50px;
    width: 300px;
-   height: 25px;
-   font-size: 15px;
-   font-weight: bold;
-   font-style: italic;
 }
 
 /* CSS login */
@@ -46,15 +42,13 @@ header div button.login{
    padding:0.2rem 1rem;
    border-radius: 20px;
    background-color: white;
-   cursor: pointer;
-   transition:ease 0.5s all;
 }
 
 header div button.login:hover{
    background-color: #1e201e;
    color: #ecdfcc;
+   cursor: pointer;
    font-weight: bold;
-   box-shadow: 2px 2px 7px gray;
 }
 
 .sign_in{
@@ -71,7 +65,6 @@ header div button.login:hover{
    left: 50%;
    justify-content: center;
    transform: translate(-50%,-50%);
-   transition-duration: ease 0.5s all;
 }
 
 .sign_in > h3{
@@ -93,34 +86,13 @@ header div button.login:hover{
 
 #accUser , #accPass{
    position: relative;
-   font-size: 15px;
-   font-weight: bold;
    width: 100%;
    height: 50px;
    margin-bottom: 20px;
-   border: none;
-   outline: none;
-   border-bottom: 2px solid black;
-   border-radius: 10px 10px 0 0;
-}
-label:is([for="accUser"],[for="accPass"]){
-   position: absolute;
-   pointer-events: none;
-   transition: ease 0.2s all;
-   left: 12%;
-}
-label[for="accUser"]{
-   top: 49%;
-}
-label[for="accPass"]{
-   top: 63%;
+   border-bottom: 2px solid gray;
+   border-radius: 10px;
 }
 
-.account > div > input:focus+ label,
-.account > div > input:not(:placeholder-shown) + label{
-   transform: translateY(-14px);
-   font-size: 10px;
-}
 .account > .iconEye{
    position: absolute;
    display: block;
@@ -147,14 +119,8 @@ label[for="accPass"]{
    border: 0px;
    border-radius: 10px;
    margin-bottom: 20px;
-   cursor: pointer;
 }
 
-.submit > button:hover{
-   background-color: white;
-   border: 1px solid black;
-   color: black;
-}
 .submit > hr{
    width: 30%;
 }
@@ -181,10 +147,9 @@ label[for="accPass"]{
 
 .sign_up{
    display: flex;
-   justify-content: space-between;
+   justify-content: right;
    font-size: 15px;
    cursor: pointer;
-   color: black;
 }
 
 .sign_up > p:hover{
@@ -196,7 +161,6 @@ body > nav{
    background-color: black;
    color: white;
    align-items: center;
-   
 }
 
 ul.menu{
@@ -208,16 +172,15 @@ ul.menu{
 
 ul.menu > li > a{
    padding: 1rem 1.7rem;
-   color: white;
    display: block;
    text-decoration: none;
+   color: white;
    margin: 0;
-   transition: ease 0.35s all;
 }
 
 ul.menu > li > a:hover{
-   color: black !important;
-   background-color: white !important;
+   color: black;
+   background-color: white;
 }
 
 .fa-chevron-down {
@@ -264,7 +227,6 @@ ul.menu > li:hover .submenu{
 
 .connect_AI{
    position: fixed;
-   z-index: 2009;
    align-items: center;
    top: 90%;
    left: 85%;
@@ -280,7 +242,7 @@ ul.menu > li:hover .submenu{
    cursor: pointer;
 }
 
-/* CSS main ---------------------------------------------------------------*/
+/* CSS main */
 
 /* CSS wrapper */
 .wrapper{
@@ -318,6 +280,8 @@ button.play {
    border-radius: 50%;
 }
 
+
+
 .fa-play , .fa-pause{
    color: white;
 }
@@ -347,164 +311,287 @@ button.play {
 .circle.active{
    background-color: #b0d4b8;
 }
-/* CSS tabbar */
-div.tabbar{
-   display: flex;
-   position: relative;
-   justify-content: center;
+/* booking */
+.booking{
    width: 100%;
-   height: 200px;
-   background-image: url(images/pngtree-sunset-sky-background-with-pink-clouds-and-cloudy-evening-sun-image_2204134.jpg);
-   background-size: cover;
-}
-
-.navtabbar{
-   display: flex;
-   position: absolute;
-   width: 60%;
-   height: 55px;
-   top: -15%;
-   font-size: 20px;
-   font-weight: bold;
-}
-
-.menu_navtabbar{
+   height: auto;
    display: flex;
    justify-content: center;
-   align-items: center;
-   cursor: pointer;
-   padding: 0;
-   margin: 0;
-   width: 100%;
-   height: 100%;
-   font-size: 18px;
-   background-color: #b0d4b8;
-   transition: ease 0.5s all;
-}
-
-.menu_navtabbar.active{
-   background-color: transparent;
-}
-
-.menu_navtabbar > img.icon{
-   width: 1.3rem;
-   margin-right: 0.4rem;  
-}
-/* CSS FOOTER */
-.container {
-   width: 100%;
-   margin: auto;
-   position: relative;
-   padding: 0;
-   height: 150px;
-   overflow: hidden;
-   background-color: #d1cebb
-}
-div.text {
-   color: rgba(255, 255, 255, 0.779);
    position: absolute;
-   top: 10px;
-   left: 100px;
-   }
-
-.text h4 {
-   color: #2b89ab;
+   bottom: 50px;
 }
 
-.navbar {
-   padding: 0 ;
-   width: 100%;
-   height: 100%;
-   background-color: #166987;
-   overflow: hidden;
+.booking_plane{
+   width: 200px;
+   height: 50px;
+   background-color: black;
+   
 }
-
-.all_down_content {
-   display: flex;
-   list-style-type:none;
-   margin: 0;
-   padding: 0;
-   justify-content: space-around;
-}
-.down_menu{
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-}
-ul > li.down > ul > li{
-   margin-bottom: 15px;
-}
-li.down > ul > li > a {
-   color:white;
-   text-decoration: none;
-}
-li.down > ul > li > a:hover {
-   color: rgb(246, 237, 204);
-}
-.down h4 {
-   font-size: 18px;
-   color: rgb(246, 237, 204);
-}
-
-/* Minimize */
-
-@media (max-width: 1000px){
-   .down > h4 {
-      font-size: 16px;
-   }
-   li.down > ul > li > a {
-      font-size: 14px;
-   }
-}
-
-/* changes menu */
-@media (max-width: 700px){
-   .all_down_content {
-      flex-direction: column;
-      align-items: center;
-   }
-
-   li.down > ul > li > a {
-      font-size: 16px;
-      padding: 20px;
-   }
-
-   .down {
+    /* CSS FOOTER */
+    .container {
       width: 100%;
-      text-align: left;
-      padding-left: 70px;
+      margin: auto;
+      position: relative;
+      padding: 0;
+      height: 150px;
+      overflow: hidden;
+      background-color: #d1cebb
+   }
+   .container2 {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      clear: both;
+      border-radius: 4px;
+      padding: 0 5px;
+   }
+   .footer {
+      background-color: #166987;
+   }
+   
+   div.text {
+      color: rgba(255, 255, 255, 0.779);
+      position: absolute;
+      top: 10px;
+      left: 100px;
+      }
+   
+   .text h4 {
+      color: #2b89ab;
+   }
+   
+   .navbar {
+      padding: 0 ;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+   }
+   
+   .all_down_content {
+      display: flex;
+      list-style-type:none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+   }
+   .navbar {
+      padding-top: 30px;
+      margin-bottom: 20px;
+   }
+   .down_menu{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+   }
+   ul > li.down > ul > li{
+      margin-bottom: 15px;
+   }
+   li.down > ul > li > a {
+      color:white;
+      text-decoration: none;
+      font-size: 13px;
+   }
+   li.down > ul > li > a:hover {
+      color: rgb(246, 237, 204);
+   }
+   .down h4 {
+      font-size: 18px;
+      color: rgb(246, 237, 204);
+      font-size: 16px;
+   }
+   
+   /* Minimize */
+   
+   @media (max-width: 1000px){
+      .down > h4 {
+         font-size: 16px;
+      }
+      li.down > ul > li > a {
+         font-size: 14px;
+      }
+   }
+   
+   /* changes menu */
+   @media (max-width: 700px){
+      .all_down_content {
+         flex-direction: column;
+         align-items: center;
+      }
+   
+      li.down > ul > li > a {
+         font-size: 16px;
+         padding: 20px;
+      }
+   
+      .down {
+         width: 100%;
+         text-align: left;
+         padding-left: 100px;
+      }
+   
+      .down > h4 {
+         font-size: 19px;
+         padding: 25px;
+      }
+   
+      .down_menu {
+         display: none;
+         white-space: nowrap;
+         padding-left: 10px;     
+      }
+   
+      .down:hover .down_menu {
+         display: block;
+      }
+   
+      li.down > h4{
+         margin-bottom: 8px;
+         padding:0 25px 15px 0;
+         Border-bottom: 1px solid #4aacc3;
+      }
+   
+      li.down > ul > li{
+         margin-bottom: 8px;
+         padding: 20px;
+         Border-bottom: 1px solid #4aacc3;
+      }
+   }
+   
+   /* End Footer */
+   
+   .footer_copyright {
+      background-color: #166987;
+      overflow: hidden;
+      color: white;
+      padding: 0px;
    }
 
-   .down > h4 {
-      font-size: 19px;
-      padding: 25px;
+   .footer_copyright li {
+      list-style-type: none;
    }
 
-   .down_menu {
-      display: none;
-      white-space: nowrap;   
-      padding-left: 30px; 
+
+   .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
    }
 
-   .down:hover .down_menu {
+   .skyteam {
+      margin-bottom: 20px;
+      margin-top: 10px;
+   }
+
+   .social-icon img {
+      width: 24px;
+      margin-right: 10px;
+      height: 25px;
+   }
+   .social_icon {
+      width: 100%;
+      
+   }
+
+   .skyteam >a {
+      display: block;
+      margin-bottom: 10px;
+   }
+   .skyteam  img {
+
+      width: 120px;
+      height: auto;
       display: block;
    }
-
-   li.down > h4{
-      margin-bottom: 8px;
-      padding:0 25px 15px 0;
-      Border-bottom: 1px solid #4aacc3;
+   
+   .social_icon  li {
+      padding: 0;
+      margin: 0 ;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+   }
+   .social_icon ul {
+      padding: 0 ;
+      margin:0;
+   }
+   
+   ul.term {
+      padding: 0px;
+   }
+   ul.term li a {
+      text-decoration: none;
+      font-size: 13px;
+      color: white;
+   }
+   ul.term li {
+   padding: 5px;
+   margin: 0;
+   display: inline;
+   width: 20px;
+   height: 20px;
+   border-right: 1px solid white;
+   }
+   
+   ul.term li:last-child {
+      border-right: none;
+   }
+   
+   .footer-center {
+      width:50%;
    }
 
-   li.down > ul > li{
-      margin-bottom: 8px;
-      padding: 20px;
-      Border-bottom: 1px solid #4aacc3;
+   .pc img {
+      width:100%;
+      height: auto;
    }
-}
 
-/* End Footer */
+   .logo-small {
+      padding: 0px;
+   }
 
-.footer_copyright * {
-   background-color: #166987;
-}
+   .company_info a {
+      text-decoration: none;
+      color: white;
+   }
+
+   .company_info  {
+   font-size: 13px;
+   padding-top: 9px;
+   }
+
+   .footer-right li {
+      padding: 0;
+      margin: 0;
+      display: inline;
+   }
+   .footer-right ul {
+      padding:0;
+      margin:0;
+   }
+   .footer-right li:not(:first-child)
+   {
+      margin-left: 20px;
+   }
+   .footer-right li:last-child
+   {
+      display: block;
+      margin-left: 0;
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+   }
+   .logo_partner {
+      padding-top: 40px;
+   }
+   .logo_partner  a{
+      text-decoration: none;
+      font-size: 13px;
+      color: white;
+   }
+   .footer-right img {
+      height: 35px;
+      width: auto;
+   }
+
+
+   
