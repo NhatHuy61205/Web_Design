@@ -327,124 +327,271 @@ button.play {
    background-color: black;
    
 }
-/* CSS FOOTER */
-footer {
-   display:none;
-}
-.container {
-   width: 100%;
-   margin: auto;
-   position: relative;
-   padding: 0;
-   height: 150px;
-   overflow: hidden;
-   background-color: #d1cebb
-}
-div.text {
-   color: rgba(255, 255, 255, 0.779);
-   position: absolute;
-   top: 10px;
-   left: 100px;
-   }
-
-.text h4 {
-   color: #2b89ab;
-}
-
-.navbar {
-   padding: 0 ;
-   width: 100%;
-   height: 100%;
-   background-color: #166987;
-   overflow: hidden;
-}
-
-.all_down_content {
-   display: flex;
-   list-style-type:none;
-   margin: 0;
-   padding: 0;
-   justify-content: space-around;
-}
-.down_menu{
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-}
-ul > li.down > ul > li{
-   margin-bottom: 15px;
-}
-li.down > ul > li > a {
-   color:white;
-   text-decoration: none;
-}
-li.down > ul > li > a:hover {
-   color: rgb(246, 237, 204);
-}
-.down h4 {
-   font-size: 18px;
-   color: rgb(246, 237, 204);
-}
-
-/* Minimize */
-
-@media (max-width: 1000px){
-   .down > h4 {
-      font-size: 16px;
-   }
-   li.down > ul > li > a {
-      font-size: 14px;
-   }
-}
-
-/* changes menu */
-@media (max-width: 700px){
-   .all_down_content {
-      flex-direction: column;
-      align-items: center;
-   }
-
-   li.down > ul > li > a {
-      font-size: 16px;
-      padding: 20px;
-   }
-
-   .down {
+    /* CSS FOOTER */
+    .container {
       width: 100%;
-      text-align: left;
-      padding-left: 70px;
+      margin: auto;
+      position: relative;
+      padding: 0;
+      height: 150px;
+      overflow: hidden;
+      background-color: #d1cebb
+   }
+   .container2 {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      clear: both;
+      border-radius: 4px;
+      padding: 0 5px;
+   }
+   .footer {
+      background-color: #166987;
+   }
+   
+   div.text {
+      color: rgba(255, 255, 255, 0.779);
+      position: absolute;
+      top: 10px;
+      left: 100px;
+      }
+   
+   .text h4 {
+      color: #2b89ab;
+   }
+   
+   .navbar {
+      padding: 0 ;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+   }
+   
+   .all_down_content {
+      display: flex;
+      list-style-type:none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+   }
+   .navbar {
+      padding-top: 30px;
+      margin-bottom: 20px;
+   }
+   .down_menu{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+   }
+   ul > li.down > ul > li{
+      margin-bottom: 15px;
+   }
+   li.down > ul > li > a {
+      color:white;
+      text-decoration: none;
+      font-size: 13px;
+   }
+   li.down > ul > li > a:hover {
+      color: rgb(246, 237, 204);
+   }
+   .down h4 {
+      font-size: 18px;
+      color: rgb(246, 237, 204);
+      font-size: 16px;
+   }
+   
+   /* Minimize */
+   
+   @media (max-width: 1000px){
+      .down > h4 {
+         font-size: 16px;
+      }
+      li.down > ul > li > a {
+         font-size: 14px;
+      }
+   }
+   
+   /* changes menu */
+   @media (max-width: 700px){
+      .all_down_content {
+         flex-direction: column;
+         align-items: center;
+      }
+   
+      li.down > ul > li > a {
+         font-size: 16px;
+         padding: 20px;
+      }
+   
+      .down {
+         width: 100%;
+         text-align: left;
+         padding-left: 100px;
+      }
+   
+      .down > h4 {
+         font-size: 19px;
+         padding: 25px;
+      }
+   
+      .down_menu {
+         display: none;
+         white-space: nowrap;
+         padding-left: 10px;     
+      }
+   
+      .down:hover .down_menu {
+         display: block;
+      }
+   
+      li.down > h4{
+         margin-bottom: 8px;
+         padding:0 25px 15px 0;
+         Border-bottom: 1px solid #4aacc3;
+      }
+   
+      li.down > ul > li{
+         margin-bottom: 8px;
+         padding: 20px;
+         Border-bottom: 1px solid #4aacc3;
+      }
+   }
+   
+   /* End Footer */
+   
+   .footer_copyright {
+      background-color: #166987;
+      overflow: hidden;
+      color: white;
+      padding: 0px;
    }
 
-   .down > h4 {
-      font-size: 19px;
-      padding: 25px;
+   .footer_copyright li {
+      list-style-type: none;
    }
 
-   .down_menu {
-      display: none;
-      white-space: nowrap;   
-      padding-left: 30px; 
+
+   .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
    }
 
-   .down:hover .down_menu {
+   .skyteam {
+      margin-bottom: 20px;
+      margin-top: 10px;
+   }
+
+   .social-icon img {
+      width: 24px;
+      margin-right: 10px;
+      height: 25px;
+   }
+   .social_icon {
+      width: 100%;
+      
+   }
+
+   .skyteam >a {
+      display: block;
+      margin-bottom: 10px;
+   }
+   .skyteam  img {
+
+      width: 120px;
+      height: auto;
       display: block;
    }
-
-   li.down > h4{
-      margin-bottom: 8px;
-      padding:0 25px 15px 0;
-      Border-bottom: 1px solid #4aacc3;
+   
+   .social_icon  li {
+      padding: 0;
+      margin: 0 ;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+   }
+   .social_icon ul {
+      padding: 0 ;
+      margin:0;
+   }
+   
+   ul.term {
+      padding: 0px;
+   }
+   ul.term li a {
+      text-decoration: none;
+      font-size: 13px;
+      color: white;
+   }
+   ul.term li {
+   padding: 5px;
+   margin: 0;
+   display: inline;
+   width: 20px;
+   height: 20px;
+   border-right: 1px solid white;
+   }
+   
+   ul.term li:last-child {
+      border-right: none;
+   }
+   
+   .footer-center {
+      width:50%;
    }
 
-   li.down > ul > li{
-      margin-bottom: 8px;
-      padding: 20px;
-      Border-bottom: 1px solid #4aacc3;
+   .pc img {
+      width:100%;
+      height: auto;
    }
-}
 
-/* End Footer */
+   .logo-small {
+      padding: 0px;
+   }
 
-.footer_copyright * {
-   background-color: #166987;
-}
+   .company_info a {
+      text-decoration: none;
+      color: white;
+   }
+
+   .company_info  {
+   font-size: 13px;
+   padding-top: 9px;
+   }
+
+   .footer-right li {
+      padding: 0;
+      margin: 0;
+      display: inline;
+   }
+   .footer-right ul {
+      padding:0;
+      margin:0;
+   }
+   .footer-right li:not(:first-child)
+   {
+      margin-left: 20px;
+   }
+   .footer-right li:last-child
+   {
+      display: block;
+      margin-left: 0;
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+   }
+   .logo_partner {
+      padding-top: 40px;
+   }
+   .logo_partner  a{
+      text-decoration: none;
+      font-size: 13px;
+      color: white;
+   }
+   .footer-right img {
+      height: 35px;
+      width: auto;
+   }
+
+
+   
