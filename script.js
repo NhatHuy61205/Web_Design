@@ -5,6 +5,7 @@ var checkSlide = false;
 changeSlide(indexSlide);
 
 function changeSlide(n){
+    indexSlide = n
     var x = document.getElementsByClassName('slide');
     var y = document.getElementsByClassName('circle');
     if(n > x.length) {indexSlide = 1};
