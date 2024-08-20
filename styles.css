@@ -311,21 +311,45 @@ button.play {
 .circle.active{
    background-color: #b0d4b8;
 }
-/* booking */
-.booking{
-   width: 100%;
-   height: auto;
+/* CSS tabbar */
+div.tabbar{
    display: flex;
+   position: relative;
    justify-content: center;
-   position: absolute;
-   bottom: 50px;
+   width: 100%;
+   height: 200px;
+   background-image: url(images/pngtree-sunset-sky-background-with-pink-clouds-and-cloudy-evening-sun-image_2204134.jpg);
+   background-size: cover;
 }
 
-.booking_plane{
-   width: 200px;
-   height: 50px;
-   background-color: black;
-   
+.navtabbar{
+   display: flex;
+   position: absolute;
+   width: 60%;
+   height: 55px;
+   top: -15%;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.menu_navtabbar{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   font-size: 18px;
+   background-color: #b0d4b8;
+   transition: ease 0.5s all;
+}
+
+.menu_navtabbar.active{
+   background-color: transparent;
+}
+
+.menu_navtabbar > img.icon{
+   width: 1.3rem;
+   margin-right: 0.4rem;  
 }
     /* CSS FOOTER */
     .container {
