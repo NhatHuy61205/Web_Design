@@ -677,7 +677,7 @@ div.tabbar{
    .company_info a {
       text-decoration: none;
       color: white;
-   }
+   } 
    .company_info a:hover {
       color: rgb(246, 237, 204);
       text-decoration: underline;
