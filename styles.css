@@ -678,6 +678,10 @@ div.tabbar{
       text-decoration: none;
       color: white;
    }
+   .company_info a:hover {
+      color: rgb(246, 237, 204);
+      text-decoration: underline;
+   }
 
    .company_info  {
    font-size: 13px;
@@ -713,6 +717,10 @@ div.tabbar{
       font-size: 13px;
       color: white;
    }
+   .logo_partner a:hover{
+      color: rgb(246, 237, 204);
+   }
+
    .footer-right img {
       height: 35px;
       width: auto;
@@ -747,10 +755,17 @@ div.tabbar{
    }
 
    .copyright img {
-      opacity: .5;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      }
+   .copyright img:hover { 
+       opacity: 1.0;  
    }
 
    .copyright a {
       color: #b1e0ee;
       text-decoration: none;
    } 
+   .copyright a:hover {
+      color: rgb(246, 237, 204);
+   }
