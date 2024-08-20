@@ -70,4 +70,5 @@ function activeNavtabbar(n){
     for(var i = 0;i < x.length;i++)
         x[i].classList.remove('active')
     x[n-1].classList.add('active')
+    document.querySelector('.overlay_navtabbar').style.display='block'
 }

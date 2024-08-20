@@ -1,3 +1,13 @@
+:root {
+   --dark: #456268;
+   --dark-rgb: 69, 98, 104;
+   --light: #FCF8EC;
+   --light-rgb: 252, 248, 236;
+   --near-light: #D0E8F2;
+   --near-light-rgb: 208, 232, 242;
+   --near-dark: #79A3B1;
+   --near-dark-rgb: 121, 163, 177;
+}
 * {
    font-family: Arial, Helvetica, sans-serif;
 }
@@ -64,9 +74,9 @@ header div button.login:hover{
    height: 450px;
    padding: 40px;
    background-color: white;
-   box-shadow: 7px 7px 20px rgba(0,0,0, 0.9);
+   box-shadow: 7px 7px 20px rgba(var(--near-light-rgb), 0.9);
    border-radius: 20px;
-   z-index: 999;
+   z-index: 2009;
    top: 50%;
    left: 50%;
    justify-content: center;
@@ -87,8 +97,8 @@ header div button.login:hover{
    left: 0;
    width: 100%;
    height: 100%;
-   background-color: rgba(0, 0, 0, 0.4);
-   z-index: 900;
+   background-color: rgba(0, 0, 0, 0.7);
+   z-index: 1002;
 }
 
 #accUser , #accPass{
@@ -193,10 +203,9 @@ label[for="accPass"]{
  /* CSS Nav */
 body > nav{
    height: 50px;
-   background-color: black;
-   color: white;
+   background-color: var(--dark);
+   color: var(--light);
    align-items: center;
-   
 }
 
 ul.menu{
@@ -208,7 +217,7 @@ ul.menu{
 
 ul.menu > li > a{
    padding: 1rem 1.7rem;
-   color: white;
+   color: var(--light);
    display: block;
    text-decoration: none;
    margin: 0;
@@ -216,8 +225,8 @@ ul.menu > li > a{
 }
 
 ul.menu > li > a:hover{
-   color: black !important;
-   background-color: white !important;
+   color: var(--dark) !important;
+   background-color: var(--light) !important;
 }
 
 .fa-chevron-down {
@@ -226,37 +235,36 @@ ul.menu > li > a:hover{
    padding-left: 5px;
 }
 
-.submenu {
+nav.submenu {
    display: none;
    position: absolute;
    height: auto;
    width: auto;
-   left: 1px;
+   left: 0px;
    border-top: 5px solid #5d7b6f;
    padding: 0 40px 40px 0;
    border-radius: 0 0 7px 7px;
-   background-color: #eae7d6; 
+   background-color: var(--light); 
    z-index: 1000;
-   justify-content: space-between;
 }
 
-.submenu > ul > li{
+nav.submenu > ul > li{
    list-style: none;
    padding: 14px 0px;
    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.submenu > ul > li > a{
+nav.submenu > ul > li > a{
    text-decoration: none;
-   color: #132c22;
+   color: var(--dark);
    font-size: 13.5px;
 }
 
-.submenu > ul > li > a:hover{
+nav.submenu > ul > li > a:hover{
    text-decoration: underline;
 }
 
-ul.menu > li:hover .submenu{
+ul.menu > li:hover nav.submenu{
    display: flex;
 }
 
@@ -361,10 +369,11 @@ div.tabbar{
 .navtabbar{
    display: flex;
    position: absolute;
+   justify-content: center;
+   z-index: 1001;
    width: 60%;
    height: 55px;
-   top: -20%;
-   font-size: 20px;
+   top: -15%;
    font-weight: bold;
 }
 
@@ -372,20 +381,70 @@ div.tabbar{
    display: flex;
    justify-content: center;
    align-items: center;
+   cursor: pointer;
+   color: var(--light);
+   margin: 0;
+   padding: 0;
    width: 100%;
    height: 100%;
    font-size: 18px;
-   background-color: #b0d4b8;
+   background-color: rgba(var(--dark-rgb), 0.7);
    transition: ease 0.5s all;
 }
 
-.menu_navtabbar.active{
-   background-color: transparent;
+.menu_navtabbar.active , .menu_navtabbar:hover{
+   background-color: var(--dark) !important;
 }
 
 .menu_navtabbar > img.icon{
    width: 1.3rem;
    margin-right: 0.4rem;  
+}
+
+.menu_navtabbar > div.submenu{
+   display: none;
+   position: absolute;
+   justify-content: center;
+   align-items: center;
+   z-index: 1001;
+   width: 100%;
+   left: 0px;
+   top: 100%;
+   background-color: var(--light);
+}
+.managePlace_input,.managePlace_note{
+   display: flex;
+   padding: 0 5%;
+}
+
+.managePlace_input > button{
+   width: 18%;
+   margin-top: 30px;
+   font-weight: bold;
+   font-size: 18px;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+#codePlace, #surname{
+   border: 0;
+   margin-top: 30px;
+   width: 40%;
+   margin-right: 2%;
+   height: 40px;
+   font-size: 20px;
+}
+.menu_navtabbar.active > div.submenu{
+   display: block;
+}
+
+.overlay_navtabbar{
+   position: fixed;
+   display: block;
+   z-index: 999;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.7);
 }
     /* CSS FOOTER */
     .container {

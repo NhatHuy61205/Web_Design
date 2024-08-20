@@ -233,12 +233,38 @@
         </div>
         <div class="tabbar">
             <nav class="navtabbar flex">
-                <ul class="menu_navtabbar" onclick="activeNavtabbar(1)"><img class="icon" src="images/icon_plane_white.svg">Mua ve</ul>
-                <ul class="menu_navtabbar" onclick="activeNavtabbar(2)"><img class="icon" src="images/icon_manage_white.svg">Quan ly dat cho</ul>
-                <ul class="menu_navtabbar" onclick="activeNavtabbar(3)"><img class="icon" src="images/icon_checkin_white.svg">Lam thu tuc</ul>
+                <ul class="menu_navtabbar" onclick="activeNavtabbar(1)">
+                    <img class="icon" src="images/icon_plane_white.svg">Mua vé
+                    <div class="submenu">
+
+                    </div>
+                </ul>
+                <ul class="menu_navtabbar" onclick="activeNavtabbar(2)">
+                    <img class="icon" src="images/icon_manage_white.svg">Quản lý đặt chỗ
+                    <div class="submenu">
+                        <div class="managePlace_input">
+                            <input type="text" placeholder="" id="codePlace" maxlength="6" required>
+                            <input type="text" placeholder="" id="surname" maxlength="10" required>
+                            <button>Tim kiem</button>
+                        </div>
+                        <div class="managePlace_note">
+                            <h3>Quý khách có thể xem thông tin và điều chỉnh các tùy chọn cho chuyến bay:</h3>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="menu_navtabbar" onclick="activeNavtabbar(3)">
+                    <img class="icon" src="images/icon_checkin_white.svg">Làm thủ tục
+                    <div class="submenu">
+
+                    </div>
+                </ul>
             </nav>
         </div>
     </main>
+    <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
     <footer class="footer">
         <div class="container">
             <div class="text">
