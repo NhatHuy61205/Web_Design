@@ -718,5 +718,39 @@ div.tabbar{
       width: auto;
    }
 
+   .copyright {
+      border-top: 1px solid #6ab6cc;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px 10px 0px;
+      margin-bottom: 50px;
+   }
 
-   
+   .copyright p {
+      font-size: 11px;
+      color: #b1e0ee;
+      line-height: 1.5;
+      margin: 0px;
+   }
+
+   .copyright ul {
+      padding: 0px;
+      margin-top: 20px;
+   }
+
+   .copyright li {
+      display: inline;
+   }
+
+   .copyright li:not(:first-child) {
+      margin-left: 20px;
+   }
+
+   .copyright img {
+      opacity: .5;
+   }
+
+   .copyright a {
+      color: #b1e0ee;
+      text-decoration: none;
+   } 
