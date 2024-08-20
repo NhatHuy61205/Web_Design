@@ -708,7 +708,7 @@ div.tabbar{
       margin-top: 15px;
       width: 100%;
       text-align: center;
-   }
+   } 
    .logo_partner {
       padding-top: 40px;
    }
@@ -760,8 +760,8 @@ div.tabbar{
       }
    .copyright img:hover { 
        opacity: 1.0;  
-   }
-
+   } 
+    
    .copyright a {
       color: #b1e0ee;
       text-decoration: none;
