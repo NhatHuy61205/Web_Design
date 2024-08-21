@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select2 Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .select2-container .select2-selection--single {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            color: #333;
+        }
+
+        .select2-container .select2-results__option--highlighted {
+            background-color: #ddd !important;
+            color: #333 !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select2 Customization</h1>
+    <select id="mySelect" style="width: 100%;">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#mySelect').select2({
+                placeholder: 'Select an option...',
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>

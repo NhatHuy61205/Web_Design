@@ -126,28 +126,28 @@ label[for="accPass"]{
    top: 63%;
 }
 
-.account > div > input:focus+ label,
-.account > div > input:not(:placeholder-shown) + label{
+.account > form > div > input:focus+ label,
+.account > form > div > input:not(:placeholder-shown) + label{
    transform: translateY(-14px);
    font-size: 10px;
 }
-.account > .iconEye{
+.account > form > .iconEye{
    position: absolute;
    display: block;
    left: 83%;
    bottom: 33%;
 }
 
-.account > .iconEye:hover{
+.account > form > .iconEye:hover{
    opacity: 0.3;
 }
 
-.submit {
+.input {
    display: block;
    justify-content: center;
 }
 
-.submit > button{
+.submit > input{
    background-color: #176b87;
    color: #ecdfcc;
    width: 100%;
@@ -160,7 +160,7 @@ label[for="accPass"]{
    cursor: pointer;
 }
 
-.submit > button:hover{
+.submit > input:hover{
    background-color: white;
    border: 1px solid black;
    color: black;
@@ -346,6 +346,7 @@ button.play {
    background-color: transparent;
    border: 1px solid aqua;
    cursor: pointer;
+   transition: 0.3s ease;
 }
 
 .circle:hover{
@@ -355,7 +356,7 @@ button.play {
 .circle.active{
    background-color: #b0d4b8;
 }
-/* CSS tabbar */
+/* CSS tabbar ---------------------*/
 div.tabbar{
    display: flex;
    position: relative;
@@ -386,10 +387,17 @@ div.tabbar{
    margin: 0;
    padding: 0;
    width: 100%;
-   height: 100%;
    font-size: 18px;
    background-color: rgba(var(--dark-rgb), 0.7);
    transition: ease 0.5s all;
+}
+
+.menu_navtabbar:first-child{
+   border-radius: 7px 0 0 0;
+}
+
+.menu_navtabbar:last-child{
+   border-radius: 0 7px 0 0;
 }
 
 .menu_navtabbar.active , .menu_navtabbar:hover{
@@ -402,6 +410,7 @@ div.tabbar{
 }
 
 .menu_navtabbar > div.submenu{
+   overflow: hidden;
    display: none;
    position: absolute;
    justify-content: center;
@@ -411,34 +420,197 @@ div.tabbar{
    left: 0px;
    top: 100%;
    background-color: var(--light);
-}
-.managePlace_input,.managePlace_note{
-   display: flex;
-   padding: 0 5%;
+   cursor: default;
 }
 
-.managePlace_input > button{
-   width: 18%;
-   margin-top: 30px;
-   font-weight: bold;
-   font-size: 18px;
-   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-}
-#codePlace, #surname{
-   border: 0;
-   margin-top: 30px;
-   width: 40%;
-   margin-right: 2%;
-   height: 40px;
-   font-size: 20px;
-}
 .menu_navtabbar.active > div.submenu{
+   display: block !important;
+}
+
+.menu_navtabbar:not(.active) > div.submenu{
+   display: none !important;
+}
+/* Manage Booking , Check In */
+.manageBooking, .checkIn{
    display: block;
+   position: relative;
+   padding: 3%;
+}
+
+:is(.manageBooking,.formCheckIn) > form{
+   display: flex;
+   width: 100%;
+   height: 25px;
+}
+
+.manageBooking > form > div{
+   display: flex;
+   position: relative;
+   align-items: center;
+   width: 40%;
+}
+
+.manageBooking> form > div:last-child{
+   width: 20%;
+}
+
+.inputInNavtabbar{
+   width: 95%;
+   height: 100%;
+   font-size: 17px;
+}
+
+:is(.manageBooking , .formCheckIn) > form > div > label{
+   position: absolute;
+   left: 10px;
+   font-size: medium;
+   font-weight: normal;
+   color: black;
+   transition: 0.2s ease;
+}
+
+.inputInNavtabbar:focus + label,
+input.inputInNavtabbar:not(:placeholder-shown) + label{
+   font-size: 12px;
+   transform: translateY(-110%);
+}
+.inputInNavtabbar {
+   border: none;
+   outline: none;
+   background-color: transparent;
+   border-bottom: 1px solid black;
+}
+
+.manageBooking > form > div > input[type='submit']{
+   border: none;
+   position: absolute;
+   border-radius: 10px;
+   font-size: 16px;
+   font-weight: bold;
+   width: 100% !important;
+   height: 150% !important;
+   color: black;
+   background-color: #FF9100;
+   border: 2px solid #FF9100;
+   transition: ease 0.3s;
+}
+
+.manageBooking > form > div > input[type='submit']:hover{
+   background-color: white;
+   cursor: pointer;
+}
+
+.manageBooking > h5 {
+   color: black;
+   margin-top: 70px;
+}
+
+.checkIn > p{
+   color: var(--near-dark);
+   font-weight: normal;
+   font-size: 17px;
+   margin: 0;
+   padding: 0;
+}
+
+.containerCheckIn{
+   width: 100%;
+}
+
+.select_checkIn{
+   width: 100%;
+   height: 20px;
+   margin-top: 20px;
+}
+
+.select_checkIn > span.select_option_checkIn{
+   width: 20%;
+   height: 100%;
+   color: black;
+   font-size: 13px;
+   font-weight: normal;
+   margin-right: 5px;
+   padding: 0.5rem 1.7rem;
+   border-radius: 20px;
+   background-color: rgba(0, 0, 0, 0.05);
+   cursor: pointer;
+   transition: 0.3s ease;
+}
+
+.select_checkIn > span.select_option_checkIn.active, 
+.select_checkIn > span.select_option_checkIn:hover{
+   background-color: var(--dark);
+   color: var(--light);
+}
+
+.formGroupCheckIn{
+   position: relative;
+   width: 100%;
+   margin-top: 30px;
+}
+
+.formCheckIn{
+   display: none;
+   width: 100%;
+   height: 150px;
+}
+
+.formCheckIn.active{
+   display: flex;
+}
+
+.formCheckIn > form > div,
+.formCheckIn > form > select{
+   position: relative;
+   width: 100%;
+}
+
+.formCheckIn > form{
+   position: relative;
+   width: 100%;
+}
+
+select.inputInNavtabbar{
+   overflow: scroll;
+   height: 28px;
+}
+
+.submit_checkIn > input[type='button']{
+   position: absolute;
+   right: 0;
+   bottom: 20%;
+   padding: 0.7rem 1.2rem;
+   font-size: 17px;
+   font-weight: bold;
+   border-radius: 4px;
+   border: 2px solid #FF9100;
+   background-color: #FF9100;
+   transition: ease 0.3s;
+   cursor: pointer;
+}
+.submit_checkIn > input[type='button']:hover{
+   background-color: white;
+}
+
+.menu_navtabbar > div.submenu > div.exit_submenu{
+   display: flex;
+   position: absolute;
+   justify-content: center;
+   align-items: end;
+   width: 7%;
+   height: 27px;
+   border-top-left-radius: 50% 100%;
+   border-top-right-radius: 50% 100%;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   background-color: var(--dark);
+   cursor: pointer;
 }
 
 .overlay_navtabbar{
    position: fixed;
-   display: block;
+   display: none;
    z-index: 999;
    top: 0;
    left: 0;
@@ -454,7 +626,7 @@ div.tabbar{
       padding: 0;
       height: 150px;
       overflow: hidden;
-      background-color: #d1cebb
+      background-color: #d1cebb;
    }
    .container2 {
       max-width: 1000px;

@@ -64,7 +64,6 @@ function eyeChecking(){
     }
 }
 // navbartab
-var indexNavtabbar = 1
 function activeNavtabbar(n){
     var x = document.getElementsByClassName('menu_navtabbar')
     for(var i = 0;i < x.length;i++)
@@ -72,3 +71,24 @@ function activeNavtabbar(n){
     x[n-1].classList.add('active')
     document.querySelector('.overlay_navtabbar').style.display='block'
 }
+
+function exitSubmenu(event){
+    event.stopPropagation()
+    var x = document.getElementsByClassName('menu_navtabbar')
+    for(var i = 0;i < x.length;i++)
+        x[i].classList.remove('active')
+    document.querySelector('.overlay_navtabbar').style.display='none'
+}
+
+
+function changeInputCheckin(n){
+    var x = document.getElementsByClassName('formCheckIn')
+    var y = document.getElementsByClassName('select_option_checkIn')
+    for(var i = 0;i < x.length; i++){
+        x[i].classList.remove('active')
+        y[i].classList.remove('active')
+    }
+    x[n-1].classList.add('active')
+    y[n-1].classList.add('active')
+}
+

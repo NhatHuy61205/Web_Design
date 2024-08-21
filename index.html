@@ -24,27 +24,29 @@
             <div class="sign_in" id="sign_in">
                 <img class="card" src="images/FFPcard_menu.webp">
                 <div class="exit" onclick="exitLogin()"><i class="fa-solid fa-xmark"></i></div>
-                <h3>Dang nhap tai day</h3>
+                <h3>Đăng nhập tại đây</h3>
                 <div class="account" id="account">
-                    <div>
-                        <input type="text" placeholder=" " id="accUser" required>
-                        <label for="accUser">Email / So dien thoai</label>
+                   <form action="/SignIn" method="post">
+                        <div>
+                            <input type="email" placeholder=" " id="accUser" required>
+                            <label for="accUser">Email</label>
+                        </div>
+                        <div>
+                            <input type="password" placeholder=" " id="accPass" required>
+                            <label for="accPass">Mật khẩu</label>
+                        </div>
+                        <span class="iconEye" onclick="eyeChecking()">
+                            <i class="fa-solid fa-eye-slash" id="eye"></i>
+                        </span>
                     </div>
-                    <div>
-                        <input type="password" placeholder=" " id="accPass" required>
-                        <label for="accPass">Mat khau</label>
+                    <div class="submit">
+                        <input type="submit" value="Đăng nhập">
+                        <hr>
                     </div>
-                    <span class="iconEye" onclick="eyeChecking()">
-                        <i class="fa-solid fa-eye-slash" id="eye"></i>
-                    </span>
-                </div>
-                <div class="submit">
-                    <button>Dang nhap</button>
-                    <hr>
-                </div>
+                </form>
                 <div class="sign_up">
-                    <p>Dang ky</p>
-                    <p>Quen mat khau</p>
+                    <p>Đăng ký</p>
+                    <p>Quên mật khẩu</p>
                 </div>
             </div>
         </div>
@@ -237,32 +239,117 @@
                     <img class="icon" src="images/icon_plane_white.svg">Mua vé
                     <div class="submenu">
 
+                        <div class="exit_submenu" onclick="exitSubmenu(event)">
+                            <i class="fa-solid fa-angles-up"></i>
+                        </div>
                     </div>
                 </ul>
                 <ul class="menu_navtabbar" onclick="activeNavtabbar(2)">
                     <img class="icon" src="images/icon_manage_white.svg">Quản lý đặt chỗ
                     <div class="submenu">
-                        <div class="managePlace_input">
-                            <input type="text" placeholder="" id="codePlace" maxlength="6" required>
-                            <input type="text" placeholder="" id="surname" maxlength="10" required>
-                            <button>Tim kiem</button>
-                        </div>
-                        <div class="managePlace_note">
-                            <h3>Quý khách có thể xem thông tin và điều chỉnh các tùy chọn cho chuyến bay:</h3>
+                        <div class="manageBooking">
+                            <form action="/manageBooking">
+                                <div>
+                                    <input class="inputInNavtabbar" type="text" placeholder="" id="codePlace" maxlength="6" required>
+                                    <label for="codePlace">Mã đặt chỗ/Số vé điện tử</label>
+                                </div>
+                                <div>
+                                     <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                    <label for="surname">Họ</label>
+                                </div>
+                                <div>
+                                    <input type="submit" value="TÌM KIẾM">
+                                </div>
+                            </form>
+                            <h5>Quý khách có thể xem thông tin và điều chỉnh các tùy chọn cho chuyến bay:</h5>
                             <div>
 
                             </div>
+                        </div>
+                        <div class="exit_submenu" onclick="exitSubmenu(event)">
+                            <i class="fa-solid fa-angles-up"></i>
                         </div>
                     </div>
                 </ul>
                 <ul class="menu_navtabbar" onclick="activeNavtabbar(3)">
                     <img class="icon" src="images/icon_checkin_white.svg">Làm thủ tục
                     <div class="submenu">
-
+                        <div class="checkIn">
+                            <p>Quý khách có thể làm thủ tục trực tuyến từ 24 đến 01 tiếng trước chuyến bay</p>
+                            <div class="containerCheckIn">
+                                <div class="select_checkIn">
+                                    <span class="select_option_checkIn active" onclick="changeInputCheckin(1)">Mã đặt chỗ (PNR)</span>
+                                    <span class="select_option_checkIn" onclick="changeInputCheckin(2)">Số vé điện tử</span>
+                                    <span class="select_option_checkIn" onclick="changeInputCheckin(3)">Số thẻ FFP</span>
+                                </div>
+                                <div class="formGroupCheckIn">
+                                    <div class="formCheckIn active">
+                                        <form action="/checkIn">
+                                            <div>
+                                                <input class="inputInNavtabbar" type="text" placeholder="" id="code" maxlength="6" required>
+                                                <label for="codePlace">Mã đặt chỗ</label>
+                                            </div>
+                                            <div>
+                                                 <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                                <label for="surname">Họ</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="formCheckIn">
+                                        <form action="/checkIn">
+                                            <div>
+                                                <input class="inputInNavtabbar" type="text" placeholder="" id="digitalNumber" maxlength="6" required>
+                                                <label for="codePlace">Số vé điện tử</label>
+                                            </div>
+                                            <div>
+                                                 <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                                <label for="surname">Họ</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="formCheckIn">
+                                        <form action="/checkIn">
+                                            <div>
+                                                <input class="inputInNavtabbar" type="text" placeholder="" id="digitalNumber" maxlength="6" required>
+                                                <label for="codePlace">Số vé FFP</label>
+                                            </div>
+                                            <div>
+                                                 <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                                <label for="surname">Họ</label>
+                                            </div>
+                                            <div>
+                                                <select class="inputInNavtabbar" id="numberFFP">
+                                                    <option value="" disabled selected></option>
+                                                    <option value="VN">Vietnam Airlines (VN)</option>
+                                                    <option value="SU">Aeroflot (SU)</option>
+                                                    <option value="AR">Aerolineas Argentina (AR)</option>
+                                                    <option value="AM">Aeromexico (AM)</option>
+                                                    <option value="UX">Air Europa (UX)</option>
+                                                    <option value="AF">Air France (AF)</option>
+                                                    <option value="AZ">Alitalia (AZ)</option>
+                                                    <option value="CI">China Airlines (CI)</option>
+                                                    <option value="MU">China Eastern Airlines (MU)</option>
+                                                    <option value="CZ">China Southern Airlines (CZ)</option>
+                                                    <option value="OK">Czech Airlines (OK)</option>
+                                                </select>
+                                                <label for="numerFFP">Frequent Flyer Program(*)</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="submit_checkIn">
+                                        <input type="button" value="Lam Thu Tuc">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exit_submenu" onclick="exitSubmenu(event)">
+                            <i class="fa-solid fa-angles-up"></i>
+                        </div>
                     </div>
                 </ul>
             </nav>
         </div>
+        <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
     </main>
     <div class="exploid">
         <div class="container-low">
@@ -326,7 +413,6 @@
 
         </div>
     </div>
-    <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
     <footer class="footer">
         <div class="container">
             <div class="text">
@@ -457,6 +543,7 @@
         </div>  
     </footer>
     <script src="script.js"></script>
+    </script>
 </body>
 </html>
   
