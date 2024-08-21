@@ -7,27 +7,35 @@
    --near-light-rgb: 208, 232, 242;
    --near-dark: #79A3B1;
    --near-dark-rgb: 121, 163, 177;
+   --max-witdh-body: 2000px;
 }
 * {
    font-family: Arial, Helvetica, sans-serif;
 }
-body {  
+html, body {
    width: 100%;
    height: 100%;
-   margin: 0;
+   margin: 0 auto;
    padding: 0;
 }
+
 .flex{
    display: flex;
    justify-content: space-between;
 }
+header,main{
+   width: 100%;
+   justify-content: center;
+}
+.header_container , .main_container{
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--max-witdh-body);
+  align-items: center;
+}
 
 /* CSS header */
 
-header{
-   height: 70px;
-   align-items: center;
-}
 
 div.containerLogo{
   height: 60px;
@@ -202,6 +210,7 @@ label[for="accPass"]{
 }
  /* CSS Nav */
 body > nav{
+   width: 100%;
    height: 50px;
    background-color: var(--dark);
    color: var(--light);
@@ -216,9 +225,9 @@ ul.menu{
 }
 
 ul.menu > li > a{
+   display: inline-block;
    padding: 1rem 1.7rem;
    color: var(--light);
-   display: block;
    text-decoration: none;
    margin: 0;
    transition: ease 0.35s all;
@@ -299,20 +308,57 @@ ul.menu > li:hover nav.submenu{
 }
 
 .wrapper_slide{
+   position: relative;
    width: 100%;
    height: 100%;
+   max-width: 2000px;
+   max-height: 2000px;
 }
+
 .slide{
+   position: relative;
    width: 100%;
    height: 100%;
    display: none;
 }
 
+.slide > img{
+   width: 100%;
+   height: auto;
+}
+
+.slide > div{
+   display: block;
+   position: absolute;
+   width: 600px;
+   bottom: 33%;
+   left: 40%;
+}
+
+.slide > div > :is(h2,h5){
+   display: flex;
+   justify-content: end;
+   font-family: 'Times New Roman', Times, serif !important;
+   color: var(--light);
+   text-shadow: 2px 2px 4px var(--dark);
+   margin:0 0 15px 0;
+   padding: 0;
+   transition: ease 0.3s;
+}
+
+.slide > div > h5:hover{
+   text-decoration: underline;
+   color: var(--near-light);
+   text-shadow: 2px 2px 7px rgba(var(--light-rgb), 0.65);
+   cursor: pointer;
+}
 .select{
    position: absolute;
    display: flex;
+   width: 600px;
+   justify-content: end;
    bottom: 30%;
-   left: 80%;
+   left: 40%;
 }
 
 button.play {
@@ -363,6 +409,7 @@ div.tabbar{
    justify-content: center;
    width: 100%;
    height: 200px;
+   max-width: var(--max-witdh-body);
    background-image: url(images/pngtree-sunset-sky-background-with-pink-clouds-and-cloudy-evening-sun-image_2204134.jpg);
    background-size: cover;
 }
@@ -636,18 +683,26 @@ select.inputInNavtabbar{
    overflow: hidden;
    position: relative;
    width: 100%;
+   cursor: pointer;
 }
 .product .box {
-   background: rgb(5 140 179 / 64%);
+   display: block;
+   opacity: 0;
+   background:  rgba(5, 140, 179, 0.64);
    position: absolute;
    bottom: 0;
    left: 0;
    right: 0;
    color: white;
    padding: 10px 10px 0px 10px;
-   height: 200px;
+   height: 0px;
    border-left: 10px solid white;
-   
+   transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.product:hover > div > .box{
+   height: 200px;
+   opacity: 1;
 }
 div.product .box-title {
    font-size: 20px;
@@ -678,17 +733,28 @@ div.box-view {
    font-size: 11px;
 }
 div.product {
+   position: relative;
    padding: 10px;
    height: 406px;
-   width: auto;
+   width: 250px;
+   overflow: hidden;
 }
 div.box {
    border-left: 10px solid white;
    padding-top: 10px;
 }
 
-.product img {
+div.product > div{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+}
+
+div.product > div > img {
+   width: 100%;
+   height: 100%;
    border: 1px solid #ada598;
+   object-fit: cover;
    object-position: center;
 }
 
