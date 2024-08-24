@@ -209,7 +209,7 @@ label[for="accPass"]{
    text-decoration: underline;
 }
  /* CSS Nav */
-body > nav{
+body > div > nav{
    width: 100%;
    height: 50px;
    background-color: var(--dark);
@@ -416,7 +416,7 @@ div.tabbar{
 
 .navtabbar{
    display: flex;
-   position: absolute;
+   position: relative;
    justify-content: center;
    z-index: 1001;
    width: 60%;
@@ -457,7 +457,6 @@ div.tabbar{
 }
 
 .menu_navtabbar > div.submenu{
-   overflow: hidden;
    display: none;
    position: absolute;
    justify-content: center;
@@ -477,11 +476,156 @@ div.tabbar{
 .menu_navtabbar:not(.active) > div.submenu{
    display: none !important;
 }
-/* Manage Booking , Check In */
-.manageBooking, .checkIn{
-   display: block;
-   position: relative;
+
+/* Manage Booking , Check In, booking*/
+.manageBooking, .checkIn, .booking{
    padding: 3%;
+}
+
+.booking > h4{
+   padding: 0;
+   margin: 0;
+   color: black;
+}
+
+.inputBooking{
+   margin-top: 30px;
+   width: 100%;
+}
+
+.formBooking{
+   display: flex;
+   width: 100%;
+}
+
+.formBooking > .form{
+   display: flex;
+   position: relative;
+   width: 100%;
+   color: black;
+}
+
+.box1{
+   flex:30%;
+}
+
+.box2{
+   flex:20%;
+}
+
+.select_container_from{
+   width: 100%;
+}
+
+.select_container_from > .select_box{
+   width: 100%;
+
+}
+
+.select_container_from > .select_box > input{
+   border: 0;
+   outline: none;
+   border-bottom: 1px solid black;
+   background-color: transparent;
+   font-size: 18px;
+   width: 100%;
+   height: 25px;
+}
+
+.select_container_from > .select_box > label {
+   display: flex;
+   position: absolute;
+   align-items: center;
+   font-weight: normal;
+   top: 10%;
+   width: 100%;
+   font-size: 18px;
+   color: black;
+   transition: 0.3s ease;
+}
+
+.select_container_from > .select_box > i{
+   display: flex;
+   position: absolute;
+   align-items: center;
+   justify-content: end;
+   width: 100%;
+   top: 10%;
+   font-size: 18px;
+   color: black;
+}
+
+.select_container_from > .select_box > input:focus + label,
+.select_container_from > .select_box > input:not(:placeholder-shown) + label{
+   transform: translateY(-100%);
+   font-size: 12px;
+}
+
+.option_box{
+   display: none;
+   position: absolute;
+   z-index: 1009;
+   width: 600px;
+   padding: 0;
+   cursor: pointer;
+}
+
+.option_box .menu_option{
+   display: block;
+   width: 30%;
+}
+
+.option_box .menu_option span{
+   display: block;
+   padding: 10px;
+   font-weight: normal;
+   font-size: 14px;
+   border-bottom: 1px solid var(--light);
+   background-color: var(--dark);
+   color: var(--light);
+}
+
+.option_box .menu_option span.active{
+   background-color: var(--light);
+   color: var(--dark);
+}
+.option_box .options{
+   display: block;
+   width: 70%;
+   height: 376px;
+   background-color: var(--light);
+   overflow: auto;
+}
+
+.option{
+   list-style-type: none;
+   padding: 7px 40px;
+   display: none;
+}
+
+.option.active{
+   display: block;
+}
+
+.option li{
+   font-size: 14px;
+   padding: 12px;
+   border-bottom: 1px solid gray;
+}
+
+.option li:hover{
+   text-decoration: underline;
+}
+
+.exit_booking{
+   position: absolute;
+   right: 2%;
+   top: 2%;
+   transition: 0.3s ease;
+}
+
+.exit_booking:hover{
+   color: var(--near-light);
 }
 
 :is(.manageBooking,.formCheckIn) > form{
@@ -505,6 +649,10 @@ div.tabbar{
    width: 95%;
    height: 100%;
    font-size: 17px;
+   border: none;
+   outline: none;
+   background-color: transparent;
+   border-bottom: 1px solid black;
 }
 
 :is(.manageBooking , .formCheckIn) > form > div > label{
@@ -520,12 +668,6 @@ div.tabbar{
 input.inputInNavtabbar:not(:placeholder-shown) + label{
    font-size: 12px;
    transform: translateY(-110%);
-}
-.inputInNavtabbar {
-   border: none;
-   outline: none;
-   background-color: transparent;
-   border-bottom: 1px solid black;
 }
 
 .manageBooking > form > div > input[type='submit']{
@@ -564,13 +706,14 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    width: 100%;
 }
 
-.select_checkIn{
+.select_checkIn, .select_booking{
    width: 100%;
    height: 20px;
    margin-top: 20px;
 }
 
-.select_checkIn > span.select_option_checkIn{
+.select_checkIn > span.select_option_checkIn,
+.select_booking > span.select_option_booking {
    width: 20%;
    height: 100%;
    color: black;
@@ -585,7 +728,9 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
 }
 
 .select_checkIn > span.select_option_checkIn.active, 
-.select_checkIn > span.select_option_checkIn:hover{
+.select_checkIn > span.select_option_checkIn:hover,
+.select_booking > span.select_option_booking.active,
+.select_booking > span.select_option_booking:hover {
    background-color: var(--dark);
    color: var(--light);
 }
@@ -617,9 +762,59 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    width: 100%;
 }
 
-select.inputInNavtabbar{
+.select_container.FFP {
+   position: relative;
+   height: 27px;
+   width: 95%;
+   font-size: 17px;
+   border: none;
+   outline: none;
+   background-color: transparent;
+   border-bottom: 1px solid black;
+}
+
+.select_container.FFP > .select_box {
+   display: flex;
+   color: black;
+   justify-content: space-between;
+   align-items: center;
+   font-weight: normal;
+   cursor: pointer;
+}
+
+.select_container.FFP > .options {
+   position: fixed;
+   display: none;
    overflow: scroll;
-   height: 28px;
+   height: 200px;
+   z-index: 1009;
+   list-style-type: none;
+   position: relative;
+   background-color: #fff;
+   color: #000;
+   padding: 0;
+   border: 2px solid #fff;
+   box-shadow: 2px 2px 7px rgba(var(--dark-rgb), 0.8);
+   margin-top: 10px;
+}
+
+.select_container.FFP > .options.active {
+   display: block;
+}
+
+.select_container.FFP > .options li {
+   position: relative;
+   font-weight: normal;
+   padding: 15px 20px;
+   cursor: pointer;
+   border-bottom: 1px solid gray;
+   background-color: #fff;
+   transition: 0.3s ease;
+}
+
+.select_container.FFP > .options li:hover {
+   background-color: var(--dark);
+   color: var(--light);
 }
 
 .submit_checkIn > input[type='button']{
@@ -666,6 +861,7 @@ select.inputInNavtabbar{
    background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* container box */
 .bg-white {
    width: 100%;
    margin: 0px;
@@ -696,7 +892,6 @@ select.inputInNavtabbar{
    color: white;
    padding: 10px 10px 0px 10px;
    height: 0px;
-   border-left: 10px solid white;
    transition: opacity 0.3s ease, height 0.3s ease;
 }
 
@@ -740,7 +935,6 @@ div.product {
    overflow: hidden;
 }
 div.box {
-   border-left: 10px solid white;
    padding-top: 10px;
 }
 
@@ -758,330 +952,396 @@ div.product > div > img {
    object-position: center;
 }
 
+/* CSS FOOTER */
+.container {
+   width: 100%;
+   margin: auto;
+   position: relative;
+   padding: 0;
+   height: 150px;
+   overflow: hidden;
+   background-color: #d1cebb;
+}
+.container2 {
+   max-width: 1000px;
+   position: relative;
+   margin: auto;
+   clear: both;
+   border-radius: 4px;
+   padding: 0 5px;
+}
+.footer {
+   background-color: #166987;
+}
 
+div.text {
+   color: rgba(255, 255, 255, 0.779);
+   position: absolute;
+   top: 10px;
+   left: 100px;
+   }
 
+.text h4 {
+   color: #2b89ab;
+}
 
+.navbar {
+   padding: 0 ;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+}
 
-    /* CSS FOOTER */
-    .container {
-      width: 100%;
-      margin: auto;
-      position: relative;
-      padding: 0;
-      height: 150px;
-      overflow: hidden;
-      background-color: #d1cebb;
-   }
-   .container2 {
-      max-width: 1000px;
-      position: relative;
-      margin: auto;
-      clear: both;
-      border-radius: 4px;
-      padding: 0 5px;
-   }
-   .footer {
-      background-color: #166987;
-   }
-   
-   div.text {
-      color: rgba(255, 255, 255, 0.779);
-      position: absolute;
-      top: 10px;
-      left: 100px;
-      }
-   
-   .text h4 {
-      color: #2b89ab;
-   }
-   
-   .navbar {
-      padding: 0 ;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-   }
-   
-   .all_down_content {
-      display: flex;
-      list-style-type:none;
-      margin: 0;
-      padding: 0;
-      justify-content: space-around;
-   }
-   .navbar {
-      padding-top: 30px;
-      margin-bottom: 20px;
-   }
-   .down_menu{
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-   }
-   ul > li.down > ul > li{
-      margin-bottom: 15px;
-   }
-   li.down > ul > li > a {
-      color:white;
-      text-decoration: none;
-      font-size: 13px;
-   }
-   li.down > ul > li > a:hover {
-      color: rgb(246, 237, 204);
-   }
-   .down h4 {
-      font-size: 18px;
-      color: rgb(246, 237, 204);
+.all_down_content {
+   display: flex;
+   list-style-type:none;
+   margin: 0;
+   padding: 0;
+   justify-content: space-around;
+}
+.navbar {
+   padding-top: 30px;
+   margin-bottom: 20px;
+}
+.down_menu{
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+ul > li.down > ul > li{
+   margin-bottom: 15px;
+}
+li.down > ul > li > a {
+   color:white;
+   text-decoration: none;
+   font-size: 13px;
+}
+li.down > ul > li > a:hover {
+   color: rgb(246, 237, 204);
+}
+.down h4 {
+   font-size: 18px;
+   color: rgb(246, 237, 204);
+   font-size: 16px;
+}
+
+/* Minimize */
+
+@media (max-width: 1000px){
+   .down > h4 {
       font-size: 16px;
    }
-   
-   /* Minimize */
-   
-   @media (max-width: 1000px){
-      .down > h4 {
-         font-size: 16px;
-      }
-      li.down > ul > li > a {
-         font-size: 14px;
-      }
+   li.down > ul > li > a {
+      font-size: 14px;
    }
-   
-   /* changes menu */
-   @media (max-width: 700px){
-      .all_down_content {
-         flex-direction: column;
-         align-items: center;
-      }
-   
-      li.down > ul > li > a {
-         font-size: 16px;
-         padding: 20px;
-      }
-   
-      .down {
-         width: 100%;
-         text-align: left;
-         padding-left: 100px;
-      }
-   
-      .down > h4 {
-         font-size: 19px;
-         padding: 25px;
-      }
-   
-      .down_menu {
-         display: none;
-         white-space: nowrap;
-         padding-left: 10px;     
-      }
-   
-      .down:hover .down_menu {
-         display: block;
-      }
-   
-      li.down > h4{
-         margin-bottom: 8px;
-         padding:0 25px 15px 0;
-         Border-bottom: 1px solid #4aacc3;
-      }
-   
-      li.down > ul > li{
-         margin-bottom: 8px;
-         padding: 20px;
-         Border-bottom: 1px solid #4aacc3;
-      }
-   }
-   
-   /* End Footer */
-   
-   .footer_copyright {
-      background-color: #166987;
-      overflow: hidden;
-      color: white;
-      padding: 0px;
+}
+
+/* changes menu */
+@media (max-width: 700px){
+   .all_down_content {
+      flex-direction: column;
+      align-items: center;
    }
 
-   .footer_copyright li {
-      list-style-type: none;
+   li.down > ul > li > a {
+      font-size: 16px;
+      padding: 20px;
    }
 
-
-   .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-   }
-
-   .skyteam {
-      margin-bottom: 20px;
-      margin-top: 10px;
-   }
-
-   .social_icon{
+   .down {
       width: 100%;
-      height: 40px;
+      text-align: left;
+      padding-left: 100px;
    }
 
-   .social_icon > ul {
-      width: 70%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
+   .down > h4 {
+      font-size: 19px;
+      padding: 25px;
    }
 
-   .social_icon > ul > li > a > img.icon{
-      width: 150%;
+   .down_menu {
+      display: none;
+      white-space: nowrap;
+      padding-left: 10px;     
    }
 
-   .skyteam >a {
-      display: block;
-      margin-bottom: 10px;
-   }
-   .skyteam  img {
-
-      width: 120px;
-      height: auto;
+   .down:hover .down_menu {
       display: block;
    }
-   
-   .social_icon  li {
-      padding: 0;
-      margin: 0 ;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
+
+   li.down > h4{
+      margin-bottom: 8px;
+      padding:0 25px 15px 0;
+      Border-bottom: 1px solid #4aacc3;
    }
-   .social_icon ul {
-      padding: 0 ;
-      margin:0;
+
+   li.down > ul > li{
+      margin-bottom: 8px;
+      padding: 20px;
+      Border-bottom: 1px solid #4aacc3;
    }
-   
-   ul.term {
-      padding: 0px;
-   }
-   ul.term li a {
-      text-decoration: none;
-      font-size: 13px;
-      color: white;
-   }
-   ul.term li {
-   padding: 5px;
+}
+
+/* End Footer */
+
+.footer_copyright {
+   background-color: #166987;
+   overflow: hidden;
+   color: white;
+   padding: 0px;
+}
+
+.footer_copyright li {
+   list-style-type: none;
+}
+
+
+.footer-row {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+
+.skyteam {
+   margin-bottom: 20px;
+   margin-top: 10px;
+}
+
+.social_icon{
+   width: 100%;
+   height: 40px;
+}
+
+.social_icon > ul {
+   width: 70%;
+   height: 100%;
    margin: 0;
-   display: inline;
+   padding: 0;
+}
+
+.social_icon > ul > li > a > img.icon{
+   width: 150%;
+}
+
+.skyteam >a {
+   display: block;
+   margin-bottom: 10px;
+}
+.skyteam  img {
+
+   width: 120px;
+   height: auto;
+   display: block;
+}
+
+.social_icon  li {
+   padding: 0;
+   margin: 0 ;
+   display: inline-block;
    width: 20px;
    height: 20px;
-   border-right: 1px solid white;
-   }
-   
-   ul.term li:last-child {
-      border-right: none;
-   }
-   
-   .footer-center {
-      width:50%;
-   }
+}
+.social_icon ul {
+   padding: 0 ;
+   margin:0;
+}
 
-   .pc img {
-      width:100%;
-      height: auto;
-   }
-
-   .logo-small {
-      padding: 0px;
-   } 
-
-   .company_info a {
-      text-decoration: none;
-      color: white;
-   } 
-   .company_info a:hover {
-      color: rgb(246, 237, 204);
-      text-decoration: underline;
-   }
-
-   .company_info  {
+ul.term {
+   padding: 0px;
+}
+ul.term li a {
+   text-decoration: none;
    font-size: 13px;
-   padding-top: 9px;
-   }
+   color: white;
+}
+ul.term li {
+padding: 5px;
+margin: 0;
+display: inline;
+width: 20px;
+height: 20px;
+border-right: 1px solid white;
+}
 
-   .footer-right li {
-      padding: 0;
-      margin: 0;
-      display: inline;
-   }
-   .footer-right ul {
-      padding:0;
-      margin:0;
-   }
-   .footer-right li:not(:first-child)
-   {
-      margin-left: 20px;
-   }
-   .footer-right li:last-child
-   {
-      display: block;
-      margin-left: 0;
-      margin-top: 15px;
-      width: 100%;
-      text-align: center;
-   } 
-   .logo_partner {
-      padding-top: 40px;
-   }
-   .logo_partner  a{
-      text-decoration: none;
-      font-size: 13px;
-      color: white;
-   }
-   .logo_partner a:hover{
-      color: rgb(246, 237, 204);
-   }
+ul.term li:last-child {
+   border-right: none;
+}
 
-   .footer-right img {
-      height: 35px;
-      width: auto;
-   } 
+.footer-center {
+   width:50%;
+}
 
-   .copyright {
-      border-top: 1px solid #6ab6cc;
-      text-align: center;
-      margin-top: 20px;
-      padding: 20px 10px 0px;
-      margin-bottom: 50px;
+.pc img {
+   width:100%;
+   height: auto;
+}
+
+.logo-small {
+   padding: 0px;
+} 
+
+.company_info a {
+   text-decoration: none;
+   color: white;
+} 
+.company_info a:hover {
+   color: rgb(246, 237, 204);
+   text-decoration: underline;
+}
+
+.company_info  {
+font-size: 13px;
+padding-top: 9px;
+}
+
+.footer-right li {
+   padding: 0;
+   margin: 0;
+   display: inline;
+}
+.footer-right ul {
+   padding:0;
+   margin:0;
+}
+.footer-right li:not(:first-child)
+{
+   margin-left: 20px;
+}
+.footer-right li:last-child
+{
+   display: block;
+   margin-left: 0;
+   margin-top: 15px;
+   width: 100%;
+   text-align: center;
+} 
+.logo_partner {
+   padding-top: 40px;
+}
+.logo_partner  a{
+   text-decoration: none;
+   font-size: 13px;
+   color: white;
+}
+.logo_partner a:hover{
+   color: rgb(246, 237, 204);
+}
+
+.footer-right img {
+   height: 35px;
+   width: auto;
+} 
+
+.copyright {
+   border-top: 1px solid #6ab6cc;
+   text-align: center;
+   margin-top: 20px;
+   padding: 20px 10px 0px;
+   margin-bottom: 50px;
+}
+
+.copyright p {
+   font-size: 11px;
+   color: #b1e0ee;
+   line-height: 1.5;
+   margin: 0px;
+}
+
+.copyright ul {
+   padding: 0px;
+   margin-top: 20px;
+}
+
+.copyright li {
+   display: inline;
+}
+
+.copyright li:not(:first-child) {
+   margin-left: 20px;
+}
+
+.copyright img {
+   opacity: 0.5;
+   transition: opacity 0.3s ease;
    }
+.copyright img:hover { 
+    opacity: 1.0;  
+} 
+ 
+.copyright a {
+   color: #b1e0ee;
+   text-decoration: none;
+} 
+.copyright a:hover {
+   color: rgb(246, 237, 204);
+} 
 
-   .copyright p {
-      font-size: 11px;
-      color: #b1e0ee;
-      line-height: 1.5;
-      margin: 0px;
-   }
 
-   .copyright ul {
-      padding: 0px;
-      margin-top: 20px;
-   }
 
-   .copyright li {
-      display: inline;
-   }
-
-   .copyright li:not(:first-child) {
-      margin-left: 20px;
-   }
-
-   .copyright img {
-      opacity: 0.5;
-      transition: opacity 0.3s ease;
-      }
-   .copyright img:hover { 
-       opacity: 1.0;  
-   } 
-    
-   .copyright a {
-      color: #b1e0ee;
-      text-decoration: none;
-   } 
-   .copyright a:hover {
-      color: rgb(246, 237, 204);
-   } 
+.hiddenBody{
+   display: none;
+}
+.dots-bars-6 {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 40px;
+   height: 20px;
+   --c:radial-gradient(farthest-side,currentColor 93%,#0000);
+   background:
+     var(--c) 0    0,
+     var(--c) 50%  0;
+   background-size:8px 8px;
+   background-repeat: no-repeat;
+   position: relative;
+   clip-path: inset(-200% -100% 0 0);
+   animation: db6-0 1.5s linear infinite;
+ }
+ .dots-bars-6:before {
+   content: "";
+   position: absolute;
+   width: 8px;
+   height: 12px;
+   background:currentColor;
+   left:-16px;
+   top:0;
+   animation: 
+     db6-1 1.5s linear infinite,
+     db6-2 0.5s cubic-bezier(0,200,.8,200) infinite;
+ }
+ .dots-bars-6:after {
+   content: "";
+   position: absolute;
+   inset:0 0 auto auto;
+   width:8px;
+   height: 8px;
+   border-radius: 50%;
+   background:currentColor; 
+   animation: db6-3 1.5s  linear infinite;
+ }
+ 
+ @keyframes db6-0 {
+   0%,30%  {background-position: 0  0   ,50% 0   }
+   33%     {background-position: 0  100%,50% 0   }
+   41%,63% {background-position: 0  0   ,50% 0   }
+   66%     {background-position: 0  0   ,50% 100%}
+   74%,100%{background-position: 0  0   ,50% 0   }
+ }
+ 
+ @keyframes db6-1 {
+   90%  {transform:translateY(0)}
+   95%  {transform:translateY(15px)}
+   100% {transform:translateY(15px);left:calc(100% - 8px)}
+ }
+ 
+ @keyframes db6-2 {
+   100% {top:-0.1px}
+ }
+ 
+ @keyframes db6-3 {
+   0%,80%,100% {transform:translate(0)}
+   90%         {transform:translate(26px)}
+ }
+ 
+ 

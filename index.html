@@ -3,693 +3,1011 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietnam airline Website</title>
-    <link rel="icon" href="/pictures/logo_page.jpg"/> 
+    <title>Vietnam Airline</title>
+    <link rel="icon" href="images/Remove-bg.ai_1724410313689.png"/> 
     <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="booking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header>
-      <div class="header_container flex">
-        <div></div>
-        <div class="containerLogo flex">
-            <img class="logo" src="images/VNA_logo_vn.webp" alt="logo">
-            <img class="logo" src="images/skyteam.webp" alt="logo">
-        </div>
-        <div>
-            <input type="search" id="search" name="search" class="search" placeholder="Tìm kiếm">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div>
-            <button class="login flex" onclick="hiddenBody()">Đăng nhập<i class="fa-solid fa-user"></i></button>
-            <div class="sign_in" id="sign_in">
-                <img class="card" src="images/FFPcard_menu.webp">
-                <div class="exit" onclick="exitLogin()"><i class="fa-solid fa-xmark"></i></div>
-                <h3>Đăng nhập tại đây</h3>
-                <div class="account" id="account">
-                   <form action="/SignIn" method="post">
-                        <div>
-                            <input type="email" placeholder=" " id="accUser" required>
-                            <label for="accUser">Email</label>
-                        </div>
-                        <div>
-                            <input type="password" placeholder=" " id="accPass" required>
-                            <label for="accPass">Mật khẩu</label>
-                        </div>
-                        <span class="iconEye" onclick="eyeChecking()">
-                            <i class="fa-solid fa-eye-slash" id="eye"></i>
-                        </span>
-                    </div>
-                    <div class="submit">
-                        <input type="submit" value="Đăng nhập">
-                        <hr>
-                    </div>
-                </form>
-                <div class="sign_up">
-                    <p>Đăng ký</p>
-                    <p>Quên mật khẩu</p>
-                </div>
+<body onload="autoPlay()">
+    <div class="dots-bars-6"></div>
+    <div class="hiddenBody">
+        <header>
+            <div class="header_container flex">
+              <div></div>
+              <div class="containerLogo flex">
+                  <img class="logo" src="images/VNA_logo_vn.webp" alt="logo">
+                  <img class="logo" src="images/skyteam.webp" alt="logo">
+              </div>
+              <div>
+                  <input type="search" id="search" name="search" class="search" placeholder="Tìm kiếm">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div>
+                  <button class="login flex" onclick="hiddenBody()">Đăng nhập<i class="fa-solid fa-user"></i></button>
+                  <div class="sign_in" id="sign_in">
+                      <img class="card" src="images/FFPcard_menu.webp">
+                      <div class="exit" onclick="exitLogin()"><i class="fa-solid fa-xmark"></i></div>
+                      <h3>Đăng nhập tại đây</h3>
+                      <div class="account" id="account">
+                         <form action="/SignIn" method="post">
+                              <div>
+                                  <input type="email" placeholder=" " id="accUser" required>
+                                  <label for="accUser">Email</label>
+                              </div>
+                              <div>
+                                  <input type="password" placeholder=" " id="accPass" required>
+                                  <label for="accPass">Mật khẩu</label>
+                              </div>
+                              <span class="iconEye" onclick="eyeChecking()">
+                                  <i class="fa-solid fa-eye-slash" id="eye"></i>
+                              </span>
+                          </div>
+                          <div class="submit">
+                              <input type="submit" value="Đăng nhập">
+                              <hr>
+                          </div>
+                      </form>
+                      <div class="sign_up">
+                          <p>Đăng ký</p>
+                          <p>Quên mật khẩu</p>
+                      </div>
+                  </div>
+              </div>
+              <div></div>
             </div>
-        </div>
-        <div></div>
-      </div>
-    </header>
-    <div class="overlay" id="overlay"></div>
-    <nav class="flex">
-        <div></div>
-        <ul class="menu flex">
-            <li><a href="#">Trợ giúp</a></li>
-            <li>
-                <a href="#">Lên kế hoạch<i class="fa-solid fa-chevron-down"></i></a>
-                <nav class="submenu">
-                    <ul>
-                        <li><a href="#"><h4>Ưu đãi</h4></a></li>
-                        <li><a href="#">Giá vé đặc biệt</a></li>
-                        <li><a href="#">Ưu đãi tháng</a></li>
-                        <li><a href="#">Vé máy bay từ Hà Nội đi Tp. Hồ Chí Minh</a></li>
-                        <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Hà Nội</a></li>
-                        <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Đà Nẵng</a></li>
-                        <li><a href="#">Vé máy bay từ Đà Nẵng đi Tp. Hồ Chí Minh</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Điểm đến</h4></a></li>
-                        <li><a href="">Hà Nội</a></li>
-                        <li><a href="">Tp. Hồ Chí Minh</a></li>
-                        <li><a href="">Đà Nẵng</a></li>
-                        <li><a href="">Phú Quốc</a></li>
-                        <li><a href="">Nha Trang</a></li>
-                        <li><a href="">Tất cả điểm đến</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Lịch bay & Mạng đường bay</h4></a></li>
-                        <li><a href="">Mạng đường bay</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Trãi nghiệm bay</h4></a></li>
-                        <li><a href="">Hạng Thương gia</a></li>
-                        <li><a href="">Hạng Phổ thông đặc biệt</a></li>
-                        <li><a href="">Hạng Phổ thông</a></li>
-                        <li><a href="">Giải trí trên chuyến bay</a></li>
-                        <li><a href="">Mua hàng miễn thuế - Lotushop</a></li>
-                    </ul>
-                </nav>
-            </li>
-            <li>
-                <a href="#">Thông tin hành trình<i class="fa-solid fa-chevron-down"></i></a>
-                <nav class="submenu">
-                    <ul>
-                        <li><a href="#"><h4>Hành lý</h4></a></li>
-                        <li><a href="#">Tra cứu thông tin hành lý</a></li>
-                        <li><a href="#">Hành lý xách tay</a></li>
-                        <li><a href="#">Hành lý ký gửi miễn cước</a></li>
-                        <li><a href="#">Mua thêm hành lý ký gửi</a></li>
-                        <li><a href="#">Hành lý đặc biệt</a></li>
-                        <li><a href="#">Hành lý hạn chế vận chuyển</a></li>
-                        <li><a href="#">Gặp vấn đề với hành lý</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Làm thủ tục</h4></a></li>
-                        <li><a href="">Làm thủ tục trực tuyến</a></li>
-                        <li><a href="">Làm thủ tục tại kiosk</a></li>
-                        <li><a href="">Làm thủ tục tại sân bay</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Thông tin sân bay</h4></a></li>
-                        <li><a href="">Thông tin sân bay</a></li>
-                        <li><a href="">Phòng khách Thương gia</a></li>
-                        <li><a href="">Dịch vụ ưu tiên tại sân bay SkyPriority</a></li>
-                        <li><a href="">Bản đồ sân bay</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Chuyển bị cho chuyến bay</h4></a></li>
-                        <li><a href="">Giấy tờ tùy thân</a></li>
-                        <li><a href="">Thị thực</a></li>
-                        <li><a href="">Thông tin xuất nhập cảnh/quá cảnh</a></li>
-                    </ul>
-                </nav>
-            </li>
-            <li>
-                <a href="#">Mua vé & Sản phẩm khác<i class="fa-solid fa-chevron-down"></i></a>
-                <nav class="submenu">
-                    <ul>
-                        <li><a href="#"><h4>Hướng dẫn mua vé & thanh toán </h4></a></li>
-                        <li><a href="#">Hướng dẫn đặt vé máy bay online</a></li>
-                        <li><a href="#">Các hình thức thanh toán</a></li>
-                        <li><a href="#">Xuất hóa đơn VAT điện tử</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Mua vé & Quản lý đặt chỗ</h4></a></li>
-                        <li><a href="">Mua vé</a></li>
-                        <li><a href="">Quản lý đặt chỗ</a></li>
-                        <li><a href="">Làm thủ tục</a></li>
-                        <li><a href="">Hoàn vé,thay đổi tự nguyện</a></li>
-                        <li><a href="">Đổi chuyến bay không tự nguyện</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Điều kiện giá</h4></a></li>
-                        <li><a href="">Điều kiện giá vé</a></li>
-                        <li><a href="">Thuế, phí, lệ phí & phụ thu</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Dịch vụ bổ trợ</h4></a></li>
-                        <li><a href="">Sản phẩm kết hợp mấy bay và tàu</a></li>
-                        <li><a href="">Mua thêm hành lý ký gửi</a></li>
-                        <li><a href="">Đặt trước trà sữa LotusDeli</a></li>
-                        <li><a href="">Vietnam Airline Skys Pass</a></li>
-                        <li><a href="">Sky Sofa</a></li>
-                        <li><a href="">Chọn trước chỗ ngồi</a></li>
-                        <li><a href="">Nâng hạng</a></li>
-                        <li><a href="">Tất cả dịch vụ bổ trợ</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Dịch vụ đặc biệt</h4></a></li>
-                        <li><a href="">Vận chuyển thú cưng</a></li>
-                        <li><a href="">Suất ăn đặc biệt</a></li>
-                        <li><a href="">Dịch vụ cho trẻ em</a></li>
-                        <li><a href="">Trẻ em đi một mình</a></li>
-                        <li><a href="">Hành khách hạn chế khả năng di chuyển</a></li>
-                        <li><a href="">Phụ nữ mang thai</a></li>
-                        <li><a href="">Mua thêm ghế</a></li>
-                        <li><a href="">Hành khách cần xác nhận sức khỏe</a></li>
-                        <li><a href="">Phí dịch vụ đặc biệt</a></li>
-                    </ul>
-                </nav>
-            </li>
-            <li>
-                <a href="#">Lotusmiles<i class="fa-solid fa-chevron-down"></i></a>
-                <nav class="submenu">
-                    <ul>
-                        <li><a href="#"><h4>Ưu đãi</h4></a></li>
-                        <li><a href="#">Giá vé đặc biệt</a></li>
-                        <li><a href="#">Ưu đãi tháng</a></li>
-                        <li><a href="#">Vé máy bay từ Hà Nội đi Tp. Hồ Chí Minh</a></li>
-                        <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Hà Nội</a></li>
-                        <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Đà Nẵng</a></li>
-                        <li><a href="#">Vé máy bay từ Đà Nẵng đi Tp. Hồ Chí Minh</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Điểm đến</h4></a></li>
-                        <li><a href="">Hà Nội</a></li>
-                        <li><a href="">Tp. Hồ Chí Minh</a></li>
-                        <li><a href="">Đà Nẵng</a></li>
-                        <li><a href="">Phú Quốc</a></li>
-                        <li><a href="">Nha Trang</a></li>
-                        <li><a href="">Tất cả điểm đến</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Lịch bay & Mạng đường bay</h4></a></li>
-                        <li><a href="">Mạng đường bay</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href=""><h4>Trãi nghiệm bay</h4></a></li>
-                        <li><a href="">Hạng Thương gia</a></li>
-                        <li><a href="">Hạng Phổ thông đặc biệt</a></li>
-                        <li><a href="">Hạng Phổ thông</a></li>
-                        <li><a href="">Giải trí trên chuyến bay</a></li>
-                        <li><a href="">Mua hàng miễn thuế - Lotushop</a></li>
-                    </ul>
-                </nav>
-            </li>
-        </ul>
-        <div></div>
-    </nav>
-    <main>
-       <div class="main_container">
-        <div class="wrapper">
-            <div class="wrapper_slide">
-                <div class="slide">
-                    <img src="images/12august24-QSA-2600x1111-Hero-banner.jpg">
-                    <div>
-                        <h2>Giảm đến 15% khi mua vé qua ứng dụng</h2>
-                        <h5>> Khám phá ngay</h5>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/2600x1111-baydem.jpg">
-                    <div>
-                        <h2>Tiết kiếm hớn đến 30% so với khung giờ khác</h2>
-                        <h5>> Mua vé ngay</h5>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/2600x1111-chao_thu (1).jpg">
-                    <div>
-                        <h2>Giảm đến 30% giá vé chỉ trong 2 tuần</h2>
-                        <h5>> Lên kế hoạch ngay</h5>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/HERO-tang-tra-sua.jpg">
-                    <div>
-                        <h2>Áp dụng từ nay dến 30/09</h2>
-                        <h5>> Khám phá ngay</h5>
-                    </div>
-                </div>
-                <div class="select">
-                    <button class="play" onclick="autoPlay()"><i class="fa-solid fa-play" id="playButton"></i></button>
-                    <div class="change_by_click">
-                        <span class="circle" onclick="changeSlide(1)"></span>
-                        <span class="circle" onclick="changeSlide(2)"></span>
-                        <span class="circle" onclick="changeSlide(3)"></span>
-                        <span class="circle" onclick="changeSlide(4)"></span>
-                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="connect_AI flex">
-            <img src="images/ChatAI.png" alt="chatAi">
-            <h2>Chat with me</h2>
-        </div>
-        <div class="tabbar">
-            <nav class="navtabbar flex">
-                <ul class="menu_navtabbar" onclick="activeNavtabbar(1)">
-                    <img class="icon" src="images/icon_plane_white.svg">Mua vé
-                    <div class="submenu">
-
-                        <div class="exit_submenu" onclick="exitSubmenu(event)">
-                            <i class="fa-solid fa-angles-up"></i>
-                        </div>
-                    </div>
-                </ul>
-                <ul class="menu_navtabbar" onclick="activeNavtabbar(2)">
-                    <img class="icon" src="images/icon_manage_white.svg">Quản lý đặt chỗ
-                    <div class="submenu">
-                        <div class="manageBooking">
-                            <form action="/manageBooking">
-                                <div>
-                                    <input class="inputInNavtabbar" type="text" placeholder="" id="codePlace" maxlength="6" required>
-                                    <label for="codePlace">Mã đặt chỗ/Số vé điện tử</label>
+          </header>
+          <div class="overlay" id="overlay"></div>
+          <nav class="flex">
+              <div></div>
+              <ul class="menu flex">
+                  <li><a href="#">Trợ giúp</a></li>
+                  <li>
+                      <a href="#">Lên kế hoạch<i class="fa-solid fa-chevron-down"></i></a>
+                      <nav class="submenu">
+                          <ul>
+                              <li><a href="#"><h4>Ưu đãi</h4></a></li>
+                              <li><a href="#">Giá vé đặc biệt</a></li>
+                              <li><a href="#">Ưu đãi tháng</a></li>
+                              <li><a href="#">Vé máy bay từ Hà Nội đi Tp. Hồ Chí Minh</a></li>
+                              <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Hà Nội</a></li>
+                              <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Đà Nẵng</a></li>
+                              <li><a href="#">Vé máy bay từ Đà Nẵng đi Tp. Hồ Chí Minh</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Điểm đến</h4></a></li>
+                              <li><a href="">Hà Nội</a></li>
+                              <li><a href="">Tp. Hồ Chí Minh</a></li>
+                              <li><a href="">Đà Nẵng</a></li>
+                              <li><a href="">Phú Quốc</a></li>
+                              <li><a href="">Nha Trang</a></li>
+                              <li><a href="">Tất cả điểm đến</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Lịch bay & Mạng đường bay</h4></a></li>
+                              <li><a href="">Mạng đường bay</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Trãi nghiệm bay</h4></a></li>
+                              <li><a href="">Hạng Thương gia</a></li>
+                              <li><a href="">Hạng Phổ thông đặc biệt</a></li>
+                              <li><a href="">Hạng Phổ thông</a></li>
+                              <li><a href="">Giải trí trên chuyến bay</a></li>
+                              <li><a href="">Mua hàng miễn thuế - Lotushop</a></li>
+                          </ul>
+                      </nav>
+                  </li>
+                  <li>
+                      <a href="#">Thông tin hành trình<i class="fa-solid fa-chevron-down"></i></a>
+                      <nav class="submenu">
+                          <ul>
+                              <li><a href="#"><h4>Hành lý</h4></a></li>
+                              <li><a href="#">Tra cứu thông tin hành lý</a></li>
+                              <li><a href="#">Hành lý xách tay</a></li>
+                              <li><a href="#">Hành lý ký gửi miễn cước</a></li>
+                              <li><a href="#">Mua thêm hành lý ký gửi</a></li>
+                              <li><a href="#">Hành lý đặc biệt</a></li>
+                              <li><a href="#">Hành lý hạn chế vận chuyển</a></li>
+                              <li><a href="#">Gặp vấn đề với hành lý</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Làm thủ tục</h4></a></li>
+                              <li><a href="">Làm thủ tục trực tuyến</a></li>
+                              <li><a href="">Làm thủ tục tại kiosk</a></li>
+                              <li><a href="">Làm thủ tục tại sân bay</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Thông tin sân bay</h4></a></li>
+                              <li><a href="">Thông tin sân bay</a></li>
+                              <li><a href="">Phòng khách Thương gia</a></li>
+                              <li><a href="">Dịch vụ ưu tiên tại sân bay SkyPriority</a></li>
+                              <li><a href="">Bản đồ sân bay</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Chuyển bị cho chuyến bay</h4></a></li>
+                              <li><a href="">Giấy tờ tùy thân</a></li>
+                              <li><a href="">Thị thực</a></li>
+                              <li><a href="">Thông tin xuất nhập cảnh/quá cảnh</a></li>
+                          </ul>
+                      </nav>
+                  </li>
+                  <li>
+                      <a href="#">Mua vé & Sản phẩm khác<i class="fa-solid fa-chevron-down"></i></a>
+                      <nav class="submenu">
+                          <ul>
+                              <li><a href="#"><h4>Hướng dẫn mua vé & thanh toán </h4></a></li>
+                              <li><a href="#">Hướng dẫn đặt vé máy bay online</a></li>
+                              <li><a href="#">Các hình thức thanh toán</a></li>
+                              <li><a href="#">Xuất hóa đơn VAT điện tử</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Mua vé & Quản lý đặt chỗ</h4></a></li>
+                              <li><a href="">Mua vé</a></li>
+                              <li><a href="">Quản lý đặt chỗ</a></li>
+                              <li><a href="">Làm thủ tục</a></li>
+                              <li><a href="">Hoàn vé,thay đổi tự nguyện</a></li>
+                              <li><a href="">Đổi chuyến bay không tự nguyện</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Điều kiện giá</h4></a></li>
+                              <li><a href="">Điều kiện giá vé</a></li>
+                              <li><a href="">Thuế, phí, lệ phí & phụ thu</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Dịch vụ bổ trợ</h4></a></li>
+                              <li><a href="">Sản phẩm kết hợp mấy bay và tàu</a></li>
+                              <li><a href="">Mua thêm hành lý ký gửi</a></li>
+                              <li><a href="">Đặt trước trà sữa LotusDeli</a></li>
+                              <li><a href="">Vietnam Airline Skys Pass</a></li>
+                              <li><a href="">Sky Sofa</a></li>
+                              <li><a href="">Chọn trước chỗ ngồi</a></li>
+                              <li><a href="">Nâng hạng</a></li>
+                              <li><a href="">Tất cả dịch vụ bổ trợ</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Dịch vụ đặc biệt</h4></a></li>
+                              <li><a href="">Vận chuyển thú cưng</a></li>
+                              <li><a href="">Suất ăn đặc biệt</a></li>
+                              <li><a href="">Dịch vụ cho trẻ em</a></li>
+                              <li><a href="">Trẻ em đi một mình</a></li>
+                              <li><a href="">Hành khách hạn chế khả năng di chuyển</a></li>
+                              <li><a href="">Phụ nữ mang thai</a></li>
+                              <li><a href="">Mua thêm ghế</a></li>
+                              <li><a href="">Hành khách cần xác nhận sức khỏe</a></li>
+                              <li><a href="">Phí dịch vụ đặc biệt</a></li>
+                          </ul>
+                      </nav>
+                  </li>
+                  <li>
+                      <a href="#">Lotusmiles<i class="fa-solid fa-chevron-down"></i></a>
+                      <nav class="submenu">
+                          <ul>
+                              <li><a href="#"><h4>Ưu đãi</h4></a></li>
+                              <li><a href="#">Giá vé đặc biệt</a></li>
+                              <li><a href="#">Ưu đãi tháng</a></li>
+                              <li><a href="#">Vé máy bay từ Hà Nội đi Tp. Hồ Chí Minh</a></li>
+                              <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Hà Nội</a></li>
+                              <li><a href="#">Vé máy bay từ Tp. Hồ Chí Minh đi Đà Nẵng</a></li>
+                              <li><a href="#">Vé máy bay từ Đà Nẵng đi Tp. Hồ Chí Minh</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Điểm đến</h4></a></li>
+                              <li><a href="">Hà Nội</a></li>
+                              <li><a href="">Tp. Hồ Chí Minh</a></li>
+                              <li><a href="">Đà Nẵng</a></li>
+                              <li><a href="">Phú Quốc</a></li>
+                              <li><a href="">Nha Trang</a></li>
+                              <li><a href="">Tất cả điểm đến</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Lịch bay & Mạng đường bay</h4></a></li>
+                              <li><a href="">Mạng đường bay</a></li>
+                          </ul>
+                          <ul>
+                              <li><a href=""><h4>Trãi nghiệm bay</h4></a></li>
+                              <li><a href="">Hạng Thương gia</a></li>
+                              <li><a href="">Hạng Phổ thông đặc biệt</a></li>
+                              <li><a href="">Hạng Phổ thông</a></li>
+                              <li><a href="">Giải trí trên chuyến bay</a></li>
+                              <li><a href="">Mua hàng miễn thuế - Lotushop</a></li>
+                          </ul>
+                      </nav>
+                  </li>
+              </ul>
+              <div></div>
+          </nav>
+          <main>
+             <div class="main_container">
+              <div class="wrapper">
+                  <div class="wrapper_slide">
+                      <div class="slide">
+                          <img src="images/12august24-QSA-2600x1111-Hero-banner.jpg">
+                          <div>
+                              <h2>Giảm đến 15% khi mua vé qua ứng dụng</h2>
+                              <h5>> Khám phá ngay</h5>
+                          </div>
+                      </div>
+                      <div class="slide">
+                          <img src="images/2600x1111-baydem.jpg">
+                          <div>
+                              <h2>Tiết kiếm hớn đến 30% so với khung giờ khác</h2>
+                              <h5>> Mua vé ngay</h5>
+                          </div>
+                      </div>
+                      <div class="slide">
+                          <img src="images/2600x1111-chao_thu (1).jpg">
+                          <div>
+                              <h2>Giảm đến 30% giá vé chỉ trong 2 tuần</h2>
+                              <h5>> Lên kế hoạch ngay</h5>
+                          </div>
+                      </div>
+                      <div class="slide">
+                          <img src="images/HERO-tang-tra-sua.jpg">
+                          <div>
+                              <h2>Áp dụng từ nay dến 30/09</h2>
+                              <h5>> Khám phá ngay</h5>
+                          </div>
+                      </div>
+                      <div class="select">
+                          <button class="play" onclick="autoPlay()" ><i class="fa-solid fa-play" id="playButton"></i></button>
+                          <div class="change_by_click">
+                              <span class="circle" onclick="changeSlide(1)"></span>
+                              <span class="circle" onclick="changeSlide(2)"></span>
+                              <span class="circle" onclick="changeSlide(3)"></span>
+                              <span class="circle" onclick="changeSlide(4)"></span>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="connect_AI flex">
+                  <img src="images/ChatAI.png" alt="chatAi">
+                  <h2>Chat with me</h2>
+              </div>
+              <div class="tabbar">
+                  <nav class="navtabbar flex">
+                      <ul class="menu_navtabbar" onclick="activeNavtabbar(1)">
+                          <img class="icon" src="images/icon_plane_white.svg">Mua vé
+                          <div class="submenu">
+                              <div class="booking">
+                                <h4>Tra cuu gan day</h4>
+                                <div class="select_booking">
+                                    <span class="select_option_booking">Khu hoi</span>
+                                    <span class="select_option_booking">Mot chieu</span>
+                                    <span class="select_option_booking">Nhieu chang</span>
                                 </div>
-                                <div>
-                                     <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
-                                    <label for="surname">Họ</label>
-                                </div>
-                                <div>
-                                    <input type="submit" value="TÌM KIẾM">
-                                </div>
-                            </form>
-                            <h5>Quý khách có thể xem thông tin và điều chỉnh các tùy chọn cho chuyến bay:</h5>
-                            <div>
-
-                            </div>
-                        </div>
-                        <div class="exit_submenu" onclick="exitSubmenu(event)">
-                            <i class="fa-solid fa-angles-up"></i>
-                        </div>
-                    </div>
-                </ul>
-                <ul class="menu_navtabbar" onclick="activeNavtabbar(3)">
-                    <img class="icon" src="images/icon_checkin_white.svg">Làm thủ tục
-                    <div class="submenu">
-                        <div class="checkIn">
-                            <p>Quý khách có thể làm thủ tục trực tuyến từ 24 đến 01 tiếng trước chuyến bay</p>
-                            <div class="containerCheckIn">
-                                <div class="select_checkIn">
-                                    <span class="select_option_checkIn active" onclick="changeInputCheckin(1)">Mã đặt chỗ (PNR)</span>
-                                    <span class="select_option_checkIn" onclick="changeInputCheckin(2)">Số vé điện tử</span>
-                                    <span class="select_option_checkIn" onclick="changeInputCheckin(3)">Số thẻ FFP</span>
-                                </div>
-                                <div class="formGroupCheckIn">
-                                    <div class="formCheckIn active">
-                                        <form action="/checkIn">
-                                            <div>
-                                                <input class="inputInNavtabbar" type="text" placeholder="" id="code" maxlength="6" required>
-                                                <label for="codePlace">Mã đặt chỗ</label>
+                                <div class="inputBooking">
+                                    <div class="formBooking">
+                                        <div class="form box1">
+                                            <div class="select_container_from">
+                                                <div class="select_box">
+                                                    <input type="text" id="from" placeholder="" class="select_box-text" value="">
+                                                    <label for="from">Từ</label>
+                                                    <i class="fa-solid fa-sort-down"></i>
+                                                </div>
+                                                <ul class="option_box">
+                                                    <div class="menu_option">
+                                                        <span class="">VIỆT NAM</span>
+                                                        <span class="">ĐÔNG BẮC Á</span>
+                                                        <span class="">ĐÔNG NAM Á</span>
+                                                        <span class="">ĐÔNG DƯƠNG</span>
+                                                        <span class="">NAM Á</span>
+                                                        <span class="">CHÂU ÂU</span>
+                                                        <span class="">CHÂU ÚC</span>
+                                                        <span class="">BẮC MỸ</span>
+                                                        <span class="">TRUNG ĐÔNG</span>
+                                                        <span class="">CHÂU PHI</span>
+                                                    </div>
+                                                    <div class="options">
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>0000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                   </div>
+                                                   <div class="exit_booking" onclick="document.querySelector('.option_box').style.display='none'"><i class="fa-solid fa-xmark"></i></div>
+                                                </ul>
                                             </div>
-                                            <div>
-                                                 <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
-                                                <label for="surname">Họ</label>
+                                        </div>
+                                        <div class="icon_swap"><i class="fa-solid fa-right-left"></i></div>
+                                        <div class="form box1">
+                                            <div class="select_container_from">
+                                                <div class="select_box">
+                                                    <input type="text" id="to" placeholder="" class="select_box-text" value="">
+                                                    <label for="to">Đến</label>
+                                                    <i class="fa-solid fa-sort-down"></i>
+                                                </div>
+                                                <ul class="option_box">
+                                                    <div class="menu_option">
+                                                        <span class="">VIỆT NAM</span>
+                                                        <span class="">ĐÔNG BẮC Á</span>
+                                                        <span class="">ĐÔNG NAM Á</span>
+                                                        <span class="">ĐÔNG DƯƠNG</span>
+                                                        <span class="">NAM Á</span>
+                                                        <span class="">CHÂU ÂU</span>
+                                                        <span class="">CHÂU ÚC</span>
+                                                        <span class="">BẮC MỸ</span>
+                                                        <span class="">TRUNG ĐÔNG</span>
+                                                        <span class="">CHÂU PHI</span>
+                                                    </div>
+                                                    <div class="options">
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>0000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                        <ul class="option">
+                                                            <li>000000000000001</li>
+                                                            <li>000000000000002</li>
+                                                            <li>000000000000003</li>
+                                                            <li>000000000000004</li>
+                                                            <li>000000000000005</li>
+                                                            <li>000000000000006</li>
+                                                            <li>000000000000007</li>
+                                                            <li>000000000000008</li>
+                                                            <li>000000000000009</li>
+                                                            <li>000000000000010</li>
+                                                        </ul>
+                                                   </div>
+                                                   <div class="exit_booking"><i class="fa-solid fa-xmark"></i></div>
+                                                </ul>
                                             </div>
-                                        </form>
+                                        </div>
+                                        <div class="form box2">
+                                            <h2>hello</h2>
+                                        </div>
+                                        <div class="form box2">
+                                            <h2>hello</h2>
+                                        </div>
                                     </div>
-                                    <div class="formCheckIn">
-                                        <form action="/checkIn">
-                                            <div>
-                                                <input class="inputInNavtabbar" type="text" placeholder="" id="digitalNumber" maxlength="6" required>
-                                                <label for="codePlace">Số vé điện tử</label>
-                                            </div>
-                                            <div>
-                                                 <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
-                                                <label for="surname">Họ</label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="formCheckIn">
-                                        <form action="/checkIn">
-                                            <div>
-                                                <input class="inputInNavtabbar" type="text" placeholder="" id="digitalNumber" maxlength="6" required>
-                                                <label for="codePlace">Số vé FFP</label>
-                                            </div>
-                                            <div>
-                                                 <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
-                                                <label for="surname">Họ</label>
-                                            </div>
-                                            <div>
-                                                <select class="inputInNavtabbar" id="numberFFP">
-                                                    <option value="" disabled selected></option>
-                                                    <option value="VN">Vietnam Airlines (VN)</option>
-                                                    <option value="SU">Aeroflot (SU)</option>
-                                                    <option value="AR">Aerolineas Argentina (AR)</option>
-                                                    <option value="AM">Aeromexico (AM)</option>
-                                                    <option value="UX">Air Europa (UX)</option>
-                                                    <option value="AF">Air France (AF)</option>
-                                                    <option value="AZ">Alitalia (AZ)</option>
-                                                    <option value="CI">China Airlines (CI)</option>
-                                                    <option value="MU">China Eastern Airlines (MU)</option>
-                                                    <option value="CZ">China Southern Airlines (CZ)</option>
-                                                    <option value="OK">Czech Airlines (OK)</option>
-                                                </select>
-                                                <label for="numerFFP">Frequent Flyer Program(*)</label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="submit_checkIn">
+                                </div>
+                              </div>
+                              <div class="exit_submenu" onclick="exitSubmenu(event)">
+                                  <i class="fa-solid fa-angles-up"></i>
+                              </div>
+                          </div>
+                      </ul>
+                      <ul class="menu_navtabbar" onclick="activeNavtabbar(2)">
+                          <img class="icon" src="images/icon_manage_white.svg">Quản lý đặt chỗ
+                          <div class="submenu">
+                              <div class="manageBooking">
+                                  <form action="/manageBooking">
+                                      <div>
+                                          <input class="inputInNavtabbar" type="text" placeholder="" id="codePlace" maxlength="6" required>
+                                          <label for="codePlace">Mã đặt chỗ/Số vé điện tử</label>
+                                      </div>
+                                      <div>
+                                           <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                          <label for="surname">Họ</label>
+                                      </div>
+                                      <div>
+                                          <input type="submit" value="TÌM KIẾM">
+                                      </div>
+                                  </form>
+                                  <h5>Quý khách có thể xem thông tin và điều chỉnh các tùy chọn cho chuyến bay:</h5>
+                                  <div>
+      
+                                  </div>
+                              </div>
+                              <div class="exit_submenu" onclick="exitSubmenu(event)">
+                                  <i class="fa-solid fa-angles-up"></i>
+                              </div>
+                          </div>
+                      </ul>
+                      <ul class="menu_navtabbar" onclick="activeNavtabbar(3)">
+                          <img class="icon" src="images/icon_checkin_white.svg">Làm thủ tục
+                          <div class="submenu">
+                              <div class="checkIn">
+                                  <p>Quý khách có thể làm thủ tục trực tuyến từ 24 đến 01 tiếng trước chuyến bay</p>
+                                  <div class="containerCheckIn">
+                                      <div class="select_checkIn">
+                                          <span class="select_option_checkIn active" onclick="changeInputCheckin(1)">Mã đặt chỗ (PNR)</span>
+                                          <span class="select_option_checkIn" onclick="changeInputCheckin(2)">Số vé điện tử</span>
+                                          <span class="select_option_checkIn" onclick="changeInputCheckin(3)">Số thẻ FFP</span>
+                                      </div>
+                                      <div class="formGroupCheckIn">
+                                          <div class="formCheckIn active">
+                                              <form action="/checkIn">
+                                                  <div>
+                                                      <input class="inputInNavtabbar" type="text" placeholder="" id="code" maxlength="6" required>
+                                                      <label for="codePlace">Mã đặt chỗ</label>
+                                                  </div>
+                                                  <div>
+                                                       <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                                      <label for="surname">Họ</label>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                          <div class="formCheckIn">
+                                              <form action="/checkIn">
+                                                  <div>
+                                                      <input class="inputInNavtabbar" type="text" placeholder="" id="digitalNumber" maxlength="6" required>
+                                                      <label for="codePlace">Số vé điện tử</label>
+                                                  </div>
+                                                  <div>
+                                                       <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                                      <label for="surname">Họ</label>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                          <div class="formCheckIn">
+                                              <form action="/checkIn">
+                                                  <div>
+                                                      <input class="inputInNavtabbar" type="text" placeholder="" id="digitalNumber" maxlength="6" required>
+                                                      <label for="codePlace">Số vé FFP</label>
+                                                  </div>
+                                                  <div>
+                                                       <input class="inputInNavtabbar" type="text" placeholder="" id="surname" maxlength="10" required>
+                                                      <label for="surname">Họ</label>
+                                                  </div>
+                                                  <div>
+                                                    <div class="select_container FFP" id="numberFFP">
+                                                        <div class="select_box">
+                                                            <span class="select_box-text">Frequent Flyer Program(*)</span>
+                                                            <i class="fa-solid fa-sort-down"></i>
+                                                        </div>
+                                                        <ul class="options">
+                                                            <li>Vietnam Airlines (VN)</li>
+                                                            <li>Aeroflot (SU)</li>
+                                                            <li>Aerolineas Argentina (AR)</li>
+                                                            <li>Aeromexico (AM)</li>
+                                                            <li>Air Europa (UX)</li>
+                                                            <li>Air France (AF)</li>
+                                                            <li>Alitalia (AZ)</li>
+                                                            <li>China Airlines (CI)</li>
+                                                            <li>China Eastern Airlines (MU)</li>
+                                                            <li>China Southern Airlines (CZ)</li>
+                                                            <li>Czech Airlines (OK)</li>
+                                                            <li>Delta Air Lines (DL)</li>
+                                                            <li>Garuda Indonesia Airlines (GA)</li>
+                                                        </ul>
+                                                    </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                      <div class="submit_checkIn">
                                         <input type="button" value="Lam Thu Tuc">
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="exit_submenu" onclick="exitSubmenu(event)">
-                            <i class="fa-solid fa-angles-up"></i>
-                        </div>
-                    </div>
-                </ul>
-            </nav>
-            <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
-        </div>
-       </div>
-    </main>
-    <div class="bg-white">
-        <div class="big-box">
-            <div class="row">
-                <div class="row-content">
-                    <div class="title_row">
-                        <h2>
-                            Khám Phá Các Chuyến Bay Phổ Biến Nhất Của Chúng Tôi
-                        </h2>
-                    </div>
-                    <div>
-                        <section class="product flex">
-                            <!-- Box 1-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/62fa63bb2d31e_Ha_Noi.webp" alt="HaNoi">
-                                    <div class="box">
-                                        <div class="box-title">
-                                        TP. Hồ Chí Minh đến <br> Hà Nội
-                                        </div>
-                                        <div class="box-date">
-                                        23/09/2024
-                                        </div>
-                                        <div class="box-price">
-                                            <span>Từ</span> <br> 1.216.000 VND<sup>*</sup>
-                                        </div>
-                                        <div class="box-view">
+                                  </div>
+                              </div>
+                              <div class="exit_submenu" onclick="exitSubmenu(event)">
+                                  <i class="fa-solid fa-angles-up"></i>
+                              </div>
+                          </div>
+                      </ul>
+                  </nav>
+                  <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
+              </div>
+             </div>
+          </main>
+          <div class="bg-white">
+              <div class="big-box">
+                  <div class="row">
+                      <div class="row-content">
+                          <div class="title_row">
+                              <h2>
+                                  Khám Phá Các Chuyến Bay Phổ Biến Nhất Của Chúng Tôi
+                              </h2>
+                          </div>
+                          <div>
+                              <section class="product flex">
+                                  <!-- Box 1-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/62fa63bb2d31e_Ha_Noi.webp" alt="HaNoi">
+                                          <div class="box">
+                                              <div class="box-title">
+                                              TP. Hồ Chí Minh đến <br> Hà Nội
+                                              </div>
+                                              <div class="box-date">
+                                              23/09/2024
+                                              </div>
+                                              <div class="box-price">
+                                                  <span>Từ</span> <br> 1.216.000 VND<sup>*</sup>
+                                              </div>
+                                              <div class="box-view">
+                                                    Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- Box 2-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/Ho-Chi-Minh-City-SGN.avif" alt="hcm">
+                                      <div class="box">
+                                          <div class="box-title">
+                                              Hà Nội đến <br> TP. Hồ Chí Minh
+                                          </div>
+                                          <div class="box-date">
+                                              30/09/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br> 1.216.000 VND<sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
                                               Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Box 2-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/Ho-Chi-Minh-City-SGN.avif" alt="hcm">
-                                <div class="box">
-                                    <div class="box-title">
-                                        Hà Nội đến <br> TP. Hồ Chí Minh
-                                    </div>
-                                    <div class="box-date">
-                                        30/09/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br> 1.216.000 VND<sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Box 3-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/62fa641d28f87_Da_Nang.webp" alt="Da Nang">
-                                    <div class="box">
-                                    <div class="box-title">
-                                        TP. Hồ Chí Minh đến <br> Đà Nẵng
-                                    </div>
-                                    <div class="box-date">
-                                        29/09/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br> 957.000 VND <sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Box 4-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/62fa641d28f87_Da_Nang.webp" alt="danang">
-                                    <div class="box">
-                                    <div class="box-title">
-                                         Hà Nội đến <br> Đà Nẵng
-                                    </div>
-                                    <div class="box-date">
-                                        03/11/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br>  1.115.000 VND<sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="product flex">
-                            <!-- Box 5-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/Ho-Chi-Minh-City-SGN.avif" alt="hcm">
-                                <div class="box">
-                                    <div class="box-title">
-                                        Đà Nẵng đến <br> TP. Hồ Chí Minh
-                                    </div>
-                                    <div class="box-date">
-                                        25/10/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br> 1.162.000 VND<sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Box 6-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/62fa63bb2d31e_Ha_Noi.webp" alt="HaNoi">
-                                <div class="box">
-                                    <div class="box-title">
-                                        Đà Nẵng đến <br> Hà Nội
-                                    </div>
-                                    <div class="box-date">
-                                        26/09/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br>  968.000 VND<sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Box 7-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/62fa63fa62a8d_Hue.webp" alt="Hue">
-                                <div class="box">
-                                    <div class="box-title">
-                                        TP. Hồ Chí Minh đến <br> Huế
-                                    </div>
-                                    <div class="box-date">
-                                        2/10/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br> 957.000 VND<sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Box 8-->
-                            <div class="product">
-                                <div>
-                                    <img src="/images/62fa6477ced02_Nha_Trang.webp" alt="Nha trang">
-                                    <div class="box">
-                                    <div class="box-title">
-                                        TP. Hồ Chí Minh đến <br> Nha Trang
-                                    </div>
-                                    <div class="box-date">
-                                        23/10/2024
-                                    </div>
-                                    <div class="box-price">
-                                        <span>Từ</span> <br> 892.000 VND<sup>*</sup>
-                                    </div>
-                                    <div class="box-view">
-                                        Đã xem: 6 phút trước <br> Một chiều / phổ thông
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+                                          </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Box 3-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/62fa641d28f87_Da_Nang.webp" alt="Da Nang">
+                                          <div class="box">
+                                          <div class="box-title">
+                                              TP. Hồ Chí Minh đến <br> Đà Nẵng
+                                          </div>
+                                          <div class="box-date">
+                                              29/09/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br> 957.000 VND <sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
+                                              Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                          </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- Box 4-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/62fa641d28f87_Da_Nang.webp" alt="danang">
+                                          <div class="box">
+                                          <div class="box-title">
+                                               Hà Nội đến <br> Đà Nẵng
+                                          </div>
+                                          <div class="box-date">
+                                              03/11/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br>  1.115.000 VND<sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
+                                              Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                          </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </section>
+                              <section class="product flex">
+                                  <!-- Box 5-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/Ho-Chi-Minh-City-SGN.avif" alt="hcm">
+                                      <div class="box">
+                                          <div class="box-title">
+                                              Đà Nẵng đến <br> TP. Hồ Chí Minh
+                                          </div>
+                                          <div class="box-date">
+                                              25/10/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br> 1.162.000 VND<sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
+                                              Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                          </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Box 6-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/62fa63bb2d31e_Ha_Noi.webp" alt="HaNoi">
+                                      <div class="box">
+                                          <div class="box-title">
+                                              Đà Nẵng đến <br> Hà Nội
+                                          </div>
+                                          <div class="box-date">
+                                              26/09/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br>  968.000 VND<sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
+                                              Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                          </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Box 7-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/62fa63fa62a8d_Hue.webp" alt="Hue">
+                                      <div class="box">
+                                          <div class="box-title">
+                                              TP. Hồ Chí Minh đến <br> Huế
+                                          </div>
+                                          <div class="box-date">
+                                              2/10/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br> 957.000 VND<sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
+                                              Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                          </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Box 8-->
+                                  <div class="product">
+                                      <div>
+                                          <img src="/images/62fa6477ced02_Nha_Trang.webp" alt="Nha trang">
+                                          <div class="box">
+                                          <div class="box-title">
+                                              TP. Hồ Chí Minh đến <br> Nha Trang
+                                          </div>
+                                          <div class="box-date">
+                                              23/10/2024
+                                          </div>
+                                          <div class="box-price">
+                                              <span>Từ</span> <br> 892.000 VND<sup>*</sup>
+                                          </div>
+                                          <div class="box-view">
+                                              Đã xem: 6 phút trước <br> Một chiều / phổ thông
+                                          </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </section>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <footer class="footer">
+              <div class="container">
+                  <div class="text">
+                      <h4></h4>
+                      <h4>
+                          Proud to be a thousand-star international airline
+                      </h4>
+                      <p></p>
+                      <p>We would like to thank you and your customers for your companionship!</p>
+                      <p></p>
+                  </div>
+              </div>
+              <div class="container2">
+                  <nav class="navbar">
+                      <ul class="all_down_content">
+                          <li class="down">
+                              <h4>Airline<i class="fa-solid fa-chevron-down"></i></h4>
+                              <ul class="down_menu">
+                                  <li><a href="#">Company Introduction</a></li>
+                                  <li><a href="#">Cabin Crew</a></li>
+                                  <li><a href="#">Partner</a></li>
+                                  <li><a href="#">Information Communication</a></li>
+                                  <li><a href="#">Social Respomsibility</a></li>
+                                  <li><a href="#">Investor Relations</a></li>
+                                  <li><a href="#">Bidding Information</a></li>
+                                  <li><a href="#">Jobs With Airline</a></li>
+                              </ul>
+                          </li>
+                          <li class="down">
+                              <h4>Juridical<i class="fa-solid fa-chevron-down"></i></h4>
+                              <ul class="down_menu">
+                                  <li><a href="#">Term & Conditions</a></li>
+                                  <li><a href="#">Shipping Terms</a></li>
+                                  <li><a href="#">Terms Of Use Of Cookies</a></li>
+                                  <li><a href="#">Information Security</a></li>
+                                  <li><a href="#">E-Commerce Platform Operating Regulations</a></li>
+                              </ul>
+                          </li>
+                          <li class="down">
+                              <h4>Support<i class="fa-solid fa-chevron-down"></i></h4>
+                              <ul class="down_menu">
+                                  <li><a href="#">Service Feedback</a></li>
+                                  <li><a href="#">Help Center</a></li>
+                                  <li><a href="#">Contact VNA Branch</a></li>
+                                  <li><a href="#">Passenger Protection Policy</a></li>
+                                  <li><a href="#">Airline Virtual Assistant</a></li>
+                                  <li><a href="#">Mobile Application</a></li>
+                              </ul>
+                          </li>
+                          <li class="down">
+                              <h4>Cargo<i class="fa-solid fa-chevron-down"></i></h4>
+                              <ul class="down_menu">
+                                  <li><a href="#">Commodity Website</a></li>
+                              </ul>
+                          </li>
+                          <li class="down">
+                              <h4>Useful Information<i class="fa-solid fa-chevron-down"></i></h4>
+                              <ul class="down_menu">
+                                  <li><a href="#">Partner With Lotusmiles Program</a></li>
+                                  <li><a href="#">Heritage Magazine</a></li>
+                                  <li><a href="#">Travel Guide</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </nav>
+                  <div class="footer_copyright">
+                      <div class="footer-row">
+                          <div class="footer-left">
+                              <div class="skyteam">
+                                  <a href="#"><img src="/images/skyteam_logo_ft.webp" alt="logo" ></a>
+                              </div>
+                              <div class="social_icon">
+                                  <ul class="flex">
+                                      <li><a href="#"><img class="icon" src="images/icon-facebook.png"></a></li>
+                                      <li><a href="#"><img class="icon" src="images/icon_youtube.png"></a></li>
+                                      <li><a href="#"><img class="icon" src="images/icon-instagram.png"></a></li>
+                                  </ul>
+                              </div>
+                              <div class="social-icon">
+                                  <ul class="term">
+                                      <li><a href="#">Đại lý</a></li>
+                                      <li><a href="#">Sơ đồ website</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="footer-center">
+                              <div class="company_info"> 
+                                  <p>Chăm sóc khách hàng từ Viet Nam(24/7): <strong>028-38364748</strong></p>
+                                  <p>Chăm sóc khách hàng từ Sen Vang(24/7): <strong>028-38364748</strong></p>
+                                  Email:<a href="#">Ou@ou.edu.vn</a>
+                                  <ul class="logo-small">
+                                      <li class="pc">
+                                          <img src="/images/logo-footer-small-2.png" alt="logo">
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="footer-right">
+                              <div class="logo_partner">
+                                  <ul>
+                                      <li><img src="/images/img-logo-partner-1.png" alt="logo"></li>
+                                      <li><img src="/images/img-logo-partner-2.png" alt="logo"></li>
+                                      <li><img src="/images/img-logo-partner-3.png" alt="logo"></li>
+                                      <li><a href="#">Giải thưởng</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="copyright">
+                          <p>
+                              &copy; 2019 Vietnam Airlines JSC
+                              <br>
+                              Tổng công ty Hàng không Việt Nam - CTCP. Số 200 Nguyễn Sơn, P.Bồ Đề, Q.Long Biên, Hà Nội.
+                              <br>
+                              Điện thoại:
+                              <a href="#">028-38364748</a>
+                              Fax: 028-38364748
+                              <br>
+                              Giấy chứng nhận đăng ký doanh nghiệp, mã số doanh nghiệp: 0100107518, đăng ký lần đầu ngày 30/6/2010, đăng ký thay đổi lần thứ 9 ngày 12/01/2022, cấp bởi Sở KHĐT thành phố Hà Nội.
+                          </p> 
+                          <ul>
+                              <li><img src="/images/dathongbao.webp" alt="thongbao"></li>
+                              <li><img src="/images/dadangky.webp" alt="dangki"></li>
+                              <li><img src="/images/PCI_DSS_CERTIFIED-38.webp" alt="pci"></li>
+                          </ul>
+                      </div>
+                  </div> 
+              </div>  
+          </footer> 
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="text">
-                <h4></h4>
-                <h4>
-                    Proud to be a thousand-star international airline
-                </h4>
-                <p></p>
-                <p>We would like to thank you and your customers for your companionship!</p>
-                <p></p>
-            </div>
-        </div>
-        <div class="container2">
-            <nav class="navbar">
-                <ul class="all_down_content">
-                    <li class="down">
-                        <h4>Airline<i class="fa-solid fa-chevron-down"></i></h4>
-                        <ul class="down_menu">
-                            <li><a href="#">Company Introduction</a></li>
-                            <li><a href="#">Cabin Crew</a></li>
-                            <li><a href="#">Partner</a></li>
-                            <li><a href="#">Information Communication</a></li>
-                            <li><a href="#">Social Respomsibility</a></li>
-                            <li><a href="#">Investor Relations</a></li>
-                            <li><a href="#">Bidding Information</a></li>
-                            <li><a href="#">Jobs With Airline</a></li>
-                        </ul>
-                    </li>
-                    <li class="down">
-                        <h4>Juridical<i class="fa-solid fa-chevron-down"></i></h4>
-                        <ul class="down_menu">
-                            <li><a href="#">Term & Conditions</a></li>
-                            <li><a href="#">Shipping Terms</a></li>
-                            <li><a href="#">Terms Of Use Of Cookies</a></li>
-                            <li><a href="#">Information Security</a></li>
-                            <li><a href="#">E-Commerce Platform Operating Regulations</a></li>
-                        </ul>
-                    </li>
-                    <li class="down">
-                        <h4>Support<i class="fa-solid fa-chevron-down"></i></h4>
-                        <ul class="down_menu">
-                            <li><a href="#">Service Feedback</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact VNA Branch</a></li>
-                            <li><a href="#">Passenger Protection Policy</a></li>
-                            <li><a href="#">Airline Virtual Assistant</a></li>
-                            <li><a href="#">Mobile Application</a></li>
-                        </ul>
-                    </li>
-                    <li class="down">
-                        <h4>Cargo<i class="fa-solid fa-chevron-down"></i></h4>
-                        <ul class="down_menu">
-                            <li><a href="#">Commodity Website</a></li>
-                        </ul>
-                    </li>
-                    <li class="down">
-                        <h4>Useful Information<i class="fa-solid fa-chevron-down"></i></h4>
-                        <ul class="down_menu">
-                            <li><a href="#">Partner With Lotusmiles Program</a></li>
-                            <li><a href="#">Heritage Magazine</a></li>
-                            <li><a href="#">Travel Guide</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <div class="footer_copyright">
-                <div class="footer-row">
-                    <div class="footer-left">
-                        <div class="skyteam">
-                            <a href="#"><img src="/images/skyteam_logo_ft.webp" alt="logo" ></a>
-                        </div>
-                        <div class="social_icon">
-                            <ul class="flex">
-                                <li><a href="#"><img class="icon" src="images/icon-facebook.png"></a></li>
-                                <li><a href="#"><img class="icon" src="images/icon_youtube.png"></a></li>
-                                <li><a href="#"><img class="icon" src="images/icon-instagram.png"></a></li>
-                            </ul>
-                        </div>
-                        <div class="social-icon">
-                            <ul class="term">
-                                <li><a href="#">Đại lý</a></li>
-                                <li><a href="#">Sơ đồ website</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-center">
-                        <div class="company_info"> 
-                            <p>Chăm sóc khách hàng từ Viet Nam(24/7): <strong>028-38364748</strong></p>
-                            <p>Chăm sóc khách hàng từ Sen Vang(24/7): <strong>028-38364748</strong></p>
-                            Email:<a href="#">Ou@ou.edu.vn</a>
-                            <ul class="logo-small">
-                                <li class="pc">
-                                    <img src="/images/logo-footer-small-2.png" alt="logo">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-right">
-                        <div class="logo_partner">
-                            <ul>
-                                <li><img src="/images/img-logo-partner-1.png" alt="logo"></li>
-                                <li><img src="/images/img-logo-partner-2.png" alt="logo"></li>
-                                <li><img src="/images/img-logo-partner-3.png" alt="logo"></li>
-                                <li><a href="#">Giải thưởng</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <p>
-                        &copy; 2019 Vietnam Airlines JSC
-                        <br>
-                        Tổng công ty Hàng không Việt Nam - CTCP. Số 200 Nguyễn Sơn, P.Bồ Đề, Q.Long Biên, Hà Nội.
-                        <br>
-                        Điện thoại:
-                        <a href="#">028-38364748</a>
-                        Fax: 028-38364748
-                        <br>
-                        Giấy chứng nhận đăng ký doanh nghiệp, mã số doanh nghiệp: 0100107518, đăng ký lần đầu ngày 30/6/2010, đăng ký thay đổi lần thứ 9 ngày 12/01/2022, cấp bởi Sở KHĐT thành phố Hà Nội.
-                    </p> 
-                    <ul>
-                        <li><img src="/images/dathongbao.webp" alt="thongbao"></li>
-                        <li><img src="/images/dadangky.webp" alt="dangki"></li>
-                        <li><img src="/images/PCI_DSS_CERTIFIED-38.webp" alt="pci"></li>
-                    </ul>
-                </div>
-            </div> 
-        </div>  
-    </footer>
     <script src="script.js"></script>
-    </script>
 </body>
 </html>
   

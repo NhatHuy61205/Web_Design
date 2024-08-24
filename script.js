@@ -1,9 +1,79 @@
+
+//load window
+window.addEventListener('load',() =>{
+    document.querySelector('.dots-bars-6').style.display = 'none'
+    document.querySelector('.hiddenBody').style.display = 'block'
+    })
+
+//select custom 
+const selects = document.querySelectorAll('.select_container')
+
+selects.forEach(select => {
+    const selectBox = select.querySelector('.select_box')
+    const allOption = select.querySelector('.options')
+    const text = select.querySelector('.select_box-text')
+    const options = select.querySelectorAll('.options li')
+    
+    selectBox.addEventListener('click', () => {
+        allOption.classList.toggle('active')
+    });
+
+    options.forEach(option => {
+         option.addEventListener('click',()=>{
+             text.innerText = option.innerText
+             allOption.classList.remove('active')
+         })
+    })
+});
+
+const selects_booking = document.querySelectorAll('.select_container_from')
+
+selects_booking.forEach(select => {
+    const selectBox = select.querySelector('.select_box')
+    const optionBox = select.querySelector('.option_box')
+    const allOption = select.querySelectorAll('.option')
+    const menu = select.querySelectorAll('.option_box .menu_option span')
+    const textSelect = select.querySelector('.select_box-text')
+    const options = select.querySelectorAll('.option li')
+    const exit = select.querySelector('.exit_booking')
+
+    selectBox.addEventListener('click', () => {
+        selects_booking.forEach(noSelect => {
+            if(select != noSelect){ 
+                noSelect.querySelector('.option_box').style.display='none'
+            }
+            else
+                optionBox.style.display='flex'
+        })
+    })
+
+    menu.forEach((option,index) => {
+        option.addEventListener('click',() => {
+            for(var i = 0;i < menu.length; i++){
+                menu[i].classList.remove('active')
+                allOption[i].classList.remove('active')
+            }
+            option.classList.add('active')
+            allOption[index].classList.add('active')
+        })
+    })
+
+    options.forEach(text => {
+        text.addEventListener('click',()=>{
+            textSelect.value = text.innerText
+        })
+    })
+
+    exit.addEventListener('click',() => {
+        optionBox.style.display='none'
+    })
+})
 // Slide wrapper
 var indexSlide = 1;
 var Play;
 var checkSlide = false;
-changeSlide(indexSlide);
 
+changeSlide(indexSlide);
 function changeSlide(n){
     indexSlide = n
     var x = document.getElementsByClassName('slide');
@@ -92,3 +162,4 @@ function changeInputCheckin(n){
     y[n-1].classList.add('active')
 }
 
+// select custom
