@@ -665,6 +665,8 @@ select.inputInNavtabbar{
    height: 100%;
    background-color: rgba(0, 0, 0, 0.7);
 }
+ 
+/* Main Box */
 
 .bg-white {
    width: 100%;
@@ -678,6 +680,22 @@ select.inputInNavtabbar{
    width: 100%;
    height: 100%;
 }
+div.row {
+   margin: 40px 15px 40px 15px;
+   padding: 0px 15px 0px 15px;
+   border-top: 1px solid #ada598;
+}
+div.title_row {
+   padding: 0px 5px 0px 5px ;
+}
+div.title_row > h2 {
+   margin: 0px 0px 40px 20px;
+   font-family: Diavlo;
+   font-size: 26px;
+   font-weight: 400;
+   color: #333333;
+}
+
    /* CSS PRODUCT */
 .product {
    overflow: hidden;
@@ -694,9 +712,8 @@ select.inputInNavtabbar{
    left: 0;
    right: 0;
    color: white;
-   padding: 10px 10px 0px 10px;
+   padding: 10px 20px 20px 10px;
    height: 0px;
-   border-left: 10px solid white;
    transition: opacity 0.3s ease, height 0.3s ease;
 }
 
@@ -739,10 +756,8 @@ div.product {
    width: 250px;
    overflow: hidden;
 }
-div.box {
-   border-left: 10px solid white;
-   padding-top: 10px;
-}
+
+
 
 div.product > div{
    position: absolute;
