@@ -1,146 +1,176 @@
-<div class="select_container_from">
-    <div class="select_box">
-        <label for="from">
-            <span class="select_box-text">Tu</span>
-            <i class="fa-solid fa-sort-down"></i>
-        </label>
-        <input type="text" id="from">
-    </div>
-    <ul class="option_box">
-        <div class="menu_option">
-            <span class="">VIỆT NAM</span>
-            <span class="">ĐÔNG BẮC Á</span>
-            <span class="">ĐÔNG NAM Á</span>
-            <span class="">ĐÔNG DƯƠNG</span>
-            <span class="">NAM Á</span>
-            <span class="">CHÂU ÂU</span>
-            <span class="">CHÂU ÚC</span>
-            <span class="">BẮC MỸ</span>
-            <span class="">TRUNG ĐÔNG</span>
-            <span class="">CHÂU PHI</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Date Picker</title>
+    <style>
+        .custom-date-picker {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .date-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .calendar {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .calendar table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th, .calendar td {
+            padding: 10px;
+            text-align: center;
+        }
+        .calendar th:nth-child(6){
+           color: aqua;
+        }
+        .calendar th:nth-child(7){
+           color: lightcoral;
+        }
+        .calendar td:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .calendar .nav-buttons {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .calendar .nav-buttons button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .calendar .nav-buttons button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-date-picker">
+        <div class="date-input" id="date-input">
+            <span class="date-text"></span>
         </div>
-        <div class="options">
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>0000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-            <ul class="option">
-                <li>000000000000001</li>
-                <li>000000000000002</li>
-                <li>000000000000003</li>
-                <li>000000000000004</li>
-                <li>000000000000005</li>
-                <li>000000000000006</li>
-                <li>000000000000007</li>
-                <li>000000000000008</li>
-                <li>000000000000009</li>
-                <li>000000000000010</li>
-            </ul>
-       </div>
-       <div class="exit_booking" onclick="document.querySelector('.option_box').style.display='none'"><i class="fa-solid fa-xmark"></i></div>
-    </ul>
-</div>
+        <div class="calendar" id="calendar">
+            <div class="nav-buttons">
+                <button id="prev-month">&lt;</button>
+                <span id="month-year"></span>
+                <button id="next-month">&gt;</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Su</th>
+                        <th>Mo</th>
+                        <th>Tu</th>
+                        <th>We</th>
+                        <th>Th</th>
+                        <th>Fr</th>
+                        <th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Days will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const dateInput = document.getElementById('date-input');
+        const calendar = document.getElementById('calendar');
+        const calendarBody = document.getElementById('calendar-body');
+        const monthYear = document.getElementById('month-year');
+        const prevMonth = document.getElementById('prev-month');
+        const nextMonth = document.getElementById('next-month');
+        const text = document.querySelector('.date-text');
+
+        let currentYear = new Date().getFullYear();
+        let currentMonth = new Date().getMonth();
+
+        dateInput.addEventListener('click', () => {
+            calendar.style.display = calendar.style.display === 'block' ? 'none' : 'block';
+            populateCalendar();
+        });
+
+        function populateCalendar() {
+            calendarBody.innerHTML = '';
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            let row = document.createElement('tr');
+            for (let i = 0; i < firstDay; i++) {
+                row.appendChild(document.createElement('td'));
+            }
+
+            for (let day = 1; day <= lastDate; day++) {
+                const cell = document.createElement('td');
+                cell.textContent = day;
+                cell.addEventListener('click', () => {
+                    text.innerText = `${String(day).padStart(2, '0')}/${String(currentMonth + 1).padStart(2, '0')}/${currentYear}`;
+                });
+                row.appendChild(cell);
+
+                if (row.children.length === 7) {
+                    calendarBody.appendChild(row);
+                    row = document.createElement('tr');
+                }
+            }
+
+            if (row.children.length > 0) {
+                calendarBody.appendChild(row);
+            }
+
+            monthYear.textContent = `Thang ${currentMonth + 1} nam ${currentYear}`;
+        }
+
+        prevMonth.addEventListener('click', () => {
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            populateCalendar();
+        });
+
+        nextMonth.addEventListener('click', () => {
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            populateCalendar();
+        });
+
+        populateCalendar();
+    </script>
+</body>
+</html>

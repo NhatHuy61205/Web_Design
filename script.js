@@ -67,6 +67,15 @@ selects_booking.forEach(select => {
     exit.addEventListener('click',() => {
         optionBox.style.display='none'
     })
+
+    textSelect.addEventListener('input', () => {
+        const x = textSelect.value.toLowerCase()
+         options.forEach(option => {
+            const y = option.textContent.toLowerCase()
+            if(y.includes(x)){ option.style.display = 'block'}
+            else { option.style.display = 'none'}
+         })
+    })
 })
 // Slide wrapper
 var indexSlide = 1;
