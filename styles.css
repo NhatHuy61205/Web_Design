@@ -324,6 +324,14 @@ ul.menu > li:hover nav.submenu{
    max-height: 2000px;
 }
 
+.wrapper > .blur_background{
+   position: absolute;
+   width: 100%;
+   height: 150px;
+   bottom: 0;
+   background: linear-gradient(to top, rgba(0,0,0,0.6),transparent);
+}
+
 .slide{
    width: 100%;
    height: 100%;
@@ -985,13 +993,108 @@ div.product > div > img {
    object-fit: cover;
    object-position: center;
 }
+/* Wrapper footer */
+.wrapper_footer{
+   display: block;
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 70%;
+   margin: 20px 0;
+}
 
+.wrapper_footer > .title{
+   position: relative;
+   display: flex; 
+   width: 100%;
+   height: 100px;
+   justify-content: center;
+   align-items: center;
+}
+.wrapper_footer > .title > h2{
+   background-color: white;
+   padding: 0 1rem;
+   z-index: 1;
+}
+.wrapper_footer > .title > hr{
+   position: absolute;
+   width: 100%;
+   top: 37%;
+   left: 0;
+   border: 0;
+   height: 6px;
+   background-image: radial-gradient(closest-side, black, rgba(128, 128, 128, 0) 120%);
+}  
 
+.wrapper_footer > .container{
+   display: block;
+   position: relative;
+   width: 100%;
+}
 
+.footer_slide_box{
+   display: none;
+   width: 100%;
+}
 
+.footer_slide_box.active{
+   display: flex;
+}
+.footer_slide_box > .box{
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   padding: 0 10px;
+   width: 100%;
+}
 
+.footer_slide_box > .box > img{
+   width: 100%;
+   height: auto;
+}
+
+.footer_slide_box > .box > .text_box{
+   width: 100%;
+   box-sizing: border-box;
+   padding:15px;
+   background-color: var(--near-light);
+}
+
+.footer_slide_box > .box > .text_box > h3{
+   margin: 0 0 15px 0;
+   color: var(--near-dark);
+}
+
+.footer_slide_box > .box > .text_box > p{
+   margin: 0;
+   color: black;
+}
+
+.select_footer_slide{
+   display: flex;
+   position: relative;
+   justify-content: center;
+   width: 100%;
+   height: 15px;
+   margin: 5px;
+}
+
+.select_footer_slide   span{
+   display: flex;
+   height: 10px;
+   width: 10px;
+   border: 2px solid black;
+   border-radius: 50%;
+   margin: 10px 4px;
+   cursor: pointer;
+}
+
+.select_footer_slide span:hover,
+.select_footer_slide span.active{
+   background-color: var(--near-dark);
+}
 /* CSS FOOTER */
-.container {
+footer > .container {
    width: 100%;
    margin: auto;
    position: relative;
@@ -1000,7 +1103,7 @@ div.product > div > img {
    overflow: hidden;
    background-color: #d1cebb;
 }
-.container2 {
+footer > .container2 {
    max-width: 1000px;
    position: relative;
    margin: auto;

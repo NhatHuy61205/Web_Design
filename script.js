@@ -78,40 +78,41 @@ selects_booking.forEach(select => {
     })
 })
 // Slide wrapper
-var indexSlide = 1;
-var Play;
-var checkSlide = false;
+var indexSlide = 1
+var Play
+var checkSlide = false
 
-changeSlide(indexSlide);
-function changeSlide(n){
+changeSlide(indexSlide,'slide','circle')
+
+function changeSlide(n,slide,circle){
     indexSlide = n
-    var x = document.getElementsByClassName('slide');
-    var y = document.getElementsByClassName('circle');
-    if(n > x.length) {indexSlide = 1};
-    if(n < 1) { indexSlide = x.length};
+    var x = document.getElementsByClassName(slide)
+    var y = document.getElementsByClassName(circle)
+    if(n > x.length) {indexSlide = 1}
+    if(n < 1) { indexSlide = x.length}
     for( var i = 0;i < x.length;i++){
-        x[i].style.display = 'none';
-        y[i].classList.remove('active');
+        x[i].style.display = 'none'
+        y[i].classList.remove('active')
     }
-    x[indexSlide-1].style.display = 'block';
-    y[indexSlide-1].classList.add('active');
+    x[indexSlide-1].style.display = 'block'
+    y[indexSlide-1].classList.add('active')
 }
 
 function autoPlay(){
-    var x = document.getElementById('playButton');
+    var x = document.getElementById('playButton')
     if(!checkSlide){
-        x.classList.remove('fa-play');
-        x.classList.add('fa-pause');
+        x.classList.remove('fa-play')
+        x.classList.add('fa-pause')
         Play = setInterval(function() {
-            changeSlide(indexSlide += 1);
-        }, 2000);
-        checkSlide = true;
+            changeSlide(indexSlide += 1,'slide','circle')
+        }, 2000)
+        checkSlide = true
     }
     else{
-        x.classList.add('fa-play');
-        x.classList.remove('fa-pause');
-        clearInterval(Play);
-        checkSlide = false;
+        x.classList.add('fa-play')
+        x.classList.remove('fa-pause')
+        clearInterval(Play)
+        checkSlide = false
     }
 }
 
@@ -171,4 +172,4 @@ function changeInputCheckin(n){
     y[n-1].classList.add('active')
 }
 
-// select custom
+//Warpper footer
