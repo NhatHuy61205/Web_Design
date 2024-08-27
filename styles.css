@@ -876,10 +876,68 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    height: 100%;
    background-color: rgba(0, 0, 0, 0.7);
 }
+/* Menu Header */
+ul.desktop {
+   display: flex;
+   background-image: url(images/pngtree-sunset-sky-background-with-pink-clouds-and-cloudy-evening-sun-image_2204134.jpg);
+   background-size:cover ;
+   margin: 25px 0px;
+   padding: 0px;
+}
+div.menu_content {
+   max-width: 1000px;
+   margin: auto;
+}
+li.menu_item {
+   flex-basis: 18%;
+   padding: 22px 20px;
+   text-align: center;
+   list-style-type: none;
+}
+li.menu_item a {
+   text-decoration: none;
+}
+.menu_item div {
+   position: relative;
+}
+.menu_item img {
+   width: 30px;
+   height: 30px;
+}
+div.item_before {
+   opacity: 1;
+   transition: opacity 0.3s ease;
+   margin-bottom: 20px;
+}
+div.item_after {
+   opacity: 0;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   transition: opacity 0.3s ease;
+}
+.menu_item:hover .item_before {
+   opacity: 0;
+}
+.menu_item:hover .item_after {
+   opacity: 1; 
+} 
+div.name {
+   font-size: 12px;
+   font-weight: 100;
+   line-height: 16px;
+   min-height: 33px;
+   color: #006885;
+}
+.menu_item:hover .name {
+   text-decoration: underline;
+}
+
  
 /* Main Box */
 
-/* container box */
 .bg-white {
    width: 100%;
    margin: 0px;
@@ -893,19 +951,106 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    height: 100%;
 }
 div.row {
+   margin: 40px 15px 40px 15px;
+   padding: 0px 15px 0px 15px;
    margin-top: 40px;
    border-top: 1px solid #ada598;
 }
 div.title_row {
-   padding: 0px 5px 0px 5px ;
+   object-position: center;
+   width: 100%;
+   height: 100%;
+   padding: 0px 10px 0px 10px;
 }
-div.title_row > h2 {
-   margin: 0px 0px 40px 20px;
+div.title_row >h2 {
    font-family: Diavlo;
    font-size: 26px;
-   font-weight: 400;
-   color: #333333;
+   font-weight: lighter;
+   line-height: 1.2;
+   color: black;
+   margin-top: 0px  ;
 }
+
+/* CSS ROW_BOT */
+div.title_bot {
+   padding: 2px;
+}
+div.title_bot h2{
+   padding: 5px;
+   border-left: 8px solid #1B95B8  ;
+   margin: 20px 20px 20px 0px;
+   font-family: "DiavloLight";
+   font-weight: 100;
+   font-size: 38px;
+   line-height: 38px;
+   color: black;
+}
+
+.product_bot {
+   display: flex;
+}
+.box_bot > div {
+   height: 100%;
+   width: 100%;
+   margin-bottom: 4px;
+}
+.box_bot > div > img{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   display: block;
+   z-index: 1;
+   filter: brightness(80%);
+}
+.box_bot {
+   height: 495px;;
+   width: 33.33333%;
+   padding: 0px 2px 0px 2px;
+   position: relative;
+}
+.box_bot.box_medium div.box_bot {
+   height: 245.5px;
+   padding: 0px;
+}
+
+div.descrip {
+   position: absolute;
+   color: white;
+   z-index: 2;
+   top: 310px;
+   width: 100%;
+   height: 33.33333%;
+   padding: 20px 15px 10px;
+   font-size: 12px;
+   font-family: "OpenSans", Arial;
+}
+div.descrip.bot {
+   position: absolute;
+   top: 65px;
+}
+div.descrip .city {
+   font-size: 22px;
+   font-family: "DiavloBook-,Arial";
+   margin-bottom: 0;
+   line-height: 1;
+}
+div.descrip .bnt-book {
+   font-size: 13px;
+   font-family: "OpenSans-Bold", Arial;
+   border: 1px solid #fff;
+   width: 150px;
+   height: 40px;
+   line-height: 38px;
+   text-transform: uppercase;
+   text-align: center;
+   color: white;
+   display: inline-block;
+   border-radius: 5px;
+   background-color: #ffffff29;
+   margin: 10px 0;
+   text-decoration: none;
+}   
+
 
    /* CSS PRODUCT */
 .product {
