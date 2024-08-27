@@ -893,8 +893,7 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    height: 100%;
 }
 div.row {
-   margin: 40px 15px 40px 15px;
-   padding: 0px 15px 0px 15px;
+   margin-top: 40px;
    border-top: 1px solid #ada598;
 }
 div.title_row {
@@ -986,6 +985,10 @@ div.product > div > img {
    object-fit: cover;
    object-position: center;
 }
+
+
+
+
 
 /* CSS FOOTER */
 .container {
