@@ -176,26 +176,7 @@ selects_booking.forEach(select => {
 })
 
 // Select Booking
-const selectOptionBooking = document.querySelectorAll('.select_option_booking')
-const date1 = document.querySelector('.date_current')
-const date2 = document.querySelector('.date_next')
-const form = document.querySelector('.formBooking .form')
-selectOptionBooking.forEach((selected,index) =>{
-    selected.addEventListener('click',()=>{
-        selectOptionBooking.forEach(off => {
-            off.classList.remove('active')
-        })
-        selected.classList.add('active')
-        if(index == 0){
-            date1.style.display='block'
-            date2.style.display='block'}
-            for(var i = 0;i < form.length; i++)
-        else if(index == 1){
-            date1.style.display='block'
-            date2.style.display='none'
-        }
-    })
-})
+
 // Slide wrapper
 var play, playFooter
 var checkSlide = false,checkSlideFooter = false

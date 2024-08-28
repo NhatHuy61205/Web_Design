@@ -1377,7 +1377,7 @@ div.product > div > img {
    background-image: radial-gradient(closest-side, black, rgba(128, 128, 128, 0) 120%);
 }  
 
-.wrapper_footer > .container{
+.wrapper_footer > .container1{
    display: flex;
    position: relative;
    width: 300%;
