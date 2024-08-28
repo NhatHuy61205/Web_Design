@@ -259,10 +259,10 @@
                       <div class="select">
                           <button class="play" onclick="autoPlay()" ><i class="fa-solid fa-play" id="playButton"></i></button>
                           <div class="change_by_click">
-                              <span class="circle" onclick="changeSlide(1,'slide','circle')"></span>
-                              <span class="circle" onclick="changeSlide(2,'slide','circle')"></span>
-                              <span class="circle" onclick="changeSlide(3,'slide','circle')"></span>
-                              <span class="circle" onclick="changeSlide(4,'slide','circle')"></span>
+                              <span class="circle" onclick="changeSlide(0,'.slide','.circle')"></span>
+                              <span class="circle" onclick="changeSlide(1,'.slide','.circle')"></span>
+                              <span class="circle" onclick="changeSlide(2,'.slide','.circle')"></span>
+                              <span class="circle" onclick="changeSlide(3,'.slide','.circle')"></span>
                            </div>
                       </div>
                   </div>
@@ -280,7 +280,7 @@
                               <div class="booking">
                                 <h4>Tra cuu gan day</h4>
                                 <div class="select_booking">
-                                    <span class="select_option_booking">Khu hoi</span>
+                                    <span class="select_option_booking active">Khu hoi</span>
                                     <span class="select_option_booking">Mot chieu</span>
                                     <span class="select_option_booking">Nhieu chang</span>
                                 </div>
@@ -580,10 +580,68 @@
                                             </div>
                                         </div>
                                         <div class="form box2">
-                                            <h2>hello</h2>
+                                            <div class="date-picker">
+                                                <div class="date_box">
+                                                    <input type="text" class="select_date-picker"  id="date-picker1" required readonly>
+                                                    <label for="date-picker1">Ngày đi</label>
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                </div>
+                                               <div class="container" id="calendarContainer">
+                                                    <div class="prev">
+                                                        <span class="back"><i class="fa-solid fa-chevron-left"></i></span>
+                                                        <span class="next"><i class="fa-solid fa-chevron-right"></i></span>
+                                                    </div>
+                                                    <div class="date_current">
+                                                        <div class="y-m">
+                                                            <h2></h2>
+                                                            <hr>
+                                                        </div>
+                                                        <table class="calendar">
+                                                            <thead class="calendar_head">
+                                                            <tr>
+                                                                <th>Mon</th>
+                                                                <th>Tue</th>
+                                                                <th>Wed</th>
+                                                                <th>Thu</th>
+                                                                <th>Fri</th>
+                                                                <th>Sat</th>
+                                                                <th>Sun</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody class="calendar_body"></tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="date_next">
+                                                        <div class="y-m">
+                                                            <h2></h2>
+                                                            <hr>
+                                                        </div>
+                                                        <table class="calendar">
+                                                            <thead class="calendar_head">
+                                                            <tr>
+                                                                    <th>Mon</th>
+                                                                    <th>Tue</th>
+                                                                    <th>Wed</th>
+                                                                    <th>Thu</th>
+                                                                    <th>Fri</th>
+                                                                    <th>Sat</th>
+                                                                    <th>Sun</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody class="calendar_body"></tbody>
+                                                        </table>
+                                                    </div>
+                                               </div>
+                                            </div>
                                         </div>
                                         <div class="form box2">
-                                            <h2>hello</h2>
+                                            <div class="date-picker">
+                                                <div class="date_box">
+                                                    <input type="text" class="select_date-picker" id="date-picker2" placeholder="" required>
+                                                    <label for="date-picker2">Ngày về</label>
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -704,9 +762,8 @@
                 </ul>
             </nav>
             <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
-        </div>
-       </div>
-    </main>
+             </div>
+         </main>
     <div class="content">
         <div class="menu_content">
             <div class="menu_header">
@@ -994,6 +1051,7 @@
                         </div>
                         <section class="product_bot">
                             <div class="box_bot">
+                                <span class="highlight"></span>
                                 <div><img src="images/Tokyo_canhdep_986x906.jpg" alt="tokyo"></div>
                                 <div class="descrip">
                                     <p class="city">Tokyo - Thủ đô của hiện đại và truyền thống</p>
@@ -1002,6 +1060,7 @@
                                 <a href="#"></a>
                             </div>
                             <div class="box_bot">
+                                <span class="highlight"></span>
                                <div> <img src="images/Phuquoc_canhdep_986x906.jpg" alt="phuquoc"></div>
                                 <div class="descrip">
                                     <p class="city">Phú Quốc - Hòn ngọc quý</p>
@@ -1011,6 +1070,7 @@
                             </div>
                             <div class="box_bot box_medium">
                                 <div class="box_bot">
+                                    <span class="highlight"></span>
                                     <div><img src="images/Bangkok_canhdep_986x906.jpg" alt="thailand"></div>
                                     <div class="descrip bot">
                                         <p class="city">Bangkok - Thiên đường ăn chơi và mua sắm Đông Nam Á</p>
@@ -1019,6 +1079,7 @@
                                     <a href="#"></a>
                                 </div>
                                 <div class="box_bot">
+                                    <span class="highlight"></span>
                                     <div><img src="images/Dalat_canhdep_986x906.jpg" alt="dalat"></div>
                                     <div class="descrip bot">
                                         <p class="city">Đà Lạt - Một Paris thu nhỏ</p>
@@ -1039,82 +1100,100 @@
             <hr>
         </div>
         <div class="container">
-            <div class="footer_slide_box active">
+            <div class="footer_slide_box">
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/hanhly_xachtay (1).webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Tra cứu thông tin hành lý</h3>
+                        <p>Tra cứu tiêu chuẩn hành lý của Vietnam Airlines.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/Lamthutuc_online (1).webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Làm thủ tục trực tuyến</h3>
+                        <p>Chủ động làm thủ tục trên website hoặc ứng dụng di động của Vietnam Airlines.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/Trendoitac_hangkhong.webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Tích lũy dặm trên chuyến bay</h3>
+                        <p>Tích lũy dặm khi bay cũng Vietnam Airlines và các đối tác hàng không tham gia chương trình.</p>
                     </div>
                 </div>
             </div>
             <div class="footer_slide_box">
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/Treem_Dimotminh_Thumb.webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Dịch vụ đặc biệt</h3>
+                        <p>Vietnam Airlines cung cấp các dịch vụ đặc biệt theo nhu cầu của khách hàng.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/Quyenloi_Hangthe.webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Phòng khách Thương gia</h3>
+                        <p>Trải nghiệm phòng chờ sang trọng, yên tĩnh và đầy đủ tiện nghi trước giờ khởi hành.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/overview01.webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Ẩm thực hạng Thương gia</h3>
+                        <p>Trải nghiệm "ẩm thực trên mây" tiêu chuẩn 4 sao.</p>
                     </div>
                 </div>
             </div>
             <div class="footer_slide_box">
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/H2_2x.webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Ứng dụng Vietnam Airlines</h3>
+                        <p>Di chuyển dễ dàng hơn với Ứng dụng di dộng của Vietnam Airlines</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/airport_Phongcho.webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Quyền lợi hạng thẻ</h3>
+                        <p>Hội viên tận hưởng nhiều lợi ích tăng dần theo hạng thẻ.</p>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="images/Warpper Footer/hanhly_xachtay (1).webp" alt="">
+                    <div class="image">
+                        <img src="images/Warpper Footer/hanhly_xachtay (1).webp">
+                    </div>
                     <div class="text_box">
-                        <h3>Thong tin hanh ly xach tay</h3>
-                        <p>nasdawfdasfawfsafwfsawfawsd</p>
+                        <h3>Tra cứu thông tin hành lý</h3>
+                        <p>Tra cứu tiêu chuẩn hành lý của Vietnam Airlines.</p>
                     </div>
                 </div>
             </div>
-            <div class="select_footer_slide">
-                <span class=""></span>
-                <span class=""></span>
-                <span class=""></span>
-                <div class="Play_slide_footer">
-
-                </div>
+        </div>
+        <div class="select_footer_slide">
+            <span class="active" onclick="moveSlide(0)"></span>
+            <span class="" onclick="moveSlide(1)"></span>
+            <span class="" onclick="moveSlide(2)"></span>
+            <div class="play_slide_footer" onclick="autoPlayFooter()">
+                <i class="fa-solid fa-play" id="playButtonFooter"></i>
             </div>
         </div>
     </section>

@@ -1,3 +1,100 @@
+// Date Picker
+const datepicker = document.querySelector('.date-picker')
+const calendarContainer = document.getElementById('calendarContainer')
+const calendarBody = document.querySelectorAll('.calendar_body')
+const yearMonth = document.querySelectorAll('.y-m h2')
+const textDay = document.querySelectorAll('.select_date-picker')
+
+let currentDate = new Date()
+let currentMonth = new Date(currentDate.getFullYear(),currentDate.getMonth(),1)
+let dateTochange = new Date()
+renderCalendar(currentDate)
+
+function renderCalendar(date) {
+    const months = [
+        'THÁNG MỘT', 'THÁNG HAI', 'THÁNG BA', 'THÁNG TƯ', 'THÁNG NĂM',
+        'THÁNG SÁU', 'THÁNG BẢY', 'THÁNG TÁM', 'THÁNG CHÍN', 'THÁNG MƯỜI',
+        'THÁNG MƯỜI MỘT', 'THÁNG MƯỜI HAI','THÁNG MỘT'
+    ];
+
+    const y = date.getFullYear();
+    const m = date.getMonth()
+
+    yearMonth.forEach((child,index) =>{
+        child.textContent = `${months[m+index]} ${y}`
+     })
+    calendarBody.forEach((child,index) => {
+        const firstDay = new Date(y, m + index, 1)
+        const lastDay = new Date(y, m + 1 + index, 0)
+        const days = lastDay.getDate()
+        const startDay = firstDay.getDay() === 0 ? 7 : firstDay.getDay()
+
+        child.innerHTML = ''
+        let r = document.createElement('tr')
+
+        for (let i = 1; i < startDay; i++) {
+            r.appendChild(document.createElement('td'));
+        }
+
+        for (let day = 1; day <= days; day++) {
+            if(firstDay === currentMonth){
+                if (r.children.length === 7){
+                    child.appendChild(r)
+                    r = document.createElement('tr')}
+                    const x = document.createElement('td')
+                    x.textContent = day;
+                    if(day < currentDate.getDate())
+                        x.classList.add('pass')
+                    else
+                        x.classList.add('day')
+                    r.appendChild(x);
+                }
+            else{
+                if (r.children.length === 7) {
+                child.appendChild(r);
+                r = document.createElement('tr'); }
+                const x = document.createElement('td')
+                x.textContent = day;
+                x.classList.add('day')
+                x.addEventListener('click', () => {
+                    selectDate(y, m, day)
+                })
+                r.appendChild(x);
+            }
+        }
+
+        while(r.children.length < 7) {
+            r.appendChild(document.createElement('td'))
+        }
+
+        child.appendChild(r)
+
+        function selectDate(year, month, day) {
+            const selectedDate = new Date(year, month, day);
+            textDay[index].value = `${day}/${month}/${year}`;
+        }
+    })
+}
+
+var prevBack = document.querySelector('.prev .back')
+var prevNext = document.querySelector('.prev .next')
+
+prevNext.addEventListener('click',() => {
+    dateTochange.setMonth(dateTochange.getMonth()+1)
+    renderCalendar(dateTochange)
+})
+
+prevBack.addEventListener('click',() => {
+    if(dateTochange > currentDate){
+   dateTochange.setMonth(dateTochange.getMonth()-1)
+    renderCalendar(dateTochange)}
+})
+
+const dateBox = document.querySelectorAll('.date_box')
+dateBox.forEach(child => {
+    child.addEventListener('click',() =>
+         calendarContainer.style.display= 'flex')
+})
 
 //load window
 window.addEventListener('load',() =>{
@@ -77,45 +174,99 @@ selects_booking.forEach(select => {
          })
     })
 })
-// Slide wrapper
-var indexSlide = 1
-var Play
-var checkSlide = false
 
-changeSlide(indexSlide,'slide','circle')
+// Select Booking
+const selectOptionBooking = document.querySelectorAll('.select_option_booking')
+const date1 = document.querySelector('.date_current')
+const date2 = document.querySelector('.date_next')
+const form = document.querySelector('.formBooking .form')
+selectOptionBooking.forEach((selected,index) =>{
+    selected.addEventListener('click',()=>{
+        selectOptionBooking.forEach(off => {
+            off.classList.remove('active')
+        })
+        selected.classList.add('active')
+        if(index == 0){
+            date1.style.display='block'
+            date2.style.display='block'}
+            for(var i = 0;i < form.length; i++)
+        else if(index == 1){
+            date1.style.display='block'
+            date2.style.display='none'
+        }
+    })
+})
+// Slide wrapper
+var play, playFooter
+var checkSlide = false,checkSlideFooter = false
+
+changeSlide(0,'.slide','.circle')
 
 function changeSlide(n,slide,circle){
-    indexSlide = n
-    var x = document.getElementsByClassName(slide)
-    var y = document.getElementsByClassName(circle)
-    if(n > x.length) {indexSlide = 1}
-    if(n < 1) { indexSlide = x.length}
+    var x = document.querySelectorAll(slide)
+    var y = document.querySelectorAll(circle)
     for( var i = 0;i < x.length;i++){
         x[i].style.display = 'none'
         y[i].classList.remove('active')
     }
-    x[indexSlide-1].style.display = 'block'
-    y[indexSlide-1].classList.add('active')
+    x[n].style.display = 'flex'
+    y[n].classList.add('active')
+}
+
+function moveSlide(n){
+    var x = document.querySelectorAll('.footer_slide_box')
+    var y = document.querySelectorAll('.select_footer_slide span')
+    for(var i = 0;i < y.length;i++){
+        x[i].style.transform = `translateX(${-100*n}%)`
+        y[i].classList.remove('active')
+    }
+    y[n].classList.add('active')
 }
 
 function autoPlay(){
     var x = document.getElementById('playButton')
+    var y = document.querySelectorAll('.circle')
+    index = 0
     if(!checkSlide){
         x.classList.remove('fa-play')
         x.classList.add('fa-pause')
-        Play = setInterval(function() {
-            changeSlide(indexSlide += 1,'slide','circle')
+        play = setInterval(() => {
+            changeSlide(index,'.slide','.circle')
+            index += 1
+            if(index > y.length - 1){index = 0}
         }, 2000)
         checkSlide = true
     }
     else{
         x.classList.add('fa-play')
         x.classList.remove('fa-pause')
-        clearInterval(Play)
+        clearInterval(play)
         checkSlide = false
     }
 }
 
+function autoPlayFooter(){
+    var x = document.getElementById('playButtonFooter')
+    var y = document.querySelectorAll('.select_footer_slide span')
+    indexfooter = 0
+    if(!checkSlideFooter){
+        x.classList.remove('fa-play')
+        x.classList.add('fa-pause')
+        playFooter = setInterval(() => {
+            moveSlide(indexfooter)
+            indexfooter += 1
+            if(indexfooter > y.length - 1){indexfooter= 0}
+        }, 10000)
+        checkSlideFooter = true
+    }
+    else{
+        x.classList.add('fa-play')
+        x.classList.remove('fa-pause')
+        clearInterval(playFooter)
+        checkSlideFooter = false
+    }
+}
+autoPlayFooter()
 // Menu sign in
 function hiddenBody(){
     document.getElementById('sign_in').style.display=('block')
@@ -172,4 +323,3 @@ function changeInputCheckin(n){
     y[n-1].classList.add('active')
 }
 
-//Warpper footer

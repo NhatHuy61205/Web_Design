@@ -1,176 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Date Picker</title>
+    <title>日付ピッカー</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .custom-date-picker {
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form {
+            margin-bottom: 20px;
+        }
+        .date-picker {
             position: relative;
             display: inline-block;
-            width: 100%;
-            max-width: 300px;
         }
-
-        .date-input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
+        .date_box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            padding: 5px;
             cursor: pointer;
+            width: 200px;
         }
-
-        .calendar {
-            display: none;
+        .date_box input {
+            border: none;
+            outline: none;
+            width: 100px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .date_box label {
+            margin-left: 10px;
+        }
+        .fa-calendar-days {
+            margin-left: auto;
+        }
+        .container {
             position: absolute;
             top: 100%;
             left: 0;
-            width: 100%;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none; /* デフォルトでは非表示 */
             z-index: 1000;
         }
-
-        .calendar table {
+        .prev, .next {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        .date_current, .date_next {
+            margin: 10px;
+        }
+        .y-m h2 {
+            margin: 0;
+            text-align: center;
+        }
+        .calendar {
             width: 100%;
             border-collapse: collapse;
         }
-
         .calendar th, .calendar td {
-            padding: 10px;
+            width: 14.28%;
             text-align: center;
-        }
-        .calendar th:nth-child(6){
-           color: aqua;
-        }
-        .calendar th:nth-child(7){
-           color: lightcoral;
-        }
-        .calendar td:hover {
-            background-color: #ddd;
-            cursor: pointer;
-        }
-
-        .calendar .nav-buttons {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .calendar .nav-buttons button {
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
             padding: 5px;
         }
-
-        .calendar .nav-buttons button:focus {
-            outline: none;
+        .calendar th {
+            background-color: #f0f0f0;
+        }
+        .calendar_body td {
+            cursor: pointer;
+        }
+        .calendar_body td:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
-    <div class="custom-date-picker">
-        <div class="date-input" id="date-input">
-            <span class="date-text"></span>
-        </div>
-        <div class="calendar" id="calendar">
-            <div class="nav-buttons">
-                <button id="prev-month">&lt;</button>
-                <span id="month-year"></span>
-                <button id="next-month">&gt;</button>
+    <div class="form box2">
+        <div class="date-picker">
+            <div class="date_box">
+                <input type="text" class="select_date-picker" id="date-picker1" required readonly>
+                <label for="date-picker1">Ngày đi</label>
+                <i class="fa-solid fa-calendar-days"></i>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Su</th>
-                        <th>Mo</th>
-                        <th>Tu</th>
-                        <th>We</th>
-                        <th>Th</th>
-                        <th>Fr</th>
-                        <th>Sa</th>
-                    </tr>
-                </thead>
-                <tbody id="calendar-body">
-                    <!-- Days will be populated here -->
-                </tbody>
-            </table>
+            <div class="container" id="calendarContainer1">
+                <div class="prev">
+                    <span class="back"><i class="fa-solid fa-chevron-left"></i></span>
+                    <span class="next"><i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+                <div class="date_current">
+                    <div class="y-m">
+                        <h2></h2>
+                        <hr>
+                    </div>
+                    <table class="calendar">
+                        <thead class="calendar_head">
+                        <tr>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                        </thead>
+                        <tbody class="calendar_body"></tbody>
+                    </table>
+                </div>
+                <div class="date_next">
+                    <div class="y-m">
+                        <h2></h2>
+                        <hr>
+                    </div>
+                    <table class="calendar">
+                        <thead class="calendar_head">
+                        <tr>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                        </tr>
+                        </thead>
+                        <tbody class="calendar_body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form box2">
+        <div class="date-picker">
+            <div class="date_box">
+                <input type="text" class="select_date-picker" id="date-picker2" required readonly>
+                <label for="date-picker2">Ngày về</label>
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <div class="container" id="calendarContainer2">
+                <div class="prev">
+                    <span class="back"><i class="fa-solid fa-chevron-left"></i></span>
+                    <span class="next"><i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+                <div class="date_current">
+                    <div class="y-m">
+                        <h2></h2>
+                        <hr>
+                    </div>
+                    <table class="calendar">
+                        <thead class="calendar_head">
+                        <tr>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                        </thead>
+                        <tbody class="calendar_body"></tbody>
+                    </table>
+                </div>
+                <div class="date_next">
+                    <div class="y-m">
+                        <h2></h2>
+                        <hr>
+                    </div>
+                    <table class="calendar">
+                        <thead class="calendar_head">
+                        <tr>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                        </tr>
+                        </thead>
+                        <tbody class="calendar_body"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const dateInput = document.getElementById('date-input');
-        const calendar = document.getElementById('calendar');
-        const calendarBody = document.getElementById('calendar-body');
-        const monthYear = document.getElementById('month-year');
-        const prevMonth = document.getElementById('prev-month');
-        const nextMonth = document.getElementById('next-month');
-        const text = document.querySelector('.date-text');
-
-        let currentYear = new Date().getFullYear();
-        let currentMonth = new Date().getMonth();
-
-        dateInput.addEventListener('click', () => {
-            calendar.style.display = calendar.style.display === 'block' ? 'none' : 'block';
-            populateCalendar();
-        });
-
-        function populateCalendar() {
-            calendarBody.innerHTML = '';
-            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-            const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-            let row = document.createElement('tr');
-            for (let i = 0; i < firstDay; i++) {
-                row.appendChild(document.createElement('td'));
-            }
-
-            for (let day = 1; day <= lastDate; day++) {
-                const cell = document.createElement('td');
-                cell.textContent = day;
-                cell.addEventListener('click', () => {
-                    text.innerText = `${String(day).padStart(2, '0')}/${String(currentMonth + 1).padStart(2, '0')}/${currentYear}`;
-                });
-                row.appendChild(cell);
-
-                if (row.children.length === 7) {
-                    calendarBody.appendChild(row);
-                    row = document.createElement('tr');
+        document.addEventListener('DOMContentLoaded', function() {
+            function initializeDatePicker(datePickerId, calendarContainerId) {
+                const dateBox = document.querySelector(`#${datePickerId}`);
+                const container = document.getElementById(calendarContainerId);
+                const dateInput = document.getElementById(datePickerId);
+                const currentDate = new Date();
+                
+                function generateCalendar(month, year, container) {
+                    const calendarBody = container.querySelector('.calendar_body');
+                    const monthYearHeader = container.querySelector('.y-m h2');
+                    
+                    const firstDay = new Date(year, month).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+                    
+                    monthYearHeader.textContent = `${month + 1} / ${year}`;
+                    
+                    let html = '';
+                    let day = 1;
+                    
+                    // 最初の週を埋める
+                    html += '<tr>';
+                    for (let i = 0; i < firstDay; i++) {
+                        html += '<td></td>';
+                    }
+                    
+                    for (let i = firstDay; i < 7; i++) {
+                        html += `<td>${day}</td>`;
+                        day++;
+                    }
+                    html += '</tr>';
+                    
+                    // 残りの週を埋める
+                    while (day <= daysInMonth) {
+                        html += '<tr>';
+                        for (let i = 0; i < 7; i++) {
+                            if (day > daysInMonth) {
+                                html += '<td></td>';
+                            } else {
+                                html += `<td>${day}</td>`;
+                                day++;
+                            }
+                        }
+                        html += '</tr>';
+                    }
+                    
+                    calendarBody.innerHTML = html;
                 }
+
+                // カレンダーの初期化
+                generateCalendar(currentDate.getMonth(), currentDate.getFullYear(), document.querySelector(`#${calendarContainerId}`));
+
+                // カレンダーの表示/非表示を切り替える
+                dateBox.addEventListener('click', function() {
+                    container.style.display = container.style.display === 'block' ? 'none' : 'block';
+                });
+
+                // 日付選択のイベントリスナー
+                document.querySelector(`#${calendarContainerId} .calendar_body`).addEventListener('click', function(event) {
+                    if (event.target.tagName === 'TD' && event.target.textContent) {
+                        dateInput.value = `${event.target.textContent}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+                        container.style.display = 'none';
+                    }
+                });
+                
+                // ナビゲーション
+                document.querySelector(`#${calendarContainerId} .prev`).addEventListener('click', function() {
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    generateCalendar(currentDate.getMonth(), currentDate.getFullYear(), document.querySelector(`#${calendarContainerId}`));
+                });
+                
+                document.querySelector(`#${calendarContainerId} .next`).addEventListener('click', function() {
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    generateCalendar(currentDate.getMonth(), currentDate.getFullYear(), document.querySelector(`#${calendarContainerId}`));
+                });
             }
 
-            if (row.children.length > 0) {
-                calendarBody.appendChild(row);
-            }
-
-            monthYear.textContent = `Thang ${currentMonth + 1} nam ${currentYear}`;
-        }
-
-        prevMonth.addEventListener('click', () => {
-            if (currentMonth === 0) {
-                currentMonth = 11;
-                currentYear--;
-            } else {
-                currentMonth--;
-            }
-            populateCalendar();
+            // 両方の日付ピッカーを初期化
+            initializeDatePicker('date-picker1', 'calendarContainer1');
+            initializeDatePicker('date-picker2', 'calendarContainer2');
         });
-
-        nextMonth.addEventListener('click', () => {
-            if (currentMonth === 11) {
-                currentMonth = 0;
-                currentYear++;
-            } else {
-                currentMonth++;
-            }
-            populateCalendar();
-        });
-
-        populateCalendar();
     </script>
 </body>
 </html>

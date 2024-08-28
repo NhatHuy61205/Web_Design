@@ -35,8 +35,6 @@ header,main{
 }
 
 /* CSS header */
-
-
 div.containerLogo{
   height: 60px;
   width: auto;
@@ -434,9 +432,8 @@ div.tabbar{
    position: relative;
    justify-content: center;
    width: 100%;
-   height: 200px;
+   height: 100px;
    max-width: var(--max-witdh-body);
-   background-image: url(images/pngtree-sunset-sky-background-with-pink-clouds-and-cloudy-evening-sun-image_2204134.jpg);
    background-size: cover;
 }
 
@@ -445,9 +442,9 @@ div.tabbar{
    position: relative;
    justify-content: center;
    z-index: 100;
-   width: 60%;
+   width: 900px;
    height: 55px;
-   top: -15%;
+   top: -55%;
    font-weight: bold;
 }
 
@@ -489,7 +486,7 @@ div.tabbar{
    align-items: center;
    z-index: 1001;
    width: 100%;
-   left: 0px;
+   left: 0;
    top: 100%;
    background-color: var(--light);
    cursor: default;
@@ -529,14 +526,24 @@ div.tabbar{
    position: relative;
    width: 100%;
    color: black;
+   margin: 0 10px;
 }
 
 .box1{
-   flex:30%;
+   flex:150px;
 }
 
 .box2{
-   flex:20%;
+   flex:100px;
+}
+
+.icon_swap{
+   display: flex;
+   color: var(--near-dark);
+   height: 35px;
+   align-items: center;
+   justify-content: center;
+   margin: 0 5px;
 }
 
 .select_container_from{
@@ -559,13 +566,10 @@ div.tabbar{
 }
 
 .select_container_from > .select_box > label {
-   display: flex;
    position: absolute;
-   align-items: center;
    font-weight: normal;
-   top: 10%;
-   width: 100%;
    font-size: 18px;
+   top:0;
    color: black;
    transition: 0.3s ease;
 }
@@ -574,13 +578,15 @@ div.tabbar{
    display: flex;
    position: absolute;
    right: 0;
-   top: 0;
+   top:0;
    font-size: 18px;
    color: black;
 }
 
 .select_container_from > .select_box > input:focus + label,
-.select_container_from > .select_box > input:not(:placeholder-shown) + label{
+.select_container_from > .select_box > input:not(:placeholder-shown) + label,
+.date-picker > .date_box > input:focus + label,
+.date-picker > .date_box > input:not(:placeholder-shown) + label{
    transform: translateY(-100%);
    font-size: 12px;
 }
@@ -650,6 +656,173 @@ div.tabbar{
 
 .exit_booking:hover{
    color: var(--near-light);
+}
+/* Date-picker */
+.date-picker{
+   position: relative;
+   width: 100%;
+}
+
+.date-picker > .date_box{
+   width: 100%;
+}
+
+.date-picker > .date_box > input{
+   outline: 0;
+   border: 0;
+   border-bottom: 1px solid black;
+   width: 100%;
+   height: 25px;
+   background-color: transparent;
+   cursor: pointer;
+}
+
+.date-picker > .date_box > label{
+   position: absolute;
+   left: 0;
+   top:0;
+   font-weight: normal;
+   font-size: 18px;
+   transition: 0.3s ease;
+}
+
+.date-picker > .date_box > i{
+   position: absolute;
+   right: 0;
+   top: 0;
+   font-size: 18px;
+   color: var(--dark);
+}
+
+.date-picker .container{
+   display: none;
+   position: absolute;
+   width: 650px;
+   left: -100%;
+   background-color: #F5F7F8;
+   border-radius: 10px;
+   z-index: 99;
+   cursor: pointer;
+}
+
+.prev{
+   display: flex;
+   position: absolute;
+   width: 100%;
+   height: 50px;
+   justify-content: space-between;
+   align-items: center;
+}
+.prev :is(.back,.next){
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: var(--dark);
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   border: 1px solid black;
+   margin: 0 15px;
+}
+
+.date_current{
+   display: none;
+   width: 100%;
+   border-radius: 10px 0 0 10px;
+   overflow: hidden;
+   color: black;
+}
+
+.date_next{
+   display: none;
+   width: 100%;
+   border-radius: 0 10px 10px 0;
+   overflow: hidden;
+   color: black;
+}
+
+.y-m {
+   display: block;
+   text-align: center;
+   width: 100%;
+   padding: 7px;
+}
+
+.y-m h2 {
+   margin: 0;
+   font-size: 18px;
+   padding: 5px;
+   font-weight: normal;
+}
+
+.y-m hr{
+   width: 80%;
+   height: 1px;
+   color: gray;
+   border-style: double;
+}
+
+.calendar {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+.calendar tr{
+   display: flex;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 0 10px;
+}
+
+.calendar_head th{
+   width: 100%;
+   font-weight: normal;
+   text-align: start;
+   font-size: 15px;
+   padding: 5px;
+}
+
+.calendar_body td{
+   display: flex;
+   margin: 0;
+   padding: 7px;
+   width: 100%;
+   height: 40px;
+   font-size: 16px;
+   box-sizing: border-box;
+}
+
+.calendar_body td.Di,
+.calendar_body td.Di:hover,
+.calendar_body td.Ve,
+.calendar_body td.Ve:hover{
+   background-color: var(--near-dark) !important;
+   color: var(--light) !important;
+}
+
+.calendar_body td.gap,
+.calendar_body td.gap:hover{
+   background-color: gray !important;
+   color: var(--light) !important;
+}
+
+.calendar_body td.pass{
+   opacity: 0.3;
+   cursor: default;
+}
+
+.calendar_body td:hover{
+   color: var(--light) !important;
+   background-color: var(--dark) !important;
+}
+.calendar_head th:nth-child(6),
+.calendar_body td:nth-child(6){
+   color:#158cb3;
+}
+
+.calendar_head th:nth-child(7),
+.calendar_body td:nth-child(7){
+   color: #c00;
 }
 
 :is(.manageBooking,.formCheckIn) > form{
@@ -1016,6 +1189,33 @@ div.title_bot h2{
    padding: 0px 2px 0px 2px;
    position: relative;
 }
+.box_bot > .highlight{
+   content: "";
+   transition: all 0.2s ease-in-out;
+   position: absolute;
+   background-color: #dba410;
+   top: 0;
+   left: 0;
+   z-index: 2;
+   width: 100%;
+   height: 12px;
+   opacity: 0;
+}
+
+.box_bot > .highlight::after{
+   content: "";
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 0;
+   height: 0;
+   border-left: 10px outset transparent;
+   border-right: 10px outset transparent;
+   border-top: 25px outset white;
+}
+.box_bot:hover > .highlight{
+   opacity: 1;
+}
 .box_bot.box_medium div.box_bot {
    height: 245.5px;
    padding: 0px;
@@ -1031,6 +1231,11 @@ div.descrip {
    padding: 20px 15px 10px;
    font-size: 12px;
    font-family: "OpenSans", Arial;
+   transition: 0.5s ease;
+}
+
+.box_bot:hover > div.descrip{
+   transform: translateY(-30%);
 }
 div.descrip.bot {
    position: absolute;
@@ -1145,7 +1350,9 @@ div.product > div > img {
    left: 50%;
    transform: translateX(-50%);
    width: 70%;
+   max-width: 1000px;
    margin: 20px 0;
+   overflow: hidden;
 }
 
 .wrapper_footer > .title{
@@ -1172,59 +1379,77 @@ div.product > div > img {
 }  
 
 .wrapper_footer > .container{
-   display: block;
+   display: flex;
    position: relative;
-   width: 100%;
+   width: 300%;
 }
 
 .footer_slide_box{
-   display: none;
+   display: flex;
    width: 100%;
+   transform: translateX(0%);
+   transition: 5s ease;
 }
 
-.footer_slide_box.active{
-   display: flex;
-}
 .footer_slide_box > .box{
    display: flex;
    flex-direction: column;
    position: relative;
    padding: 0 10px;
    width: 100%;
+   cursor: pointer;
 }
 
-.footer_slide_box > .box > img{
+.footer_slide_box > .box > .image{
    width: 100%;
-   height: auto;
+   height: 180px;
+   overflow: hidden;
+}
+
+.footer_slide_box > .box > .image > img{
+   width: 100%;
+   height: 100%;
+   transition: 5s ease;
+
+}
+.footer_slide_box > .box > .image > img:hover{
+   transform: scale(1.2);
 }
 
 .footer_slide_box > .box > .text_box{
    width: 100%;
+   height: 100px;
    box-sizing: border-box;
    padding:15px;
-   background-color: var(--near-light);
+   background-image: url(images/lovepik-creative-and-refreshing-background-image_400139235.jpg );
+   background-size: cover;
 }
 
 .footer_slide_box > .box > .text_box > h3{
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
    margin: 0 0 15px 0;
-   color: var(--near-dark);
+   font-size: 18px;
+   color: var(--dark);
 }
 
 .footer_slide_box > .box > .text_box > p{
    margin: 0;
+   font-size: 13px;
    color: black;
+   font-family: 'Times New Roman', Times, serif;
 }
 
 .select_footer_slide{
    display: flex;
    position: relative;
    justify-content: center;
+   align-items: center;
    width: 100%;
    height: 15px;
-   margin: 5px;
+   margin: 20px;
 }
 
-.select_footer_slide   span{
+.select_footer_slide span{
    display: flex;
    height: 10px;
    width: 10px;
@@ -1237,6 +1462,22 @@ div.product > div > img {
 .select_footer_slide span:hover,
 .select_footer_slide span.active{
    background-color: var(--near-dark);
+}
+.play_slide_footer{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   border: 2px solid black;
+   margin: 0 5px;
+   cursor: pointer;
+}
+.play_slide_footer .fa-play,
+.play_slide_footer .fa-pause{
+   font-size: 9px;
+   color: var(--dark);
 }
 /* CSS FOOTER */
 footer > .container {
