@@ -726,7 +726,7 @@ div.tabbar{
 }
 
 .date_current{
-   display: none;
+   display: block;
    width: 100%;
    border-radius: 10px 0 0 10px;
    overflow: hidden;
@@ -734,7 +734,7 @@ div.tabbar{
 }
 
 .date_next{
-   display: none;
+   display: block;
    width: 100%;
    border-radius: 0 10px 10px 0;
    overflow: hidden;
@@ -1056,6 +1056,61 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    width: 100%;
    height: 100%;
    background-color: rgba(0, 0, 0, 0.7);
+}
+/* News */
+.news_container{
+   position: relative;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   margin: auto;
+   width: 80%;
+}
+
+.news{
+   display: flex;
+   align-items: center;
+}
+
+.news :is(img,h3){
+   margin: 10px;
+   padding: 0;
+   color: var(--dark);
+}
+.text_news{
+   display: inline-block;
+   height: 27px;
+   overflow: hidden;
+}
+.text_news span{
+   display: flex;
+   padding: 5px;
+   margin: 0;
+   transform: translateY(-200%);
+   transition: 0.5s ease;
+}
+
+.select_news{
+   position: absolute;
+   display: flex;
+   height: 100%;
+   right: 0;
+   align-items: center;
+}
+
+.select_news span{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 5px;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   border: 1px solid black;
+   cursor: pointer;
+}
+.select_news a{
+   margin: 10px;
 }
 /* Menu Header */
 ul.desktop {

@@ -176,6 +176,57 @@ selects_booking.forEach(select => {
 })
 
 // Select Booking
+const selectOptionBooking = document.querySelectorAll('.select_option_booking')
+const date1 = document.querySelector('.date_current')
+const date2 = document.querySelector('.date_next')
+const form = document.querySelector('.formBooking .form')
+selectOptionBooking.forEach((selected,index) =>{
+    selected.addEventListener('click',()=>{
+        selectOptionBooking.forEach(off => {
+            off.classList.remove('active')
+        })
+        selected.classList.add('active')
+        if(index == 0){
+            date1.style.display='block'
+            date2.style.display='block'
+            form[3].style.display='flex'}
+        if(index == 1){
+            date1.style.display='block'
+            date2.style.display='block'
+            form[3].style.display='none'}
+    })
+})
+
+// news slide
+const textNews = document.querySelectorAll('.text_news span')
+const selectNewsBack = document.querySelector('.select_news .back')
+const selectNewsNext = document.querySelector('.select_news .next')
+const countNews = document.querySelector('.select_news p')
+let count = 0
+function changeNews(){
+    if (count >= textNews.length) {
+        count = 0
+    } else if (count < 0) {
+        count = textNews.length - 1
+    }
+    
+    countNews.textContent = `(${count + 1}/${textNews.length})`
+    textNews.forEach(text => {
+        text.style.transform = `translateY(-${count * 100}%)`
+    })
+}
+
+selectNewsNext.addEventListener('click', () => {
+    count += 1
+    changeNews()
+});
+
+selectNewsBack.addEventListener('click', () => {
+    count -= 1
+    changeNews()
+})
+
+changeNews()
 
 // Slide wrapper
 var play, playFooter
