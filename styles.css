@@ -456,7 +456,7 @@ div.tabbar{
    color: var(--light);
    margin: 0;
    padding: 0;
-   width: 100%;
+   width: 500px;
    font-size: 18px;
    background-color: rgba(var(--dark-rgb), 0.7);
    transition: ease 0.5s all;
@@ -1206,6 +1206,35 @@ div.title_row >h2 {
    color: black;
    margin-top: 0px  ;
 }
+
+.route {
+   margin: 15px;
+}
+.route_line {
+   display: inline-block;
+   border: 1px solid rgb(173, 165, 152);
+   margin: 0px 8px 12px 0px;
+   border-radius: 5px;
+}
+.route_line a{
+   font-size: 14px;
+   text-decoration: none;
+   color: rgb(102, 102, 102);
+}
+.route_line div {
+   padding:10px;
+}
+.route_delete {
+   display:inline-block;
+   padding: 0px 12px;
+   margin-bottom: 12px;
+}
+.route_delete a {
+   font-size: 14px;
+   text-decoration: none;
+   color: rgb(102, 102, 102);
+}
+
 
 /* CSS ROW_BOT */
 div.title_bot {
