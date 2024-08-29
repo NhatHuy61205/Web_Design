@@ -1063,8 +1063,9 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    display: flex;
    justify-content: start;
    align-items: center;
-   margin: auto;
+   margin: 0px;
    width: 80%;
+   padding: 0px 5px;
 }
 
 .news{
@@ -1208,6 +1209,7 @@ div.title_row >h2 {
 
 .route {
    margin: 15px;
+   margin-bottom: 0px;
 }
 .route_line {
    display: inline-block;
@@ -1632,6 +1634,7 @@ li.down > ul > li > a {
    color:white;
    text-decoration: none;
    font-size: 13px;
+   text-transform: capitalize;
 }
 li.down > ul > li > a:hover {
    color: rgb(246, 237, 204);
