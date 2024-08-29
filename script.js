@@ -1,9 +1,16 @@
+//load window
+window.addEventListener('load',() =>{
+    document.querySelector('.dots-bars-6').style.display = 'none'
+    document.querySelector('.hiddenBody').style.display = 'block'
+    })
+
 // Date Picker
 const datepicker = document.querySelector('.date-picker')
-const calendarContainer = document.getElementById('calendarContainer')
+const calendarContainer = document.querySelector('.date-picker .container')
 const calendarBody = document.querySelectorAll('.calendar_body')
 const yearMonth = document.querySelectorAll('.y-m h2')
 const textDay = document.querySelectorAll('.select_date-picker')
+var checkGo = false,checkBack = false
 
 let currentDate = new Date()
 let currentMonth = new Date(currentDate.getFullYear(),currentDate.getMonth(),1)
@@ -11,11 +18,9 @@ let dateTochange = new Date()
 renderCalendar(currentDate)
 
 function renderCalendar(date) {
-    const months = [
-        'THÁNG MỘT', 'THÁNG HAI', 'THÁNG BA', 'THÁNG TƯ', 'THÁNG NĂM',
-        'THÁNG SÁU', 'THÁNG BẢY', 'THÁNG TÁM', 'THÁNG CHÍN', 'THÁNG MƯỜI',
-        'THÁNG MƯỜI MỘT', 'THÁNG MƯỜI HAI','THÁNG MỘT'
-    ];
+    const months = ['THÁNG MỘT', 'THÁNG HAI', 'THÁNG BA', 'THÁNG TƯ', 'THÁNG NĂM',
+                    'THÁNG SÁU', 'THÁNG BẢY', 'THÁNG TÁM', 'THÁNG CHÍN', 'THÁNG MƯỜI',
+                    'THÁNG MƯỜI MỘT', 'THÁNG MƯỜI HAI','THÁNG MỘT'];
 
     const y = date.getFullYear();
     const m = date.getMonth()
@@ -23,6 +28,7 @@ function renderCalendar(date) {
     yearMonth.forEach((child,index) =>{
         child.textContent = `${months[m+index]} ${y}`
      })
+
     calendarBody.forEach((child,index) => {
         const firstDay = new Date(y, m + index, 1)
         const lastDay = new Date(y, m + 1 + index, 0)
@@ -35,33 +41,82 @@ function renderCalendar(date) {
         for (let i = 1; i < startDay; i++) {
             r.appendChild(document.createElement('td'));
         }
-
+        const now = new Date()
+        const nowMonthYear = new Date(now.getFullYear(),now.getMonth(),1)
+        const nowDay = firstDay.getTime() === nowMonthYear.getTime() ? now.getDate() : 0
         for (let day = 1; day <= days; day++) {
-            if(firstDay === currentMonth){
-                if (r.children.length === 7){
-                    child.appendChild(r)
-                    r = document.createElement('tr')}
-                    const x = document.createElement('td')
-                    x.textContent = day;
-                    if(day < currentDate.getDate())
-                        x.classList.add('pass')
-                    else
-                        x.classList.add('day')
-                    r.appendChild(x);
-                }
-            else{
                 if (r.children.length === 7) {
                 child.appendChild(r);
                 r = document.createElement('tr'); }
                 const x = document.createElement('td')
                 x.textContent = day;
-                x.classList.add('day')
-                x.addEventListener('click', () => {
-                    selectDate(y, m, day)
-                })
+                if(day < nowDay)
+                    x.classList.add('pass')
+                else{
+                    x.classList.add('day')
+                    x.addEventListener('click', () => {
+                        if(date2.style.display === 'none'){
+                            selectDate(y, m, day, 0)
+                        }
+                        else{
+                            const n = document.querySelectorAll('.day')
+                            if(checkGo && checkBack){
+                                for(let i = 0;i< n.length;i++)
+                                    n[i].classList.remove('Di','Ve','gap')
+                                selectDate(y, m, day,0)
+                                x.classList.add('Di')
+                                checkBack = false}
+                            else if(!checkGo && !checkBack){
+                                selectDate(y, m, day,0)
+                                x.classList.add('Di')
+                                checkGo = true
+                            }
+                            else{
+                                var a = 0,b = 0
+                                selectDate(y, m, day,1)
+                                x.classList.add('Ve')
+                                checkBack = true
+                                for(let i = 0;i< n.length;i++){
+                                    if(n[i].classList.contains('Di'))
+                                        a = i
+                                    if(n[i].classList.contains('Ve'))
+                                        b = i
+                                }
+                                if(b < a){
+                                    temp = textDay[0].value
+                                    textDay[0].value = textDay[1].value
+                                    textDay[1].value = temp
+                                }
+                            }
+                        }
+                    })
+                }
                 r.appendChild(x);
-            }
         }
+        document.querySelectorAll('.day').forEach((x,index) =>{
+            x.addEventListener('mouseover',() =>{
+                if(checkGo && !checkBack){
+                    let k = 0
+                    const n = document.querySelectorAll('.day')
+                    for(let i = 0 ;i < n.length;i++){
+                        n[i].classList.remove('gap')
+                    }
+                    for(let i = 0 ;i < n.length;i++){
+                        if(n[i].classList.contains('Di')){
+                            k = i
+                            break
+                        }    
+                    }
+                    console.log(k)
+                    if(k > index)
+                        for(let i = index; i < k;i++)
+                            n[i].classList.add('gap')
+                    else
+                        for(let i = k; i < index;i++)
+                            n[i].classList.add('gap')
+                }
+            })
+        })
 
         while(r.children.length < 7) {
             r.appendChild(document.createElement('td'))
@@ -69,9 +124,8 @@ function renderCalendar(date) {
 
         child.appendChild(r)
 
-        function selectDate(year, month, day) {
-            const selectedDate = new Date(year, month, day);
-            textDay[index].value = `${day}/${month}/${year}`;
+        function selectDate(year, month, day,inputField) {
+            textDay[inputField].value = `${day}/${month}/${year}`;
         }
     })
 }
@@ -90,18 +144,14 @@ prevBack.addEventListener('click',() => {
     renderCalendar(dateTochange)}
 })
 
+document.querySelector('.none').addEventListener('click',()=>{
+    calendarContainer.style.display ='none';
+})
 const dateBox = document.querySelectorAll('.date_box')
 dateBox.forEach(child => {
     child.addEventListener('click',() =>
          calendarContainer.style.display= 'flex')
 })
-
-//load window
-window.addEventListener('load',() =>{
-    document.querySelector('.dots-bars-6').style.display = 'none'
-    document.querySelector('.hiddenBody').style.display = 'block'
-    })
-
 //select custom 
 const selects = document.querySelectorAll('.select_container')
 
@@ -179,7 +229,10 @@ selects_booking.forEach(select => {
 const selectOptionBooking = document.querySelectorAll('.select_option_booking')
 const date1 = document.querySelector('.date_current')
 const date2 = document.querySelector('.date_next')
-const form = document.querySelector('.formBooking .form')
+const form = document.querySelectorAll('.formBooking .form')
+const mutil = document.querySelectorAll('.formBooking')
+const arrow = document.querySelectorAll('.icon_swap .fa-solid')
+mutil[1].style.display='none'
 selectOptionBooking.forEach((selected,index) =>{
     selected.addEventListener('click',()=>{
         selectOptionBooking.forEach(off => {
@@ -189,12 +242,37 @@ selectOptionBooking.forEach((selected,index) =>{
         if(index == 0){
             date1.style.display='block'
             date2.style.display='block'
-            form[3].style.display='flex'}
+            form[3].style.display='flex'
+            mutil[1].style.display ='none'
+            calendarContainer.style.width = '650px'
+            calendarContainer.style.left = '-100%'
+            for(var i = 0;i<arrow.length;i++){
+                arrow[i].classList.add('fa-right-left')
+                arrow[i].classList.remove('fa-right-long')}
+        }
         if(index == 1){
             date1.style.display='block'
-            date2.style.display='block'
-            form[3].style.display='none'}
-    })
+            date2.style.display='none'
+            form[3].style.display='none'
+            mutil[1].style.display ='none'
+            calendarContainer.style.width = '325px'
+            calendarContainer.style.left = '-25%'
+            for(var i = 0;i<arrow.length;i++){
+                arrow[i].classList.remove('fa-right-left')
+                arrow[i].classList.add('fa-right-long')}
+            }
+        if(index == 2){
+            date1.style.display='block'
+            date2.style.display='none'
+            form[3].style.display='none'
+            mutil[1].style.display ='flex'
+            calendarContainer.style.width = '325px'
+            calendarContainer.style.left = '-25%'
+            for(var i = 0;i<arrow.length;i++){
+                arrow[i].classList.remove('fa-right-left')
+                arrow[i].classList.add('fa-right-long')}
+            }
+    }) 
 })
 
 // news slide

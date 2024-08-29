@@ -12,6 +12,7 @@
 * {
    font-family: Arial, Helvetica, sans-serif;
 }
+
 html, body {
    width: 100%;
    height: 100%;
@@ -309,6 +310,7 @@ ul.menu > li:hover nav.submenu{
 /* CSS main ---------------------------------------------------------------*/
 
 /* CSS wrapper */
+
 .wrapper{
    position: relative;
    width: 100%;
@@ -447,7 +449,7 @@ div.tabbar{
    top: -55%;
    font-weight: bold;
 }
- 
+
 .menu_navtabbar{
    display: flex;
    justify-content: center;
@@ -456,7 +458,7 @@ div.tabbar{
    color: var(--light);
    margin: 0;
    padding: 0;
-   width: 500px;
+   width: 100%;
    font-size: 18px;
    background-color: rgba(var(--dark-rgb), 0.7);
    transition: ease 0.5s all;
@@ -508,7 +510,9 @@ div.tabbar{
 .booking > h4{
    padding: 0;
    margin: 0;
-   color: black;
+   color: var(--dark);
+   font-size: 20px;
+   font-weight: normal;
 }
 
 .inputBooking{
@@ -568,7 +572,7 @@ div.tabbar{
 .select_container_from > .select_box > label {
    position: absolute;
    font-weight: normal;
-   font-size: 18px;
+   font-size: 16px;
    top:0;
    color: black;
    transition: 0.3s ease;
@@ -587,7 +591,7 @@ div.tabbar{
 .select_container_from > .select_box > input:not(:placeholder-shown) + label,
 .date-picker > .date_box > input:focus + label,
 .date-picker > .date_box > input:not(:placeholder-shown) + label{
-   transform: translateY(-100%);
+   transform: translate(-20%,-50%);
    font-size: 12px;
 }
 
@@ -682,7 +686,7 @@ div.tabbar{
    left: 0;
    top:0;
    font-weight: normal;
-   font-size: 18px;
+   font-size: 16px;
    transition: 0.3s ease;
 }
 
@@ -725,18 +729,9 @@ div.tabbar{
    margin: 0 15px;
 }
 
-.date_current{
+.date_current,.date_next{
    display: block;
    width: 100%;
-   border-radius: 10px 0 0 10px;
-   overflow: hidden;
-   color: black;
-}
-
-.date_next{
-   display: block;
-   width: 100%;
-   border-radius: 0 10px 10px 0;
    overflow: hidden;
    color: black;
 }
@@ -790,41 +785,67 @@ div.tabbar{
    height: 40px;
    font-size: 16px;
    box-sizing: border-box;
-}
-
-.calendar_body td.Di,
-.calendar_body td.Di:hover,
-.calendar_body td.Ve,
-.calendar_body td.Ve:hover{
-   background-color: var(--near-dark) !important;
-   color: var(--light) !important;
-}
-
-.calendar_body td.gap,
-.calendar_body td.gap:hover{
-   background-color: gray !important;
-   color: var(--light) !important;
+   transition: 0.3s ease;
 }
 
 .calendar_body td.pass{
+   pointer-events: none;
    opacity: 0.3;
    cursor: default;
 }
 
-.calendar_body td:hover{
+.calendar_body td.day:hover{
    color: var(--light) !important;
-   background-color: var(--dark) !important;
+   background-color: var(--dark);
+}
+
+.calendar_body td.gap{
+   background-color: gray ;
+   color: var(--light) !important;
+}
+
+.calendar_body td:is(.Di,.Ve){
+   background-color: var(--near-dark) !important;
+   color: var(--light) !important;
 }
 .calendar_head th:nth-child(6),
 .calendar_body td:nth-child(6){
-   color:#158cb3;
+   color:#158cb3 ;
 }
 
 .calendar_head th:nth-child(7),
 .calendar_body td:nth-child(7){
    color: #c00;
 }
-
+.none{
+   position: fixed;
+   z-index: -1;
+   width: 100%;
+   height: 100%;
+   top:0;
+   left: 0;
+}
+.button_submit_booking{
+   position: relative;
+   display: flex;
+   width: 100%;
+   margin: 50px 0;
+   justify-content: end;
+}
+.button_submit_booking span {
+   display: inline-block;
+   padding: 10px;
+   border-radius: 10px;
+   color: #000;
+   background-color: #FF9100;
+   border:1px solid #FF9100;
+   font-size: 16px;
+   cursor: pointer;
+   transition: 0.3s ease;
+}
+.button_submit_booking span:hover{
+   background-color: white;
+}
 :is(.manageBooking,.formCheckIn) > form{
    display: flex;
    width: 100%;
@@ -1063,9 +1084,9 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    display: flex;
    justify-content: start;
    align-items: center;
-   margin: 0px;
+   margin: auto;
    width: 80%;
-   padding: 0px 5px;
+   height: 100px;
 }
 
 .news{
@@ -1090,6 +1111,16 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    transform: translateY(-200%);
    transition: 0.5s ease;
 }
+.text_news span a{
+   text-decoration: none;
+   color: var(--dark);
+   font-weight: bold;
+   margin: 0 5px;
+}
+
+.text_news span a:hover{
+   text-decoration: underline;
+}
 
 .select_news{
    position: absolute;
@@ -1110,9 +1141,16 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
    border: 1px solid black;
    cursor: pointer;
 }
-.select_news a{
-   margin: 10px;
+
+.news_container hr{
+   position: absolute;
+   display: block;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+   height: 1px;
 }
+
 /* Menu Header */
 ul.desktop {
    display: flex;
@@ -1188,8 +1226,9 @@ div.name {
    height: 100%;
 }
 div.row {
-   margin: 0px 15px 40px 15px;
+   margin: 40px 15px 40px 15px;
    padding: 0px 15px 0px 15px;
+   margin-top: 40px;
    border-top: 1px solid #ada598;
 }
 div.title_row {
@@ -1259,7 +1298,6 @@ div.title_bot h2{
    height: 100%;
    width: 100%;
    margin-bottom: 4px;
-   position: relative;
 }
 .box_bot > div > img{
    height: 100%;
@@ -1272,9 +1310,8 @@ div.title_bot h2{
 .box_bot {
    height: 495px;;
    width: 33.33333%;
-   padding: 0px 2px;
+   padding: 0px 2px 0px 2px;
    position: relative;
-   overflow:hidden;
 }
 .box_bot > .highlight{
    content: "";
@@ -1312,7 +1349,7 @@ div.descrip {
    position: absolute;
    color: white;
    z-index: 2;
-   top: 50%;
+   top: 310px;
    width: 100%;
    height: 33.33333%;
    padding: 20px 15px 10px;
@@ -1483,6 +1520,7 @@ div.product > div > img {
    position: relative;
    padding: 0 10px;
    width: 100%;
+   box-sizing: border-box;
    cursor: pointer;
 }
 
@@ -1634,7 +1672,6 @@ li.down > ul > li > a {
    color:white;
    text-decoration: none;
    font-size: 13px;
-   text-transform: capitalize;
 }
 li.down > ul > li > a:hover {
    color: rgb(246, 237, 204);
