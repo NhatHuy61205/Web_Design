@@ -465,3 +465,23 @@ function changeInputCheckin(n){
     y[n-1].classList.add('active')
 }
 
+function viewMore() {
+    const loadMoreButton = document.getElementById('load-more');
+    const hiddenSections = document.querySelectorAll('.product.flex.hidden');
+    let currentIndex = 0;
+
+    loadMoreButton.addEventListener('click', function() {
+        if (currentIndex < hiddenSections.length) {
+            hiddenSections[currentIndex].classList.remove('hidden');
+            currentIndex++;
+            if (currentIndex === hiddenSections.length) {
+                loadMoreButton.style.display = 'none';
+            }
+        }
+    });
+}
+
+
+
+
+
