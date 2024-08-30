@@ -1472,7 +1472,7 @@ div.product > div > img {
    position: relative;
    left: 50%;
    transform: translateX(-50%);
-   width: 70%;
+   width: 100%;
    max-width: 1000px;
    margin: 20px 0;
    overflow: hidden;

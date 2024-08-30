@@ -137,7 +137,7 @@
 /* slide footer */
 @media (max-width: 768px){
    .wrapper_footer{
-      width: 650px;
+      width: 100%;
    }
    .wrapper_footer > .container1{
       width: 300%;
