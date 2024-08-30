@@ -274,6 +274,38 @@ selectOptionBooking.forEach((selected,index) =>{
             }
     }) 
 })
+// Map Viet Nam
+const maplabel = document.querySelectorAll('.map-label')
+const local = ['quangninh','thanhhoa','quangbinh','danang','nghean','quangnam','binhdinh','phuyen','khanhhoa','lamdong','condao','hochiminh',
+                'haiphong','camau','kiengiang','phuquoc','daklak','gialai','dienbien','ninhbinh', 'cantho','hanoi','thuathienhue']
+const descriptionMap = document.querySelectorAll('.description .container')
+
+maplabel.forEach((label,index) => {
+    label.addEventListener('mouseover',() =>{
+        for(var i = 0;i< local.length;i++){
+            document.getElementById(local[i]).classList.remove('active')
+            descriptionMap[i].classList.remove('active')}
+        document.getElementById(local[index]).classList.add('active')
+        descriptionMap[index].classList.add('active')
+    })
+    label.addEventListener('mouseout',() =>{
+        for(var i = 0;i< local.length;i++)
+        document.getElementById(local[index]).classList.remove('active')
+    })
+})
+
+local.forEach((child,index) => {
+    document.getElementById(child).addEventListener('mouseover',() =>{
+        for(var i = 0;i < maplabel.length;i++){
+            maplabel[i].classList.remove('active')
+            descriptionMap[i].classList.remove('active')}
+        maplabel[index].classList.add('active')
+        descriptionMap[index].classList.add('active')
+    })
+    document.getElementById(child).addEventListener('mouseout',() =>{
+        maplabel[index].classList.remove('active')
+    })
+})
 
 // news slide
 const textNews = document.querySelectorAll('.text_news span')

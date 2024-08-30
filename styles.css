@@ -1466,6 +1466,105 @@ div.product > div > img {
    object-fit: cover;
    object-position: center;
 }
+/* map vietnam */
+.Vietnam{
+   display: flex;
+   width: 100%;
+   max-width: 2000px;
+   margin: auto;
+}
+
+.description{
+   display: flex;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   flex: 70%;
+}
+
+.description .container{
+   display: none;
+   width: 400px;
+}
+
+.description .container.active{
+   display: block;
+}
+.description .container h3{
+   display: flex;
+   justify-content:center ;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: var(--dark);
+   font-size: 16px;
+   
+}
+.description .container .box{
+   width: 100%;
+   padding: 0;
+   box-shadow: 4px 4px 14px black;
+   overflow: hidden;
+}
+
+.description .container .box img{
+   display: flex;
+   width: 100%;
+}
+
+.description .container .box .text{
+   width: 100%;
+   height: 70px;
+   background-image: url('images/map_description/images.jpg');
+   background-size: cover;
+}
+.description .container .box .text p{
+   padding: 0;
+   margin: 0;
+}
+.map{
+   display: inline-block;
+   position: relative;
+   flex: 30%;
+}
+g {
+fill: #79A3B1;
+transition: 0.3s ease;
+}
+:is(#hanoi,#dienbien,#haiphong,#quangninh,#ninhbinh,#nghean,#quangbinh,#thuathienhue,#danang,#quangnam,#daklak,
+#gialai,#binhdinh,#phuyen,#khanhhoa,#lamdong,#cantho,#condao,#camau,#kiengiang,#phuquoc,#hochiminh,#thanhhoa):hover,
+g.active{
+   fill: yellow;
+}
+
+.fil1{
+   fill:none;
+}
+.map-label {
+   display: flex;
+   position: absolute;
+   margin: 0;
+   padding: 5px;
+   cursor: pointer;
+   justify-content: center;
+   transition: 0.5s ease;
+}
+.map-label span{
+   z-index: 99;
+}
+.animated-map-label{
+   position: absolute;
+   width: 0;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background-color: lightcoral;
+   transition: 0.5s ease;
+}
+:is(.map-label:hover,.map-label.active) .animated-map-label{
+   width: 100%;
+}
+.cricle_map{
+   fill: rgb(219, 26, 26);
+}
 /* Wrapper footer */
 .wrapper_footer{
    display: block;
@@ -1876,8 +1975,6 @@ padding-top: 9px;
 .copyright a:hover {
    color: rgb(246, 237, 204);
 } 
-
-
 
 .hiddenBody{
    display: none;
