@@ -1212,6 +1212,9 @@ div.name {
 
  
 /* Main Box */
+.hidden {
+   display: none;
+}
 
 .bg-white {
    width: 100%;
