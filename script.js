@@ -338,6 +338,28 @@ selectNewsBack.addEventListener('click', () => {
 
 changeNews()
 
+// bg white mobile changeslide 
+const slideBgWhite = document.querySelectorAll('div.product')
+var indexBgWhite = -1
+document.querySelector('.mobile_button_row_top .prev_next').addEventListener('click',() =>{
+    indexBgWhite += 1
+    if(indexBgWhite >= slideBgWhite.length)
+        indexBgWhite = -1
+    for(var i=0;i< slideBgWhite.length;i++)
+        slideBgWhite[i].classList.remove('active')
+    slideBgWhite[indexBgWhite].classList.add('active')
+})
+
+document.querySelector('.mobile_button_row_top .prev_back').addEventListener('click',() =>{
+    indexBgWhite -= 1
+    if(indexBgWhite < 0)
+        indexBgWhite = slideBgWhite.length -1
+    for(var i=0;i< slideBgWhite.length;i++)
+        slideBgWhite[i].classList.remove('active')
+    slideBgWhite[indexBgWhite].classList.add('active')
+})
+
+
 // Slide wrapper
 var play, playFooter
 var checkSlide = false,checkSlideFooter = false
@@ -465,6 +487,7 @@ function changeInputCheckin(n){
     y[n-1].classList.add('active')
 }
 
+// view more
 function viewMore() {
     const loadMoreButton = document.getElementById('load-more');
     const hiddenSections = document.querySelectorAll('.product.flex.hidden');

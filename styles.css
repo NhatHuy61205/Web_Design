@@ -1215,7 +1215,9 @@ div.name {
 .hidden {
    display: none;
 }
-
+.mobile_button_row_top{
+   display: none;
+}
 .bg-white {
    width: 100%;
    margin: 0px;
