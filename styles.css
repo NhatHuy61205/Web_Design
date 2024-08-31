@@ -1520,13 +1520,14 @@ div.product > div > img {
 .description{
    display: flex;
    position: relative;
-   justify-content: center;
    align-items: center;
-   flex: 70%;
+   flex: 50%;
 }
 
 .description .container{
    display: none;
+   position: absolute;
+   right: 10%;
    width: 400px;
 }
 
@@ -1564,9 +1565,15 @@ div.product > div > img {
    margin: 0;
 }
 .map{
-   display: inline-block;
+   display: flex;
+   justify-content: start;
    position: relative;
-   flex: 30%;
+   flex: 50%;
+}
+
+.mapSVG{
+   width: 600px;
+   height: auto;
 }
 g {
 fill: #79A3B1;
@@ -1578,9 +1585,6 @@ g.active{
    fill: yellow;
 }
 
-.fil1{
-   fill:none;
-}
 .map-label {
    display: flex;
    position: absolute;
@@ -1808,15 +1812,16 @@ div.text {
    padding: 0;
 }
 ul > li.down > ul > li{
-   margin-bottom: 15px;
+   margin-bottom: 15px
 }
 li.down > ul > li > a {
    color:white;
    text-decoration: none;
    font-size: 13px;
+   transition: 0.3s ease;
 }
 li.down > ul > li > a:hover {
-   color: rgb(246, 237, 204);
+   color: rgb(227, 188, 44);
 }
 .down h4 {
    font-size: 18px;
@@ -1926,17 +1931,25 @@ ul.term li:last-child {
 .company_info a {
    text-decoration: none;
    color: white;
+   border-bottom: 0;
+   transition: 0.3s ease;
 } 
 .company_info a:hover {
    color: rgb(246, 237, 204);
-   text-decoration: underline;
+   border-bottom: 1px solid rgb(246, 237, 204);
 }
 
 .company_info  {
 font-size: 13px;
 padding-top: 9px;
 }
-
+.company_info strong{
+   transition: 0.3s ease;
+   cursor: pointer;
+}
+.company_info strong:hover{
+   color: aqua;
+}
 .footer-right li {
    padding: 0;
    margin: 0;

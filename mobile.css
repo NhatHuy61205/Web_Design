@@ -249,3 +249,33 @@
        Border-bottom: 1px solid #4aacc3;
     }
  }
+
+ /* Map Viet Nam */
+ @media (max-width: 768px){
+   .Vietnam{
+      display: block;
+      width: 100%;
+   }
+
+   .description{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+   }
+
+   .description .container{
+      right: 0;
+      position: relative;
+   }
+
+   .map-label{
+      display: none;
+   }
+ }
+
+ /* AI chat */
+ @media (max-width: 768px){
+   .connect_AI{
+      display: none;
+   }
+ }
