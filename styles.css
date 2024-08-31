@@ -1754,6 +1754,100 @@ g.active{
    font-size: 9px;
    color: var(--dark);
 }
+
+/* CSS STAR RATING*/
+.star-rating {
+   display: flex;
+   padding: 40px;
+   margin: 0px auto;
+   flex-direction: column;
+   align-items: center;
+}
+.title-rating {
+   font-family: "OpenSans";
+   font-size: 20px;
+}
+.rating {
+   width: max-content;
+   display: flex;
+   flex-direction: column;
+   margin:0px auto;
+   
+}
+.star {
+   display: flex;
+   justify-content: center;
+}
+.img-star {
+   background-image: url(images/star-rating.webp);
+   cursor: pointer;
+   background-size: 50%;
+   background-repeat: no-repeat;
+   max-width: 80px;
+   width: 15vw;
+   min-height: 50px;
+   margin: 10px 0;
+   background-position: center;
+}
+.img-star {
+   color: transparent;
+}
+.star-text {
+   display: flex;
+   justify-content: space-between;
+}
+span.low-rating {
+   font-family: "OpenSans";
+   font-size: 14px;
+   text-align: left;
+}
+span.good-rating {
+   font-family: "OpenSans";
+   font-size: 14px;
+   text-align: right;
+}
+.comment-more {
+   margin-top: 20px;
+   min-width: 600px;
+   text-align: center;
+   width: 100%;
+}
+.comment-more div {
+   font-family: "OpenSans";
+   font-size: 20px;
+}
+.box-comment {
+   margin-top: 20px;
+}
+textarea.complaint {
+   border-radius: 5px;
+}
+.note-rating {
+   margin:5px;
+   font-family: "OpenSans";
+   font-size: 13px;
+}
+.send-comment {
+   width: max-content;
+   margin: 0px auto;
+}
+div.send {
+   padding:8px;
+   color: white;
+   background-color: #166987;
+   border-radius: 5px;
+   height: auto;
+   margin-top: 5px;
+   cursor: pointer;
+   font-family: "OpenSans";
+   font-size: 15px;
+   font-weight: 400;
+}
+
+
+
+
+
 /* CSS FOOTER */
 .footer > div.in_footer {
    background-color: #f8f3e7;
