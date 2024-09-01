@@ -1351,7 +1351,7 @@ div.title_bot h2{
    margin-bottom: 4px;
 }
 .box_bot > div > img{
-   height: 100%;
+   height: auto  ;
    width: 100%;
    object-fit: cover;
    display: block;
@@ -1363,6 +1363,7 @@ div.title_bot h2{
    width: 33.33333%;
    padding: 0px 2px 0px 2px;
    position: relative;
+   overflow:hidden;
 }
 .box_bot > .highlight{
    content: "";
