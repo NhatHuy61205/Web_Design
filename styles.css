@@ -463,7 +463,7 @@ div.tabbar{
    padding: 0;
    width: 100%;
    font-size: 18px;
-   background-color: rgba(var(--dark-rgb), 0.7);
+   background-color: rgba(var(--dark-rgb), 0.35);
    transition: ease 0.5s all;
 }
 

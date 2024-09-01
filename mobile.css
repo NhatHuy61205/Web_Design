@@ -431,10 +431,10 @@
       height: 40%;
    }
    .footer_slide_box > .box > .text_box > h3{
-      font-size: 30%;
+      font-size: 5px;
    }
    .footer_slide_box > .box > .text_box > p{
-      font-size: 50%;
+      font-size: 5px;
    }
 }
 
@@ -486,7 +486,7 @@
     .down {
        width: 100%;
        text-align: left;
-       padding-left: 100px;
+       padding-left: 20px;
     }
  
     .down > h4 {
