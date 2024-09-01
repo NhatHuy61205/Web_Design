@@ -379,7 +379,12 @@ stars.forEach((star, index) => {
                 star.classList.remove('active')
             }
         })
+        document.querySelector('.suggest').style.display ='block'
     })
+})
+
+document.querySelector('.send').addEventListener('click',()=>{
+    document.querySelector('.star-rating').style.display = 'none'
 })
 
 

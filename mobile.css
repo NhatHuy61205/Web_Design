@@ -25,7 +25,6 @@
    .nav-mobile{
       display: none;
       width: 100%;
-      max-width: 100%;
       background-color:rgb(197, 226, 244);
    }
 
@@ -247,7 +246,7 @@
       flex-direction: row;
       flex-wrap: wrap; 
       position: initial; 
-      width: 700px; 
+      width: 100%; 
       padding: 10px;
       justify-content: center; 
    } 
@@ -257,7 +256,8 @@
       margin: 5px;
       width: 45%; 
       text-align: center; 
-      height: 50px;
+      height: 30px;
+      font-size: 10px;
    }
 
    
@@ -609,3 +609,8 @@
  }
 
  /* Rate */
+ @media (max-width: 768px){
+   .star-rating{
+      display: none;
+   }
+ }

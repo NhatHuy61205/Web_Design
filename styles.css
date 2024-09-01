@@ -1818,9 +1818,11 @@ span.good-rating {
    font-size: 14px;
    text-align: right;
 }
+.suggest{
+   display: none;
+}
 .comment-more {
    margin-top: 20px;
-   min-width: 600px;
    text-align: center;
    width: 100%;
 }
