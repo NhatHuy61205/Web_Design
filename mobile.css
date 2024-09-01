@@ -475,6 +475,7 @@
     .all_down_content {
        flex-direction: column;
        align-items: center;
+       overflow: hidden;
     }
  
     li.down > ul > li > a {

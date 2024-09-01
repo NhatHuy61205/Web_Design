@@ -1517,6 +1517,29 @@ div.product > div > img {
    object-fit: cover;
    object-position: center;
 }
+/* title map */
+.title-map {
+   display: block;
+   width: 100%;
+}
+.title-map div {
+   margin: auto;
+   max-width: 1000px;
+   height: 100px;
+   line-height: 100px ;
+   background-color: #1B95B8;
+   border-radius: 5px;
+}
+.title-map div h1 {
+   font-size: 30px;
+   font-family: "OpenSans";
+   letter-spacing: 2px;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   text-transform: uppercase;
+}
+
 /* map vietnam */
 .Vietnam{
    display: flex;
