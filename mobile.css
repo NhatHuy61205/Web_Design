@@ -1,3 +1,8 @@
+@media (max-width:768px){
+   body,html{
+      width: 100%;
+   }
+}
 /* header menu for mobile */
 @media (max-width:768px){
    .button_nav-mobile{
@@ -525,10 +530,14 @@
    }
 
    .description .container{
+      width: 100%;
       right: 0;
       position: relative;
    }
-
+   .mapSVG{
+      width: 100%;
+      overflow: hidden;
+   }
    .map-label{
       display: none;
    }
@@ -598,3 +607,5 @@
       width: 100%;
    }
  }
+
+ /* Rate */
