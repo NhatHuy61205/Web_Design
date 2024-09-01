@@ -359,6 +359,29 @@ document.querySelector('.mobile_button_row_top .prev_back').addEventListener('cl
     slideBgWhite[indexBgWhite].classList.add('active')
 })
 
+// nav mobile
+document.querySelector('.fa-bars').addEventListener('click',() =>{
+    document.querySelector('.nav-mobile').classList.toggle('active')
+})
+
+document.querySelector('.exit_nav-moblie').addEventListener('click',() =>{
+    document.querySelector('.nav-mobile').classList.remove('active')
+})
+//rating
+const stars = document.querySelectorAll('.img-star')
+
+stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        stars.forEach((star, i) => {
+            if (i <= index) {
+                star.classList.add('active')
+            } else {
+                star.classList.remove('active')
+            }
+        })
+    })
+})
+
 
 // Slide wrapper
 var play, playFooter
