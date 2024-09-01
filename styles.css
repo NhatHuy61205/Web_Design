@@ -1351,7 +1351,7 @@ div.title_bot h2{
    margin-bottom: 4px;
 }
 .box_bot > div > img{
-   height: auto  ;
+   height:100% ;
    width: 100%;
    object-fit: cover;
    display: block;
