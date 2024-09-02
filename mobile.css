@@ -465,6 +465,9 @@
    .box_bot > .highlight {
       opacity: 1;
    }
+   div.descrip{
+      top: 50%;
+   }
 }
 
 
