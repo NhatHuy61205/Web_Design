@@ -504,10 +504,6 @@ div.tabbar{
    display: block !important;
 }
 
-.menu_navtabbar:not(.active) > div.submenu{
-   display: none ;
-}
-
 /* Manage Booking , Check In, booking*/
 .manageBooking, .checkIn, .booking{
    padding: 3%;
