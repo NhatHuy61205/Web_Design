@@ -1062,7 +1062,7 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
 }
 
 .menu_navtabbar > div.submenu > div.exit_submenu{
-   display: flex;
+   display: none;
    position: absolute;
    justify-content: center;
    align-items: end;
