@@ -514,7 +514,7 @@
        padding-left: 10px;     
     }
  
-    .down:hover .down_menu {
+    .down_menu.active {
        display: block;
     }
  

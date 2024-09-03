@@ -387,11 +387,21 @@ document.querySelector('.send').addEventListener('click',()=>{
     document.querySelector('.star-rating').style.display = 'none'
 })
 
-// 
+// Chat AI
 document.querySelector('.connect_AI').addEventListener('click',()=>{
     alert('Hiện tại không có AI chat')
 })
+// down menu Footer
+const downs = document.querySelectorAll('.down')
+const downs_menu = document.querySelectorAll('.down_menu')
+downs.forEach((down, index) => {
+    down.addEventListener('click',() => {
+        downs_menu[index].classList.toggle('active')
+
+    })
+});
 // Slide wrapper
+
 var play, playFooter
 var checkSlide = false,checkSlideFooter = false
 
