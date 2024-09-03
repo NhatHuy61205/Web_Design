@@ -509,7 +509,7 @@ function activeNavtabbar(n){
     document.querySelector('.select_booking').style.display='block'
     document.querySelector('.button_submit_booking').style.display='flex'
     document.querySelector('.booking h4').style.display='flex'
-    document.querySelector('.exit_submenu').style.display='flex'
+    document.querySelector('.menu_navtabbar:first-child .exit_submenu').style.display='flex'
     document.querySelector('.overlay_navtabbar').style.display='block'
 }
 
@@ -523,7 +523,7 @@ function exitSubmenu(event){
     document.querySelector('.button_submit_booking').style.display='none'
     document.querySelector('.booking h4').style.display='none'
     document.querySelector('.overlay_navtabbar').style.display='none'
-    document.querySelector('.exit_submenu').style.display='none'
+    document.querySelector('.menu_navtabbar:first-child .exit_submenu').style.display='none'
 }
 
 

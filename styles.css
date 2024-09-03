@@ -486,6 +486,9 @@ div.tabbar{
 .menu_navtabbar:first-child .submenu{
    display: block ;
 }
+.menu_navtabbar:first-child .exit_submenu{
+   display: none;
+}
 .menu_navtabbar > div.submenu{
    display: none;
    position: absolute;
@@ -1060,7 +1063,7 @@ input.inputInNavtabbar:not(:placeholder-shown) + label{
 }
 
 .menu_navtabbar > div.submenu > div.exit_submenu{
-   display: none;
+   display: flex;
    position: absolute;
    justify-content: center;
    align-items: end;
