@@ -408,7 +408,7 @@
         flex-direction: column;
         flex: 0 1 100%;
     }
-    .product > div > .box {
+    .product  .box {
         height: 180px; 
         opacity: 1;
     }
@@ -464,6 +464,10 @@
    }
    .box_bot > .highlight {
       opacity: 1;
+   }
+
+   div.descrip{
+      top: 50%;
    }
 }
 

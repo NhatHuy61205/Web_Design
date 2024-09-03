@@ -356,7 +356,7 @@
               </div>
               <div class="tabbar">
                   <nav class="navtabbar flex">
-                      <ul class="menu_navtabbar" onclick="activeNavtabbar(1)">
+                      <ul class="menu_navtabbar active" onclick="activeNavtabbar(1)">
                           <img class="icon" src="images/icon_plane_white.svg">Mua vé
                           <div class="submenu">
                               <div class="booking">
@@ -1100,7 +1100,7 @@
                         </div>
                      </ul>
             </nav>
-            <div class="overlay_navtabbar" onclick="document.querySelector('.overlay_navtabbar').style.display='none'"></div>
+            <div class="overlay_navtabbar" onclick="exitSubmenu(event)"></div>
         </div>
              <div class="news_container">
                 <div class="news">

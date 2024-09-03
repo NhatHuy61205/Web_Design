@@ -387,7 +387,10 @@ document.querySelector('.send').addEventListener('click',()=>{
     document.querySelector('.star-rating').style.display = 'none'
 })
 
-
+// 
+document.querySelector('.connect_AI').addEventListener('click',()=>{
+    alert('Hiện tại không có AI chat')
+})
 // Slide wrapper
 var play, playFooter
 var checkSlide = false,checkSlideFooter = false
@@ -491,7 +494,15 @@ function activeNavtabbar(n){
     var x = document.getElementsByClassName('menu_navtabbar')
     for(var i = 0;i < x.length;i++)
         x[i].classList.remove('active')
-    x[n-1].classList.add('active')
+    if(n == 1){
+        x[n-1].classList.add('active')
+        document.querySelector('.select_booking').style.display='block'
+        document.querySelector('.button_submit_booking').style.display='flex'
+        document.querySelector('.booking h4').style.display='flex'
+        document.querySelector('.exit_submenu').style.display='flex'
+    }
+    else{
+    x[n-1].classList.add('active')}
     document.querySelector('.overlay_navtabbar').style.display='block'
 }
 
@@ -500,7 +511,12 @@ function exitSubmenu(event){
     var x = document.getElementsByClassName('menu_navtabbar')
     for(var i = 0;i < x.length;i++)
         x[i].classList.remove('active')
+    x[0].classList.add('active')
+    document.querySelector('.select_booking').style.display='none'
+    document.querySelector('.button_submit_booking').style.display='none'
+    document.querySelector('.booking h4').style.display='none'
     document.querySelector('.overlay_navtabbar').style.display='none'
+    document.querySelector('.exit_submenu').style.display='none'
 }
 
 
