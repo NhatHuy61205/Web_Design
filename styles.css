@@ -483,7 +483,9 @@ div.tabbar{
    width: 1.3rem;
    margin-right: 0.4rem;  
 }
-
+.menu_navtabbar:first-child .submenu{
+   display: block ;
+}
 .menu_navtabbar > div.submenu{
    display: none;
    position: absolute;
@@ -503,7 +505,7 @@ div.tabbar{
 }
 
 .menu_navtabbar:not(.active) > div.submenu{
-   display: none !important;
+   display: none ;
 }
 
 /* Manage Booking , Check In, booking*/

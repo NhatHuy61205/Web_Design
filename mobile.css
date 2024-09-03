@@ -9,18 +9,34 @@
       position: relative;
       display: flex;
       width: auto;
-      height: 50px;
+      height: 20px;
+      padding: 5px 10px;
       align-items: center;
       justify-content: space-between;
       margin: 0 20px;
    }
 
    .button_nav-mobile i{
-      font-size: 25px;
+      font-size: 18px;
    }
-   .button_nav-mobile img{
-      height: 40px;
+   .button_nav-mobile .logo_mobile{
+      position: absolute;
+      left: 0;
+      display: flex  ;
+      justify-content: center;
+      align-items: center;
+   }
+   .button_nav-mobile .logo_mobile .VNA_logo{
+      height: 27px;
       width: auto;
+      margin: 0 20px;
+   }
+   .button_nav-mobile .Lotus{
+      position: absolute;
+      right: 0;
+      height: 12px;
+      width: auto;
+      margin-left: 25px;
    }
    .nav-mobile{
       display: none;
@@ -259,8 +275,12 @@
       height: 40px !important;
       font-size: 10px;
    }
-
-   
+   .menu_navtabbar:first-child .submenu{
+      display: none !important;
+   }
+   .menu_navtabbar .submenu{
+      display: none;
+   }
    .navtabbar {
       display: flex;
       flex-wrap: wrap; 
